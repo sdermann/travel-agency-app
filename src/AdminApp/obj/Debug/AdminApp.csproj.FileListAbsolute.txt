@@ -1,0 +1,12 @@
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.csprojAssemblyReference.cache
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.Properties.Resources.resources
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.csproj.GenerateResource.cache
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\AdminApp.exe.config
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\AdminApp.exe
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\AdminApp.pdb
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\TravelAgencyLibrary.dll
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\TravelAgencyLibrary.pdb
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.csproj.CopyComplete
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.exe
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.pdb
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.Form1.resources

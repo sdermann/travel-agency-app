@@ -1,0 +1,15 @@
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\bin\Debug\TestWithoutRest.dll
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\bin\Debug\TestWithoutRest.pdb
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\bin\Debug\TravelAgencyLibrary.dll
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\bin\Debug\TravelAgencyLibrary.pdb
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\obj\Debug\TestWithoutRest.csprojAssemblyReference.cache
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\obj\Debug\TestWithoutRest.csproj.CopyComplete
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\obj\Debug\TestWithoutRest.dll
+D:\Настя\ООП\Курсач\TravelAgency\TestWithoutRest\obj\Debug\TestWithoutRest.pdb
