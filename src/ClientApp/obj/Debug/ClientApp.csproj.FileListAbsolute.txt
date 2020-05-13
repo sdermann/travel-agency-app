@@ -1,0 +1,12 @@
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\bin\Debug\ClientApp.exe.config
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\bin\Debug\ClientApp.exe
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\bin\Debug\ClientApp.pdb
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\bin\Debug\TravelAgencyLibrary.dll
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\bin\Debug\TravelAgencyLibrary.pdb
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\obj\Debug\ClientApp.csprojAssemblyReference.cache
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\obj\Debug\ClientApp.LetClientIn.resources
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\obj\Debug\ClientApp.Properties.Resources.resources
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\obj\Debug\ClientApp.csproj.GenerateResource.cache
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\obj\Debug\ClientApp.csproj.CopyComplete
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\obj\Debug\ClientApp.exe
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\obj\Debug\ClientApp.pdb

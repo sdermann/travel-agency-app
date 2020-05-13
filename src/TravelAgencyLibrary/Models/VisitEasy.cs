@@ -17,6 +17,7 @@ namespace TravelAgency.Models
 
             public List<Agency> Agencies { private set; get; }
             public List<Client> Clients { private set; get; }
+            public List<Admin> Admins { private set; get; }
             public List<FutureTrip> FutureTrips { private set; get; }
             public List<HotSale> HotSales { private set; get; }
             public List<Order> Orders { private set; get; }
@@ -25,6 +26,7 @@ namespace TravelAgency.Models
             {
                 Agencies = new List<Agency>();
                 Clients = new List<Client>();
+            Admins = new List<Admin>();
                 FutureTrips = new List<FutureTrip>();
                 HotSales = new List<HotSale>();
                 Orders = new List<Order>();
@@ -62,6 +64,13 @@ namespace TravelAgency.Models
             for (int i = 1; i <= n; i++)
             {
                 Clients.Add(new Client { Name = $"Client{i}", Password = "123" });
+            }
+            //Admins
+            // Clients
+            Admins = new List<Admin>();
+            for (int i = 1; i <= n; i++)
+            {
+                Admins.Add(new Admin { Name = $"Admin{i}", Password = "123" });
             }
             //Future trips
             FutureTrips = new List<FutureTrip>();

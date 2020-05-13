@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClientApp
+namespace AdminApp
 {
-    public partial class Form1 : Form
+    public partial class Sign_Up_Form : Form
     {
-        public Form1()
+        public Sign_Up_Form()
         {
             InitializeComponent();
         }

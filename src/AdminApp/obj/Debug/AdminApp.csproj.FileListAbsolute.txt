@@ -9,4 +9,5 @@ D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\TravelAgencyLi
 D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.csproj.CopyComplete
 D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.exe
 D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.pdb
-D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.Form1.resources
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.LetAdminIn.resources
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.Sign_Up_Form.resources
