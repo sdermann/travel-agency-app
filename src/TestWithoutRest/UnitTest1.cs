@@ -12,7 +12,7 @@ namespace TestWithoutRest
         public void FillData()
         {
             VisitEasy store = new VisitEasy();
-            store.FillTestData(100);
+           
             Assert.AreEqual("0", store.Agencies[0].Portions[0].Trip.Location);
         }
     }

@@ -37,6 +37,7 @@ namespace TravelAgency.DAl
 
                     Copy(st.Agencies, store.Agencies);
                     Copy(st.Clients, store.Clients);
+                    Copy(st.Admins, store.Admins);
                     Copy(st.FutureTrips, store.FutureTrips);
                     Copy(st.HotSales, store.HotSales);
                     Copy(st.Orders, store.Orders);
