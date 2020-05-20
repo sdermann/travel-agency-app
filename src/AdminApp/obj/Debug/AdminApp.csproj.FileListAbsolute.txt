@@ -4,10 +4,13 @@ D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.cspro
 D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\AdminApp.exe.config
 D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\AdminApp.exe
 D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\AdminApp.pdb
-D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\TravelAgencyLibrary.dll
-D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\TravelAgencyLibrary.pdb
 D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.csproj.CopyComplete
 D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.exe
 D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.pdb
 D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.LetAdminIn.resources
 D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.Sign_Up_Form.resources
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.MainForm.resources
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\obj\Debug\AdminApp.EditAgency.resources
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\TravelAgencyLibrary.dll
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\TravelAgencyLibrary.pdb
+D:\Настя\ООП\Курсач\TravelAgency\AdminApp\bin\Debug\palm.png

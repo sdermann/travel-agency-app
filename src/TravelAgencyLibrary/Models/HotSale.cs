@@ -15,7 +15,7 @@ namespace TravelAgency.Models
             {
                 Portions = portions;
                 DateTime = x; //(2020, 5, 1, 8, 30, 52)
-        }
+            }
 
             public List<Portion> Portions { private set; get; }
             public DateTime DateTime { set; get; }     

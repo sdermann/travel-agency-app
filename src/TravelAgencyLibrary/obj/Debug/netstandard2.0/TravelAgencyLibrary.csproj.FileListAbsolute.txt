@@ -1,8 +1,0 @@
-D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\obj\Debug\netstandard2.0\TravelAgencyLibrary.csprojAssemblyReference.cache
-D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\obj\Debug\netstandard2.0\TravelAgencyLibrary.AssemblyInfoInputs.cache
-D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\obj\Debug\netstandard2.0\TravelAgencyLibrary.AssemblyInfo.cs
-D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\bin\Debug\netstandard2.0\TravelAgencyLibrary.deps.json
-D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\bin\Debug\netstandard2.0\TravelAgencyLibrary.dll
-D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\bin\Debug\netstandard2.0\TravelAgencyLibrary.pdb
-D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\obj\Debug\netstandard2.0\TravelAgencyLibrary.dll
-D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\obj\Debug\netstandard2.0\TravelAgencyLibrary.pdb

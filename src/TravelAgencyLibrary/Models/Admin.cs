@@ -10,7 +10,7 @@ namespace TravelAgency.Models
     [Serializable]
     public class Admin : User
     {
-       public Admin(string name,string password)
+        public Admin(string name, int password)
         {
             Name = name;
             Password = password;

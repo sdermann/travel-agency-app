@@ -96,7 +96,6 @@
             this.Password.PasswordChar = '*';
             this.Password.Size = new System.Drawing.Size(357, 48);
             this.Password.TabIndex = 20;
-            this.Password.Text = "Your password";
             this.Password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Password.WordWrap = false;
             // 
@@ -124,7 +123,6 @@
             this.NameAdmin.Name = "NameAdmin";
             this.NameAdmin.Size = new System.Drawing.Size(357, 48);
             this.NameAdmin.TabIndex = 16;
-            this.NameAdmin.Text = "(Your name)";
             this.NameAdmin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Sign_up
@@ -204,7 +202,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Sign_Up_Form";
             this.Text = "Sign_up";
-            this.Load += new System.EventHandler(this.Sign_Up_Form_Load);
+            
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

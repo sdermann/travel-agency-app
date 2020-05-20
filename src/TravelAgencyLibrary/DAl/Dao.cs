@@ -13,7 +13,7 @@ namespace TravelAgency.DAl
         {
             VisitEasy store;
             const string filePath = "store.bin";
-
+            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"AdminApp\bin\Debug");
             public Dao(VisitEasy store)
             {
                 this.store = store;
@@ -21,7 +21,7 @@ namespace TravelAgency.DAl
 
             public void Save()
             {
-                using (Stream stream = File.Create(filePath))
+                using (Stream stream = File.Create(path + filePath))
                 {
                     var serializer = new BinaryFormatter();
                     serializer.Serialize(stream, store);
@@ -30,7 +30,7 @@ namespace TravelAgency.DAl
 
             public void Load()
             {
-                using (Stream stream = File.OpenRead(filePath))
+                using (Stream stream = File.OpenRead(path + filePath))
                 {
                     var serializer = new BinaryFormatter();
                     VisitEasy st = (VisitEasy)serializer.Deserialize(stream);
@@ -43,14 +43,14 @@ namespace TravelAgency.DAl
                     Copy(st.Orders, store.Orders);
 
 
-            }
+                }
 
-            void Copy<T>(List<T> from, List<T> to)
+                void Copy<T>(List<T> from, List<T> to)
                 {
                     to.Clear();
                     to.AddRange(from);
                 }
             }
-        }
+    }
     
 }

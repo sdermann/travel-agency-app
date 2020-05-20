@@ -54,11 +54,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sign up.cs">
+    <Compile Include="Sign_up.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sign up.Designer.cs">
-      <DependentUpon>Sign up.cs</DependentUpon>
+    <Compile Include="Sign_up.Designer.cs">
+      <DependentUpon>Sign_up.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="LetClientIn.resx">
       <DependentUpon>LetClientIn.cs</DependentUpon>
@@ -72,8 +72,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Sign up.resx">
-      <DependentUpon>Sign up.cs</DependentUpon>
+    <EmbeddedResource Include="Sign_up.resx">
+      <DependentUpon>Sign_up.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -90,7 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TravelAgencyLibrary\TravelAgencyLibrary.csproj">
-      <Project>{a8bcdca3-1f92-4f55-86c4-5d46c77fc50c}</Project>
+      <Project>{a7fc3be3-78a1-4883-8471-01e07082e959}</Project>
       <Name>TravelAgencyLibrary</Name>
     </ProjectReference>
   </ItemGroup>

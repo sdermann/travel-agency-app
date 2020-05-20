@@ -1,0 +1,6 @@
+D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\bin\Debug\TravelAgencyLibrary.dll
+D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\bin\Debug\TravelAgencyLibrary.pdb
+D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.dll
+D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.pdb
+D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\bin\Debug\palm.png
+D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.csprojAssemblyReference.cache

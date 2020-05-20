@@ -1,11 +1,11 @@
-﻿using System;
-using TravelAgency.DAl;
+﻿using TravelAgency.DAl;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 
 namespace TravelAgency.Models
 {
@@ -32,11 +32,15 @@ namespace TravelAgency.Models
                 Orders = new List<Order>();
             }
 
-            public void FillTestData(int n)
-        {
+
+        // If any data changed.
+        public bool IsDirty;
+        public void FillTestData(int n)
+            {
            
             // Agencies
             Agencies = new List<Agency>();
+            var noImage = new Bitmap(Path.GetFullPath("palm.png"));
             for (int i = 0; i < n; i++)
             {
                 List<Trip> Trips = new List<Trip>();
@@ -49,7 +53,7 @@ namespace TravelAgency.Models
                         AdditionalService = $"{i}",
                         Accomodation = $"{i}",
                         Host = $"{i}",
-                    }) ; 
+                    });
                 }
                 var ps = new List<Portion>();
                 for (int j = 0; j < 5; j++)
@@ -57,21 +61,17 @@ namespace TravelAgency.Models
                     ps.Add(new Portion { Trip = Trips[(j)], Amount = j });
                 }
                 
-                Agencies.Add(new Agency(ps, $"Agency{i}", i * 10,i)) ;
+                Agencies.Add(new Agency($"Name{i}","Good",0,0,ps,noImage)) ;
             }
             // Clients
             Clients = new List<Client>();
             for (int i = 1; i <= n; i++)
             {
-                Clients.Add(new Client { Name = $"Client{i}", Password = "123" });
+                Clients.Add(new Client ($"Client{i}", 123,"E-mail" ));
             }
             //Admins
             
-            Admins = new List<Admin>();
-            for (int i = 1; i <= 5; i++)
-            {
-                Admins.Add(new Admin($"Admin{i}","123"));
-            }
+            
             //Future trips
             FutureTrips = new List<FutureTrip>();
             for (int i = 0; i < 5; i++)
@@ -144,16 +144,22 @@ namespace TravelAgency.Models
             }
         }
 
+        public void AddAgency(Agency agency)
+        {
+            Agencies.Add(agency);
+        }
 
         //////////////////////////////////////////////
         public void Save()
         {
             new Dao(this).Save();
+            IsDirty = false;
         }
 
         public void Load()
         {
             new Dao(this).Load();
+            IsDirty = false;
         }
     }
 }

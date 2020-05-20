@@ -12,6 +12,6 @@ namespace TravelAgency.Models
         // абстрактный пользователь от которого наследуются админ и клиент: имя + пароль
         
         public string Name { set; get; }
-        public string Password { set; get; }
+        public int Password { set; get; }
     }
 }

@@ -10,3 +10,5 @@ D:\Настя\ООП\Курсач\TravelAgency\ClientApp\obj\Debug\ClientApp.csp
 D:\Настя\ООП\Курсач\TravelAgency\ClientApp\obj\Debug\ClientApp.csproj.CopyComplete
 D:\Настя\ООП\Курсач\TravelAgency\ClientApp\obj\Debug\ClientApp.exe
 D:\Настя\ООП\Курсач\TravelAgency\ClientApp\obj\Debug\ClientApp.pdb
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\obj\Debug\ClientApp.Sign_up.resources
+D:\Настя\ООП\Курсач\TravelAgency\ClientApp\bin\Debug\palm.png

@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TravelAgencyLibrary\TravelAgencyLibrary.csproj">
-      <Project>{A8BCDCA3-1F92-4F55-86C4-5D46C77FC50C}</Project>
+      <Project>{a7fc3be3-78a1-4883-8471-01e07082e959}</Project>
       <Name>TravelAgencyLibrary</Name>
     </ProjectReference>
   </ItemGroup>

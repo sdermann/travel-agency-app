@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditAgency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAgency.Designer.cs">
+      <DependentUpon>EditAgency.cs</DependentUpon>
+    </Compile>
     <Compile Include="LetAdminIn.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LetAdminIn.Designer.cs">
       <DependentUpon>LetAdminIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,8 +72,14 @@
     <Compile Include="Sign_Up_Form.Designer.cs">
       <DependentUpon>Sign_Up_Form.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditAgency.resx">
+      <DependentUpon>EditAgency.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LetAdminIn.resx">
       <DependentUpon>LetAdminIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -75,6 +93,7 @@
     <EmbeddedResource Include="Sign_Up_Form.resx">
       <DependentUpon>Sign_Up_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\TravelAgency.Models.Agency.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,7 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TravelAgencyLibrary\TravelAgencyLibrary.csproj">
-      <Project>{a8bcdca3-1f92-4f55-86c4-5d46c77fc50c}</Project>
+      <Project>{a7fc3be3-78a1-4883-8471-01e07082e959}</Project>
       <Name>TravelAgencyLibrary</Name>
     </ProjectReference>
   </ItemGroup>

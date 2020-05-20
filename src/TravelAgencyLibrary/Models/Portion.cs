@@ -12,6 +12,12 @@ namespace TravelAgency.Models
     public class Portion
     {
         public Trip Trip { set; get; }
-        public double Amount { set; get; }
+        public int Amount { set; get; }
+
+        public Portion(Trip trip = null, int amount = 0)
+        {
+            Trip = trip;
+            Amount = amount;
+        }
     }
 }
