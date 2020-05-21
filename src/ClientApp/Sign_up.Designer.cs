@@ -165,7 +165,7 @@
             this.SignButt.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.SignButt.ForeColor = System.Drawing.Color.Olive;
             this.SignButt.Location = new System.Drawing.Point(699, 404);
-            this.SignButt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SignButt.Margin = new System.Windows.Forms.Padding(4);
             this.SignButt.Name = "SignButt";
             this.SignButt.Size = new System.Drawing.Size(131, 44);
             this.SignButt.TabIndex = 22;
@@ -177,7 +177,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(79, 129);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(265, 222);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -201,9 +201,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Sign_up";
             this.Text = "Sign_up";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Sign_up_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

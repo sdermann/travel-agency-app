@@ -148,14 +148,13 @@ namespace AdminApp
 
         private void LetAdminIn_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var res = MessageBox.Show("Do you want to exit?", "", MessageBoxButtons.YesNo);
+            var res = MessageBox.Show("Do you want to exit?", "", MessageBoxButtons.OKCancel);
             switch (res)
             {
-                case DialogResult.No:
-                    this.Close();
-                    break;
-                case DialogResult.Yes:
+                case DialogResult.Cancel:
                     e.Cancel = true;
+                    break;
+                case DialogResult.OK:
                     break;
                
             }

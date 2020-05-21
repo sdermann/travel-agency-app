@@ -12,7 +12,7 @@ namespace TravelAgency.Models
     public class Agency
     {
 
-        public Agency(string name, string description, int amountOfTrips, int amountOflikes, List<Portion> portions = null, Image image = null)
+        public Agency(string name = "Hello", string description =  "I`m going to hell", int amountOfTrips = 0, int amountOflikes = 0, List<Portion> portions = null, Image image = null)
         {
             Name = name;
             Description = description;
@@ -21,11 +21,11 @@ namespace TravelAgency.Models
             AmountOfLikes = amountOflikes;
             Image = image;
         }
-        public string Name { private set; get; }
-        public string Description { private set; get; }
-        public int AmountOfTrips { private set; get; }
-        public int AmountOfLikes { private set; get; }
-        public List<Portion> Portions { private set; get; }
+        public string Name { set; get; }
+        public string Description { set; get; }
+        public int AmountOfTrips { set; get; }
+        public int AmountOfLikes  {set; get; }
+        public List<Portion> Portions {set; get; }
         public Image Image { set; get; }
     }
 }

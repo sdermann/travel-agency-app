@@ -167,6 +167,20 @@ namespace ClientApp
             (sender as Control).BackColor = Color.White;
         }
 
+        private void LetClientIn_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var res = MessageBox.Show("Do you want to exit?", "", MessageBoxButtons.OKCancel);
+            switch (res)
+            {
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+                case DialogResult.OK:
+                    break;
+
+            }
+        }
+
 
 
 

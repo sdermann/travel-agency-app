@@ -131,21 +131,22 @@ namespace AdminApp
             }
         }
 
-        //private void Sign_Up_Form_FormClosing(object sender, FormClosingEventArgs e)
-        //{
-        //    var res = MessageBox.Show("Do you want to exit from the singing in?", "", MessageBoxButtons.YesNoCancel);
-        //    switch (res)
-        //    {
-        //        case DialogResult.Cancel:
-        //            e.Cancel = true;
-        //            break;
-        //        case DialogResult.Yes:
-        //            this.Close();
-        //            break;
-        //        case DialogResult.No:
-        //            this.Close();
-        //            break;
-        //    }
-        //}
+        private void Sign_Up_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var res = MessageBox.Show("Do you want to exit from the singing up?", "", MessageBoxButtons.OKCancel);
+            switch (res)
+            {
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+                case DialogResult.OK:
+                    Form CustomerAutor = Application.OpenForms[0];
+                    CustomerAutor.Left = this.Left;
+                    CustomerAutor.Top = this.Top;
+                    CustomerAutor.Show();
+                    break;
+            }
+        }
+
     }
 }

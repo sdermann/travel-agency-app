@@ -94,6 +94,8 @@
       <DependentUpon>Sign_Up_Form.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\TravelAgency.Models.Agency.datasource" />
+    <None Include="Properties\DataSources\TravelAgency.Models.Order.datasource" />
+    <None Include="Properties\DataSources\TravelAgency.Models.Portion.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

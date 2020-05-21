@@ -202,7 +202,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Sign_Up_Form";
             this.Text = "Sign_up";
-            
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Sign_Up_Form_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

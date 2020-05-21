@@ -127,5 +127,22 @@ namespace ClientApp
                 }
             }
         }
+
+        private void Sign_up_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var res = MessageBox.Show("Do you want to exit from the singing in?", "", MessageBoxButtons.OKCancel);
+            switch (res)
+            {
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+                case DialogResult.OK:
+                    Form CustomerAutor = Application.OpenForms[0];
+                    CustomerAutor.Left = this.Left;
+                    CustomerAutor.Top = this.Top;
+                    CustomerAutor.Show();
+                    break;
+            }
+        }
     }
 }

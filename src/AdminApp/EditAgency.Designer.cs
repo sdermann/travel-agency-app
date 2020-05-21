@@ -42,14 +42,15 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.SaveAgency = new System.Windows.Forms.Button();
             this.CancelSaving = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tripGridView = new System.Windows.Forms.DataGridView();
             this.tripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.portionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.agencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tripGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agencyBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -150,6 +151,7 @@
             this.imageBox.Size = new System.Drawing.Size(230, 122);
             this.imageBox.TabIndex = 10;
             this.imageBox.TabStop = false;
+            this.imageBox.Click += new System.EventHandler(this.imageBox_Click);
             // 
             // pictureBox2
             // 
@@ -177,6 +179,7 @@
             this.SaveAgency.TabIndex = 23;
             this.SaveAgency.Text = "Save";
             this.SaveAgency.UseVisualStyleBackColor = false;
+            this.SaveAgency.Click += new System.EventHandler(this.SaveAgency_Click);
             // 
             // CancelSaving
             // 
@@ -194,30 +197,31 @@
             this.CancelSaving.TabIndex = 24;
             this.CancelSaving.Text = "Cancel";
             this.CancelSaving.UseVisualStyleBackColor = false;
+            this.CancelSaving.Click += new System.EventHandler(this.CancelSaving_Click);
             // 
-            // dataGridView1
+            // tripGridView
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tripGridView.AutoGenerateColumns = false;
+            this.tripGridView.BackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.tripGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tripGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tripDataGridViewTextBoxColumn,
             this.amountDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.portionsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 159);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(300, 185);
-            this.dataGridView1.TabIndex = 25;
+            this.tripGridView.DataSource = this.portionsBindingSource;
+            this.tripGridView.Location = new System.Drawing.Point(32, 159);
+            this.tripGridView.Name = "tripGridView";
+            this.tripGridView.RowHeadersWidth = 51;
+            this.tripGridView.RowTemplate.Height = 24;
+            this.tripGridView.Size = new System.Drawing.Size(300, 185);
+            this.tripGridView.TabIndex = 25;
             // 
             // tripDataGridViewTextBoxColumn
             // 
-            this.tripDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.tripDataGridViewTextBoxColumn.DataPropertyName = "Trip";
             this.tripDataGridViewTextBoxColumn.HeaderText = "Trip";
             this.tripDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tripDataGridViewTextBoxColumn.Name = "tripDataGridViewTextBoxColumn";
+            this.tripDataGridViewTextBoxColumn.Width = 125;
             // 
             // amountDataGridViewTextBoxColumn
             // 
@@ -236,13 +240,17 @@
             // 
             this.agencyBindingSource.DataSource = typeof(TravelAgency.Models.Agency);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // EditAgency
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tripGridView);
             this.Controls.Add(this.CancelSaving);
             this.Controls.Add(this.SaveAgency);
             this.Controls.Add(this.pictureBox2);
@@ -258,9 +266,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditAgency";
             this.Text = "EditAgency";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditAgency_FormClosing);
+            this.TextChanged += new System.EventHandler(this.EditAgency_TextChanged);
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tripGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.portionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agencyBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -282,10 +292,11 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button SaveAgency;
         private System.Windows.Forms.Button CancelSaving;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tripDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView tripGridView;
         private System.Windows.Forms.BindingSource portionsBindingSource;
         private System.Windows.Forms.BindingSource agencyBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tripDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

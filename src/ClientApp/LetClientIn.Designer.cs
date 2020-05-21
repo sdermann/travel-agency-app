@@ -240,6 +240,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LetClientIn";
             this.Text = "Hello, Client!";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LetClientIn_FormClosing);
             this.Load += new System.EventHandler(this.LetClientIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -13,24 +13,26 @@ namespace AdminApp
 {
     public partial class MainForm : Form
     {
-       
-            static List<Portion> Trips = new List<Portion> { new Portion(new Trip("Spain", 500, "Rive", "TwoRooms", "Maria"), 2), new Portion(new Trip("USA", 5000, "Uni", "Room", "Gorge"), 9) };
-            Agency CoralTravel = new Agency("CoralTravel", "Cool",Trips.Count, 0, Trips);
-            VisitEasy store;
-            public MainForm(ref VisitEasy easy)
-            {
-                InitializeComponent();
-                store = easy;
+
+        static List<Portion> Trips = new List<Portion> { new Portion(new Trip("Spain", 500, "Rive", "TwoRooms", "Maria"), 2), new Portion(new Trip("USA", 5000, "Uni", "Room", "Gorge"), 9) };
+        Agency CoralTravel = new Agency("CoralTravel", "Cool", Trips.Count, 0, Trips);
+        VisitEasy store;
+        public MainForm(ref VisitEasy easy)
+        {
+            InitializeComponent();
+            store = easy;
+            store.FillTestData(20);
+            store.Agencies.Add(CoralTravel);
+            agencyBindingSource.DataSource = store.Agencies;
             
-                store.FillTestData(20);
-                store.Agencies.Add(CoralTravel);
-                agencyBindingSource.DataSource = store.Agencies;
-            }
+        }
+
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             store.Load();
             agencyBindingSource.ResetBindings(false);
+           
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,6 +78,7 @@ namespace AdminApp
         {
             var toEdit = agencyGridView1.SelectedRows[0].DataBoundItem as Agency;
             var pf = new EditAgency(toEdit);
+
             if (pf.ShowDialog() == DialogResult.OK)
             {
                 agencyBindingSource.ResetBindings(false);
@@ -105,6 +108,21 @@ namespace AdminApp
             editToolStripMenuItem.Enabled =
             deleteToolStripMenuItem.Enabled =
             agencyGridView1.SelectedRows.Count > 0;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            agencyGridView1.Rows[0].Selected = true;
+        }
+
+        private void agencyGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            
+            Agency a = (Agency)agencyGridView1.CurrentRow.DataBoundItem;
+            List<Portion> port = a.Portions;
+            portionBindingSource.DataSource = port;
+            portionBindingSource.ResetBindings(false);
+
         }
     }
 }

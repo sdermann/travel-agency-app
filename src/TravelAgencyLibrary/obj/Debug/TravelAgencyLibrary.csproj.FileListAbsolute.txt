@@ -4,3 +4,10 @@ D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\obj\Debug\Tra
 D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.pdb
 D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\bin\Debug\palm.png
 D:\Настя\ООП\Курсач\TravelAgency\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.csprojAssemblyReference.cache
+D:\Настя\ООП\Курсач\travel-agency-app\src\TravelAgencyLibrary\bin\Debug\palm.png
+D:\Настя\ООП\Курсач\travel-agency-app\src\TravelAgencyLibrary\bin\Debug\TravelAgencyLibrary.dll
+D:\Настя\ООП\Курсач\travel-agency-app\src\TravelAgencyLibrary\bin\Debug\TravelAgencyLibrary.pdb
+D:\Настя\ООП\Курсач\travel-agency-app\src\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.csprojAssemblyReference.cache
+D:\Настя\ООП\Курсач\travel-agency-app\src\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.dll
+D:\Настя\ООП\Курсач\travel-agency-app\src\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.pdb
+D:\Настя\ООП\Курсач\travel-agency-app\src\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.csproj.CoreCompileInputs.cache
