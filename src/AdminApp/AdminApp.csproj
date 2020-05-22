@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditPortion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPortion.Designer.cs">
+      <DependentUpon>EditPortion.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditAgency.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="Sign_Up_Form.Designer.cs">
       <DependentUpon>Sign_Up_Form.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditPortion.resx">
+      <DependentUpon>EditPortion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditAgency.resx">
       <DependentUpon>EditAgency.cs</DependentUpon>
     </EmbeddedResource>

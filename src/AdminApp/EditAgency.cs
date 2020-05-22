@@ -30,8 +30,8 @@ namespace AdminApp
             DescriptionBox.Text = agency.Description;
             Agency a = agency;
             List<Portion> port = a.Portions;
-            portionsBindingSource.DataSource = port;
-            portionsBindingSource.ResetBindings(false);
+            portionBindingSource.DataSource = port;
+            portionBindingSource.ResetBindings(false);
             imageBox.Image = agency.Image;
         }
 
@@ -74,7 +74,7 @@ namespace AdminApp
             }
             Agency.Name = NameBox.Text;
             Agency.Description = DescriptionBox.Text;
-            Agency.Portions = (List<Portion>)portionsBindingSource.DataSource;
+            Agency.Portions = (List<Portion>)portionBindingSource.DataSource;
             Agency.AmountOfTrips = Agency.Portions.Count;
             Agency.Image = imageBox.Image;
            
@@ -83,6 +83,49 @@ namespace AdminApp
         private void CancelSaving_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void addTrip_Click(object sender, EventArgs e)
+        {
+            var pf = new EditPortion();
+            if (pf.ShowDialog() == DialogResult.OK)
+            {
+                Agency.Portions.Add(pf.Portion);
+                portionBindingSource.ResetBindings(false);
+
+                // select and scroll to the last row
+                var lastIdx = tripGridView.Rows.Count - 1;
+                tripGridView.Rows[lastIdx].Selected = true;
+                tripGridView.FirstDisplayedScrollingRowIndex = lastIdx;
+            }
+        }
+
+        private void editTrip_Click(object sender, EventArgs e)
+        {
+            var toEdit = tripGridView.SelectedRows[0].DataBoundItem as Portion;
+            var pf = new EditPortion(toEdit);
+
+            if (pf.ShowDialog() == DialogResult.OK)
+            {
+                portionBindingSource.ResetBindings(false);
+            }
+        }
+
+        private void DeleteTrip_Click(object sender, EventArgs e)
+        {
+
+            var toDel = tripGridView.SelectedRows[0].DataBoundItem as Portion;
+            var res = MessageBox.Show($"Delete {toDel.Trip.Location} ?", "", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                Agency.Portions.Remove(toDel);
+                portionBindingSource.ResetBindings(false);
+            }
+        }
+
+        private void EditAgency_Load(object sender, EventArgs e)
+        {
+           // tripGridView.Rows[0].Selected = true;
         }
     }
 }

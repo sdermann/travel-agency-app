@@ -31,3 +31,4 @@ D:\Настя\ООП\Курсач\travel-agency-app\src\AdminApp\obj\Debug\Admin
 D:\Настя\ООП\Курсач\travel-agency-app\src\AdminApp\obj\Debug\AdminApp.exe
 D:\Настя\ООП\Курсач\travel-agency-app\src\AdminApp\obj\Debug\AdminApp.pdb
 D:\Настя\ООП\Курсач\travel-agency-app\src\AdminApp\obj\Debug\AdminApp.csproj.CoreCompileInputs.cache
+D:\Настя\ООП\Курсач\travel-agency-app\src\AdminApp\obj\Debug\AdminApp.EditPortion.resources

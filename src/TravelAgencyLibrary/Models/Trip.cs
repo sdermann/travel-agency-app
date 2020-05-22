@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,17 +16,19 @@ namespace TravelAgency.Models
         public string AdditionalService { set; get; }
         public string Accomodation { set; get; }
         public string Host { set; get; }
+        public Image Image { set; get; }
         
        
 
 
-        public Trip(string location = "unknown", decimal price = 0, string additionalservise = "unlnown", string accomodation = "unlnown", string host = "unlnown")
+        public Trip(string location = "unknown", decimal price = 0, string additionalservise = "unlnown", string accomodation = "unlnown", string host = "unlnown",Image image = null)
         {
             Location = location;
             Price = price;
             AdditionalService = additionalservise;
             Accomodation = accomodation;
             Host = host;
+            Image = image;
         }
     }
 }
