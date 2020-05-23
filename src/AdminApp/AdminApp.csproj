@@ -103,6 +103,9 @@
       <DependentUpon>Sign_Up_Form.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\TravelAgency.Models.Agency.datasource" />
+    <None Include="Properties\DataSources\TravelAgency.Models.Client.datasource" />
+    <None Include="Properties\DataSources\TravelAgency.Models.FutureTrip.datasource" />
+    <None Include="Properties\DataSources\TravelAgency.Models.HotSale.datasource" />
     <None Include="Properties\DataSources\TravelAgency.Models.Order.datasource" />
     <None Include="Properties\DataSources\TravelAgency.Models.Portion.datasource" />
     <None Include="Properties\Settings.settings">

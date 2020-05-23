@@ -18,7 +18,6 @@ D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\bin\Debug\Clie
 D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\bin\Debug\ClientApp.pdb
 D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\bin\Debug\TravelAgencyLibrary.dll
 D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\bin\Debug\TravelAgencyLibrary.pdb
-D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.csprojAssemblyReference.cache
 D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.LetClientIn.resources
 D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.Properties.Resources.resources
 D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.Sign_up.resources
@@ -27,3 +26,4 @@ D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\Clie
 D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.csproj.CopyComplete
 D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.exe
 D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.pdb
+D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.csprojAssemblyReference.cache

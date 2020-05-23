@@ -20,12 +20,20 @@ namespace TravelAgency.Models
             AmountOfTrips = amountOfTrips;
             AmountOfLikes = amountOflikes;
             Image = image;
+            if(portions != null)
+            foreach (Portion p in Portions)
+            {
+                p.AgencyName = name;
+            }
+
         }
         public string Name { set; get; }
         public string Description { set; get; }
         public int AmountOfTrips { set; get; }
         public int AmountOfLikes  {set; get; }
         public List<Portion> Portions {set; get; }
+        
         public Image Image { set; get; }
+        
     }
 }

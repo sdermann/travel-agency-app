@@ -58,6 +58,7 @@
             this.AdminName.Name = "AdminName";
             this.AdminName.Size = new System.Drawing.Size(357, 48);
             this.AdminName.TabIndex = 0;
+            this.AdminName.Text = "Sdermann";
             this.AdminName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.AdminName.TextChanged += new System.EventHandler(this.AdminName_TextChanged);
             // 
@@ -116,6 +117,7 @@
             this.AdminPassword.Size = new System.Drawing.Size(357, 48);
             this.AdminPassword.TabIndex = 3;
             this.AdminPassword.Tag = "nnn";
+            this.AdminPassword.Text = "896520";
             this.AdminPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.AdminPassword.WordWrap = false;
             this.AdminPassword.TextChanged += new System.EventHandler(this.AdminPassword_TextChanged);

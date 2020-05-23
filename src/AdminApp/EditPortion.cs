@@ -17,12 +17,29 @@ namespace AdminApp
         public EditPortion()
         {
             InitializeComponent();
+
+            List<string> states = new List<string>
+            {
+                "Аргентина", "Бразилия", "Венесуэла", "Колумбия", "Чили"
+            };
+
+            List<string> on = new List<string>
+            {
+                "OnSale", "FutureTrip","None"
+            };
+
+            // добавляем список элементов
+            LocationOfTrip.Items.AddRange(states);
+            OnSaleOrFutureUpDown.Items.AddRange(on);
+            //LocationOfTrip.TextChanged += LocationOfTrip_TextChanged;??????
         }
         public EditPortion(Portion port) :this()
         {
+          
             Portion = port;
             AmountOfTrips.Value = port.Amount;
             LocationOfTrip.Text = port.Trip.Location;
+            OnSaleOrFutureUpDown.Text = port.OnSaleOrInFuture;
             PriceBox.Text = Convert.ToString(port.Trip.Price);
             ServiceBox.Text = port.Trip.AdditionalService;
             AccomodationBox.Text = port.Trip.Accomodation;
@@ -80,9 +97,12 @@ namespace AdminApp
             Portion.Trip.AdditionalService = ServiceBox.Text;
             Portion.Trip.Accomodation = AccomodationBox.Text;
             Portion.Trip.Host = HostBox.Text;
-            Portion.Trip.Image = tripPicBox.Image; 
-   
+            Portion.Trip.Image = tripPicBox.Image;
+            Portion.OnSaleOrInFuture = OnSaleOrFutureUpDown.Text;
+           
         }
+
+
 
         //        private void EditAgency_Load(object sender, EventArgs e)
         //        {

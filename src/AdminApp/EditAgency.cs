@@ -30,6 +30,10 @@ namespace AdminApp
             DescriptionBox.Text = agency.Description;
             Agency a = agency;
             List<Portion> port = a.Portions;
+            if(port == null)
+            {
+                 port = new List<Portion> { new Portion(new Trip("Unknown", 0, "Unknown", "Unknown", "Unknown"), 0) };
+            }
             portionBindingSource.DataSource = port;
             portionBindingSource.ResetBindings(false);
             imageBox.Image = agency.Image;
@@ -125,7 +129,16 @@ namespace AdminApp
 
         private void EditAgency_Load(object sender, EventArgs e)
         {
-           // tripGridView.Rows[0].Selected = true;
+            // tripGridView.Rows[0].Selected = true;
+            if (Agency == null)
+            {
+                List<Portion> port;
+     
+                 port = new List<Portion> { new Portion(new Trip("Unknown", 0, "Unknown", "Unknown", "Unknown"), 0) };
+                
+                portionBindingSource.DataSource = port;
+                portionBindingSource.ResetBindings(false);
+            }
         }
     }
 }

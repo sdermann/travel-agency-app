@@ -13,11 +13,19 @@ namespace TravelAgency.Models
     {
         public Trip Trip { set; get; }
         public int Amount { set; get; }
+        public string OnSaleOrInFuture { set; get; }
 
-        public Portion(Trip trip = null, int amount = 0)
+        public string AgencyName { set; get;}
+        public string Location { set; get; }
+        public Portion(Trip trip = null, int amount = 0,string onSaleOrInFuture = "None")
         {
             Trip = trip;
             Amount = amount;
+            OnSaleOrInFuture = onSaleOrInFuture;
+            if (trip != null)
+            {
+                Location = trip.Location;
+            }
         }
     }
 }

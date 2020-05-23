@@ -46,8 +46,6 @@
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Agency.cs" />
     <Compile Include="Models\Client.cs" />
-    <Compile Include="Models\FutureTrip.cs" />
-    <Compile Include="Models\HotSale.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Portion.cs" />
     <Compile Include="Models\Trip.cs" />

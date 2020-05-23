@@ -43,13 +43,13 @@
             this.SaveAgency = new System.Windows.Forms.Button();
             this.CancelSaving = new System.Windows.Forms.Button();
             this.tripGridView = new System.Windows.Forms.DataGridView();
+            this.tripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.portionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.addTrip = new System.Windows.Forms.Button();
             this.editTrip = new System.Windows.Forms.Button();
             this.DeleteTrip = new System.Windows.Forms.Button();
-            this.portionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tripGridView)).BeginInit();
@@ -216,6 +216,26 @@
             this.tripGridView.Size = new System.Drawing.Size(300, 185);
             this.tripGridView.TabIndex = 25;
             // 
+            // tripDataGridViewTextBoxColumn
+            // 
+            this.tripDataGridViewTextBoxColumn.DataPropertyName = "Trip";
+            this.tripDataGridViewTextBoxColumn.HeaderText = "Trip";
+            this.tripDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tripDataGridViewTextBoxColumn.Name = "tripDataGridViewTextBoxColumn";
+            this.tripDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // portionBindingSource
+            // 
+            this.portionBindingSource.DataSource = typeof(TravelAgency.Models.Portion);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -232,7 +252,7 @@
             this.addTrip.Location = new System.Drawing.Point(32, 142);
             this.addTrip.Margin = new System.Windows.Forms.Padding(4);
             this.addTrip.Name = "addTrip";
-            this.addTrip.Size = new System.Drawing.Size(75, 41);
+            this.addTrip.Size = new System.Drawing.Size(74, 41);
             this.addTrip.TabIndex = 26;
             this.addTrip.Text = "Add";
             this.addTrip.UseVisualStyleBackColor = false;
@@ -273,26 +293,6 @@
             this.DeleteTrip.Text = "Del";
             this.DeleteTrip.UseVisualStyleBackColor = false;
             this.DeleteTrip.Click += new System.EventHandler(this.DeleteTrip_Click);
-            // 
-            // portionBindingSource
-            // 
-            this.portionBindingSource.DataSource = typeof(TravelAgency.Models.Portion);
-            // 
-            // tripDataGridViewTextBoxColumn
-            // 
-            this.tripDataGridViewTextBoxColumn.DataPropertyName = "Trip";
-            this.tripDataGridViewTextBoxColumn.HeaderText = "Trip";
-            this.tripDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tripDataGridViewTextBoxColumn.Name = "tripDataGridViewTextBoxColumn";
-            this.tripDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.Width = 125;
             // 
             // EditAgency
             // 

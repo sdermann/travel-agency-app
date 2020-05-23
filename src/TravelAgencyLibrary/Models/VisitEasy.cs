@@ -18,8 +18,6 @@ namespace TravelAgency.Models
             public List<Agency> Agencies { private set; get; }
             public List<Client> Clients { private set; get; }
             public List<Admin> Admins { private set; get; }
-            public List<FutureTrip> FutureTrips { private set; get; }
-            public List<HotSale> HotSales { private set; get; }
             public List<Order> Orders { private set; get; }
 
             public VisitEasy()
@@ -27,8 +25,6 @@ namespace TravelAgency.Models
                 Agencies = new List<Agency>();
                 Clients = new List<Client>();
                 Admins = new List<Admin>();
-                FutureTrips = new List<FutureTrip>();
-                HotSales = new List<HotSale>();
                 Orders = new List<Order>();
             }
 
@@ -58,10 +54,10 @@ namespace TravelAgency.Models
                 var ps = new List<Portion>();
                 for (int j = 0; j < 5; j++)
                 {
-                    ps.Add(new Portion { Trip = Trips[(j)], Amount = j });
+                    ps.Add(new Portion { Trip = Trips[(j)], Amount = j,OnSaleOrInFuture = "OnSale"});
                 }
                 
-                Agencies.Add(new Agency($"Name{i}","Goodoooooooooooooooooooo  iiiiiiiiiiiiiiiiiiiiiiiii iiiiiiiiiiiiiiiiiiiiiiiiiiiiiii 00000000000000000",0,0,ps,noImage)) ;
+                Agencies.Add(new Agency($"Name{i}","Good",0,0,ps,noImage)) ;
             }
             // Clients
             Clients = new List<Client>();
@@ -69,56 +65,8 @@ namespace TravelAgency.Models
             {
                 Clients.Add(new Client ($"Client{i}", 123,"E-mail" ));
             }
-            //Admins
             
-            
-            //Future trips
-            FutureTrips = new List<FutureTrip>();
-            for (int i = 0; i < 5; i++)
-            {
-                List<Trip> Trips = new List<Trip>();
-                for (int o = 0; o < 5; o++)
-                {
-                    Trips.Add(new Trip()
-                    {
-                        Location = $"{i}",
-                        Price = i,
-                        AdditionalService = $"{i}",
-                        Accomodation = $"{i}",
-                        Host = $"{i}",
-                    });
-                }
-                var ps = new List<Portion>();
-                for (int j = 0; j < 5; j++)
-                {
-                    ps.Add(new Portion { Trip = Trips[(j) ], Amount = j });
-                }
-                FutureTrips.Add(new FutureTrip(ps));
-            }
-            //Hot Sales
-            HotSales = new List<HotSale>();
-            for (int i = 0; i < n - 5; i++)
-            {
-                List<Trip> Trips = new List<Trip>();
-                for (int o = 0; o < 5; o++)
-                {
-                    Trips.Add(new Trip()
-                    {
-                        Location = $"{i}",
-                        Price = i,
-                        AdditionalService = $"{i}",
-                        Accomodation = $"{i}",
-                        Host = $"{i}",
-                    });
-                }
-                var ps = new List<Portion>();
-                for (int j = 0; j < 5; j++)
-                {
-                    ps.Add(new Portion { Trip = Trips[(j)], Amount = j });
-                }
-                DateTime x = new DateTime(2020, 5, 1, 8, 30, 52);
-                HotSales.Add(new HotSale(ps,x));
-            }
+           
             // Orders
             Orders = new List<Order>();
             for (int i = 0; i < n - 5; i++)
