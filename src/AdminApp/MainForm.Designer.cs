@@ -33,10 +33,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.FutureTrips = new System.Windows.Forms.TabPage();
             this.FutureTripGridView = new System.Windows.Forms.DataGridView();
+            this.agencyNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationOfTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.portionBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.portionGridView = new System.Windows.Forms.DataGridView();
+            this.portionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.agencyGridView1 = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountOfTripsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Image = new System.Windows.Forms.DataGridViewImageColumn();
+            this.agencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,49 +59,42 @@
             this.AgencyGridView = new System.Windows.Forms.TabControl();
             this.HotSales = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.agencyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationOfTripDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.portionBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.Orders = new System.Windows.Forms.TabPage();
             this.ViewOrder = new System.Windows.Forms.Button();
             this.OperateOrder = new System.Windows.Forms.Button();
             this.OrdersGridView = new System.Windows.Forms.DataGridView();
-            this.ClientsGridView = new System.Windows.Forms.DataGridView();
-            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AgencyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.portionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountOfTripsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.portionBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimeDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ClientsGridView = new System.Windows.Forms.DataGridView();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.portionBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.agencyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agencyNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationOfTripAgency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FutureTrips.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FutureTripGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource1)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.portionGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agencyGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agencyBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.AgencyGridView.SuspendLayout();
             this.HotSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource2)).BeginInit();
             this.Orders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClientsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agencyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // FutureTrips
@@ -113,9 +115,9 @@
             this.FutureTripGridView.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
             this.FutureTripGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FutureTripGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.AgencyName,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
+            this.agencyNameDataGridViewTextBoxColumn2,
+            this.locationOfTripDataGridViewTextBoxColumn,
+            this.amountDataGridViewTextBoxColumn2});
             this.FutureTripGridView.DataSource = this.portionBindingSource1;
             this.FutureTripGridView.Location = new System.Drawing.Point(28, 25);
             this.FutureTripGridView.Name = "FutureTripGridView";
@@ -123,6 +125,35 @@
             this.FutureTripGridView.RowTemplate.Height = 24;
             this.FutureTripGridView.Size = new System.Drawing.Size(422, 336);
             this.FutureTripGridView.TabIndex = 3;
+            // 
+            // agencyNameDataGridViewTextBoxColumn2
+            // 
+            this.agencyNameDataGridViewTextBoxColumn2.DataPropertyName = "AgencyName";
+            this.agencyNameDataGridViewTextBoxColumn2.HeaderText = "AgencyName";
+            this.agencyNameDataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.agencyNameDataGridViewTextBoxColumn2.Name = "agencyNameDataGridViewTextBoxColumn2";
+            this.agencyNameDataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // locationOfTripDataGridViewTextBoxColumn
+            // 
+            this.locationOfTripDataGridViewTextBoxColumn.DataPropertyName = "LocationOfTrip";
+            this.locationOfTripDataGridViewTextBoxColumn.HeaderText = "LocationOfTrip";
+            this.locationOfTripDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.locationOfTripDataGridViewTextBoxColumn.Name = "locationOfTripDataGridViewTextBoxColumn";
+            this.locationOfTripDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // amountDataGridViewTextBoxColumn2
+            // 
+            this.amountDataGridViewTextBoxColumn2.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn2.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.amountDataGridViewTextBoxColumn2.Name = "amountDataGridViewTextBoxColumn2";
+            this.amountDataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // portionBindingSource1
+            // 
+            this.portionBindingSource1.AllowNew = false;
+            this.portionBindingSource1.DataSource = typeof(TravelAgency.Models.Portion);
             // 
             // tabPage1
             // 
@@ -144,18 +175,23 @@
             this.portionGridView.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
             this.portionGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.portionGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Location,
+            this.agencyNameDataGridViewTextBoxColumn1,
+            this.locationOfTripAgency,
             this.amountDataGridViewTextBoxColumn});
             this.portionGridView.DataSource = this.portionBindingSource;
-            this.portionGridView.Location = new System.Drawing.Point(486, 47);
+            this.portionGridView.Location = new System.Drawing.Point(509, 47);
             this.portionGridView.Name = "portionGridView";
             this.portionGridView.RowHeadersWidth = 51;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.portionGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.portionGridView.RowTemplate.Height = 24;
-            this.portionGridView.Size = new System.Drawing.Size(276, 336);
+            this.portionGridView.Size = new System.Drawing.Size(256, 336);
             this.portionGridView.TabIndex = 2;
             this.portionGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.portionGridView_CellContentClick);
+            // 
+            // portionBindingSource
+            // 
+            this.portionBindingSource.DataSource = typeof(TravelAgency.Models.Portion);
             // 
             // agencyGridView1
             // 
@@ -166,16 +202,27 @@
             this.agencyGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.Description,
-            this.amountOfTripsDataGridViewTextBoxColumn});
+            this.amountOfTripsDataGridViewTextBoxColumn,
+            this.Image});
             this.agencyGridView1.DataSource = this.agencyBindingSource;
             this.agencyGridView1.GridColor = System.Drawing.Color.Yellow;
             this.agencyGridView1.Location = new System.Drawing.Point(6, 47);
             this.agencyGridView1.Name = "agencyGridView1";
             this.agencyGridView1.RowHeadersWidth = 51;
             this.agencyGridView1.RowTemplate.Height = 24;
-            this.agencyGridView1.Size = new System.Drawing.Size(444, 336);
+            this.agencyGridView1.Size = new System.Drawing.Size(494, 336);
             this.agencyGridView1.TabIndex = 0;
             this.agencyGridView1.SelectionChanged += new System.EventHandler(this.agencyGridView1_SelectionChanged);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 125;
             // 
             // Description
             // 
@@ -185,6 +232,27 @@
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
             this.Description.Width = 125;
+            // 
+            // amountOfTripsDataGridViewTextBoxColumn
+            // 
+            this.amountOfTripsDataGridViewTextBoxColumn.DataPropertyName = "AmountOfTrips";
+            this.amountOfTripsDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountOfTripsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.amountOfTripsDataGridViewTextBoxColumn.Name = "amountOfTripsDataGridViewTextBoxColumn";
+            this.amountOfTripsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.amountOfTripsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Image
+            // 
+            this.Image.DataPropertyName = "Image";
+            this.Image.HeaderText = "Image";
+            this.Image.MinimumWidth = 6;
+            this.Image.Name = "Image";
+            this.Image.Width = 125;
+            // 
+            // agencyBindingSource
+            // 
+            this.agencyBindingSource.DataSource = typeof(TravelAgency.Models.Agency);
             // 
             // menuStrip1
             // 
@@ -304,15 +372,47 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.agencyNameDataGridViewTextBoxColumn,
-            this.locationDataGridViewTextBoxColumn,
+            this.locationOfTripDataGridViewTextBoxColumn1,
             this.amountDataGridViewTextBoxColumn1});
             this.dataGridView2.DataSource = this.portionBindingSource2;
             this.dataGridView2.Location = new System.Drawing.Point(18, 52);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(428, 308);
+            this.dataGridView2.Size = new System.Drawing.Size(412, 308);
             this.dataGridView2.TabIndex = 0;
+            // 
+            // agencyNameDataGridViewTextBoxColumn
+            // 
+            this.agencyNameDataGridViewTextBoxColumn.DataPropertyName = "AgencyName";
+            this.agencyNameDataGridViewTextBoxColumn.HeaderText = "AgencyName";
+            this.agencyNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.agencyNameDataGridViewTextBoxColumn.Name = "agencyNameDataGridViewTextBoxColumn";
+            this.agencyNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.agencyNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // locationOfTripDataGridViewTextBoxColumn1
+            // 
+            this.locationOfTripDataGridViewTextBoxColumn1.DataPropertyName = "LocationOfTrip";
+            this.locationOfTripDataGridViewTextBoxColumn1.HeaderText = "LocationOfTrip";
+            this.locationOfTripDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.locationOfTripDataGridViewTextBoxColumn1.Name = "locationOfTripDataGridViewTextBoxColumn1";
+            this.locationOfTripDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.locationOfTripDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // amountDataGridViewTextBoxColumn1
+            // 
+            this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
+            this.amountDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.amountDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // portionBindingSource2
+            // 
+            this.portionBindingSource2.DataSource = typeof(TravelAgency.Models.Portion);
             // 
             // Orders
             // 
@@ -379,94 +479,6 @@
             this.OrdersGridView.Size = new System.Drawing.Size(301, 296);
             this.OrdersGridView.TabIndex = 1;
             // 
-            // ClientsGridView
-            // 
-            this.ClientsGridView.AutoGenerateColumns = false;
-            this.ClientsGridView.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ClientsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.emailDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn1});
-            this.ClientsGridView.DataSource = this.clientBindingSource;
-            this.ClientsGridView.Location = new System.Drawing.Point(22, 20);
-            this.ClientsGridView.Name = "ClientsGridView";
-            this.ClientsGridView.RowHeadersWidth = 51;
-            this.ClientsGridView.RowTemplate.Height = 24;
-            this.ClientsGridView.Size = new System.Drawing.Size(314, 335);
-            this.ClientsGridView.TabIndex = 0;
-            this.ClientsGridView.SelectionChanged += new System.EventHandler(this.ClientsGridView_SelectionChanged);
-            // 
-            // Location
-            // 
-            this.Location.DataPropertyName = "Location";
-            this.Location.HeaderText = "Location";
-            this.Location.MinimumWidth = 6;
-            this.Location.Name = "Location";
-            this.Location.Width = 125;
-            // 
-            // AgencyName
-            // 
-            this.AgencyName.DataPropertyName = "AgencyName";
-            this.AgencyName.HeaderText = "AgencyName";
-            this.AgencyName.MinimumWidth = 6;
-            this.AgencyName.Name = "AgencyName";
-            this.AgencyName.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "LocationOfTrip";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Location";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // portionBindingSource
-            // 
-            this.portionBindingSource.DataSource = typeof(TravelAgency.Models.Portion);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.FillWeight = 80F;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // amountOfTripsDataGridViewTextBoxColumn
-            // 
-            this.amountOfTripsDataGridViewTextBoxColumn.DataPropertyName = "AmountOfTrips";
-            this.amountOfTripsDataGridViewTextBoxColumn.HeaderText = "AmountOfTrips";
-            this.amountOfTripsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.amountOfTripsDataGridViewTextBoxColumn.Name = "amountOfTripsDataGridViewTextBoxColumn";
-            this.amountOfTripsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.amountOfTripsDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // agencyBindingSource
-            // 
-            this.agencyBindingSource.DataSource = typeof(TravelAgency.Models.Agency);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Amount";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Amount";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 120;
-            // 
-            // portionBindingSource1
-            // 
-            this.portionBindingSource1.DataSource = typeof(TravelAgency.Models.Portion);
-            // 
             // clientDataGridViewTextBoxColumn
             // 
             this.clientDataGridViewTextBoxColumn.DataPropertyName = "Client";
@@ -489,6 +501,23 @@
             // 
             this.orderBindingSource.DataSource = typeof(TravelAgency.Models.Order);
             // 
+            // ClientsGridView
+            // 
+            this.ClientsGridView.AutoGenerateColumns = false;
+            this.ClientsGridView.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
+            this.ClientsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ClientsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.emailDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn1});
+            this.ClientsGridView.DataSource = this.clientBindingSource;
+            this.ClientsGridView.Location = new System.Drawing.Point(22, 20);
+            this.ClientsGridView.Name = "ClientsGridView";
+            this.ClientsGridView.RowHeadersWidth = 51;
+            this.ClientsGridView.RowTemplate.Height = 24;
+            this.ClientsGridView.Size = new System.Drawing.Size(314, 335);
+            this.ClientsGridView.TabIndex = 0;
+            this.ClientsGridView.SelectionChanged += new System.EventHandler(this.ClientsGridView_SelectionChanged);
+            // 
             // emailDataGridViewTextBoxColumn
             // 
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
@@ -509,33 +538,29 @@
             // 
             this.clientBindingSource.DataSource = typeof(TravelAgency.Models.Client);
             // 
-            // portionBindingSource2
+            // agencyNameDataGridViewTextBoxColumn1
             // 
-            this.portionBindingSource2.DataSource = typeof(TravelAgency.Models.Portion);
+            this.agencyNameDataGridViewTextBoxColumn1.DataPropertyName = "AgencyName";
+            this.agencyNameDataGridViewTextBoxColumn1.HeaderText = "AgencyName";
+            this.agencyNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.agencyNameDataGridViewTextBoxColumn1.Name = "agencyNameDataGridViewTextBoxColumn1";
+            this.agencyNameDataGridViewTextBoxColumn1.Width = 125;
             // 
-            // agencyNameDataGridViewTextBoxColumn
+            // locationOfTripAgency
             // 
-            this.agencyNameDataGridViewTextBoxColumn.DataPropertyName = "AgencyName";
-            this.agencyNameDataGridViewTextBoxColumn.HeaderText = "AgencyName";
-            this.agencyNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.agencyNameDataGridViewTextBoxColumn.Name = "agencyNameDataGridViewTextBoxColumn";
-            this.agencyNameDataGridViewTextBoxColumn.Width = 125;
+            this.locationOfTripAgency.DataPropertyName = "LocationOfTrip";
+            this.locationOfTripAgency.HeaderText = "LocationOfTrip";
+            this.locationOfTripAgency.MinimumWidth = 6;
+            this.locationOfTripAgency.Name = "locationOfTripAgency";
+            this.locationOfTripAgency.Width = 125;
             // 
-            // locationDataGridViewTextBoxColumn
+            // amountDataGridViewTextBoxColumn
             // 
-            this.locationDataGridViewTextBoxColumn.DataPropertyName = "Location";
-            this.locationDataGridViewTextBoxColumn.HeaderText = "Location";
-            this.locationDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
-            this.locationDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // amountDataGridViewTextBoxColumn1
-            // 
-            this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
-            this.amountDataGridViewTextBoxColumn1.Width = 125;
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn.Width = 125;
             // 
             // MainForm
             // 
@@ -552,24 +577,24 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.FutureTrips.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FutureTripGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.portionGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agencyGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agencyBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.AgencyGridView.ResumeLayout(false);
             this.HotSales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource2)).EndInit();
             this.Orders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.OrdersGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClientsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agencyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -593,7 +618,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.TabPage HotSales;
         private System.Windows.Forms.DataGridView portionGridView;
-        private System.Windows.Forms.BindingSource portionBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn tripDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage Orders;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -603,23 +627,28 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clientDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn2;
         private System.Windows.Forms.BindingSource orderBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountOfTripsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Button ViewOrder;
         private System.Windows.Forms.Button OperateOrder;
         private System.Windows.Forms.DataGridView FutureTripGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Location;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource portionBindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AgencyName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agencyNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountOfTripsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn Image;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agencyNameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationOfTripDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.BindingSource portionBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agencyNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationOfTripDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource portionBindingSource2;
+        private System.Windows.Forms.BindingSource portionBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agencyNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationOfTripAgency;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
     }
 }

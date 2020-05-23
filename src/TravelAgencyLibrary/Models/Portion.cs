@@ -16,7 +16,7 @@ namespace TravelAgency.Models
         public string OnSaleOrInFuture { set; get; }
 
         public string AgencyName { set; get;}
-        public string Location { set; get; }
+        public string LocationOfTrip { set; get; }
         public Portion(Trip trip = null, int amount = 0,string onSaleOrInFuture = "None")
         {
             Trip = trip;
@@ -24,7 +24,7 @@ namespace TravelAgency.Models
             OnSaleOrInFuture = onSaleOrInFuture;
             if (trip != null)
             {
-                Location = trip.Location;
+                LocationOfTrip = trip.Location;
             }
         }
     }

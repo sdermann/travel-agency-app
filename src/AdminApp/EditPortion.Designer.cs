@@ -44,13 +44,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.AccomodationBox = new System.Windows.Forms.TextBox();
             this.HostBox = new System.Windows.Forms.TextBox();
-            this.SavePortion = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.OnSaleOrFutureUpDown = new System.Windows.Forms.DomainUpDown();
+            this.SavePortion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AmountOfTrips)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tripPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -236,24 +236,6 @@
             this.HostBox.Size = new System.Drawing.Size(206, 22);
             this.HostBox.TabIndex = 17;
             // 
-            // SavePortion
-            // 
-            this.SavePortion.AccessibleName = "";
-            this.SavePortion.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.SavePortion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
-            this.SavePortion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SavePortion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SavePortion.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
-            this.SavePortion.ForeColor = System.Drawing.Color.Olive;
-            this.SavePortion.Location = new System.Drawing.Point(622, 382);
-            this.SavePortion.Margin = new System.Windows.Forms.Padding(4);
-            this.SavePortion.Name = "SavePortion";
-            this.SavePortion.Size = new System.Drawing.Size(131, 44);
-            this.SavePortion.TabIndex = 24;
-            this.SavePortion.Text = "Save";
-            this.SavePortion.UseVisualStyleBackColor = false;
-            this.SavePortion.Click += new System.EventHandler(this.SavePortion_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -316,6 +298,24 @@
             this.OnSaleOrFutureUpDown.Text = "None";
             this.OnSaleOrFutureUpDown.Wrap = true;
             // 
+            // SavePortion
+            // 
+            this.SavePortion.AccessibleName = "";
+            this.SavePortion.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SavePortion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
+            this.SavePortion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SavePortion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SavePortion.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
+            this.SavePortion.ForeColor = System.Drawing.Color.Olive;
+            this.SavePortion.Location = new System.Drawing.Point(622, 382);
+            this.SavePortion.Margin = new System.Windows.Forms.Padding(4);
+            this.SavePortion.Name = "SavePortion";
+            this.SavePortion.Size = new System.Drawing.Size(131, 44);
+            this.SavePortion.TabIndex = 24;
+            this.SavePortion.Text = "Save";
+            this.SavePortion.UseVisualStyleBackColor = false;
+            this.SavePortion.Click += new System.EventHandler(this.SavePortion_Click);
+            // 
             // EditPortion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -375,12 +375,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox AccomodationBox;
         private System.Windows.Forms.TextBox HostBox;
-        private System.Windows.Forms.Button SavePortion;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DomainUpDown OnSaleOrFutureUpDown;
+        private System.Windows.Forms.Button SavePortion;
     }
 }

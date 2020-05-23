@@ -118,7 +118,8 @@ namespace ClientApp
                     if (store.Clients.FirstOrDefault(u => u.Name == nickname && u.Password == password) != null)
                     {
                         MessageBox.Show($"Hello, Dear {nickname}! We wish you to have a nice day)");
-                        
+                        Form frm2 = new MainClientForm(store);
+                        frm2.Show();
                         this.Hide();
                     }
                     else
@@ -147,7 +148,7 @@ namespace ClientApp
 
         private void SignUpButt_Click(object sender, EventArgs e)
         {
-            Form frm2 = new Sign_up(ref store);
+            Form frm2 = new Sign_up(store);
             frm2.Show();
             this.Hide();
         }

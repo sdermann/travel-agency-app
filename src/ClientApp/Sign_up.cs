@@ -17,7 +17,7 @@ namespace ClientApp
         VisitEasy store;
 
        
-        public Sign_up(ref VisitEasy store)
+        public Sign_up(VisitEasy store)
         {
             InitializeComponent();
             this.store = store;

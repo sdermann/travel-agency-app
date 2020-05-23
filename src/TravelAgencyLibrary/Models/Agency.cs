@@ -24,6 +24,7 @@ namespace TravelAgency.Models
             foreach (Portion p in Portions)
             {
                 p.AgencyName = name;
+                AmountOfLikes += p.Trip.Counter;
             }
 
         }

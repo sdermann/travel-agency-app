@@ -11,6 +11,8 @@ using TravelAgency.Models;
 
 namespace AdminApp
 {
+    //TODO: исправить баг загрузки; добавить дату, расширить эдитор для скидок и анонсов; удаление,просмотр заказов; валидация ввода для
+    // форм редактирования + дизайн 
     public partial class MainForm : Form
     {
 

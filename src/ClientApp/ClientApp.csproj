@@ -52,6 +52,12 @@
     <Compile Include="LetClientIn.Designer.cs">
       <DependentUpon>LetClientIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainClientForm.Designer.cs">
+      <DependentUpon>MainClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sign_up.cs">
@@ -63,6 +69,9 @@
     <EmbeddedResource Include="LetClientIn.resx">
       <DependentUpon>LetClientIn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainClientForm.resx">
+      <DependentUpon>MainClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -71,10 +80,12 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Sign_up.resx">
       <DependentUpon>Sign_up.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\TravelAgency.Models.Agency.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +104,9 @@
       <Project>{a7fc3be3-78a1-4883-8471-01e07082e959}</Project>
       <Name>TravelAgencyLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\explore.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
