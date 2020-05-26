@@ -72,18 +72,15 @@ namespace AdminApp
 
         private void EditPortion_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (DialogResult != DialogResult.OK)
-                return;
+           if (DialogResult != DialogResult.OK)
+                 return;
             RequiredValidate(LocationOfTrip, e);
             RequiredValidate(PriceBox, e);
             RequiredValidate(ServiceBox, e);
             RequiredValidate(AccomodationBox, e);
         }
 
-        private void EditPortion_Load(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void SavePortion_Click(object sender, EventArgs e)
         {
@@ -91,6 +88,7 @@ namespace AdminApp
             {
                 Portion = new Portion();
             }
+            MessageBox.Show(Convert.ToString(Portion.Trip == null));
             Portion.Amount = (int)AmountOfTrips.Value;
             Portion.Trip.Location = LocationOfTrip.Text;
             Portion.Trip.Price = Convert.ToInt32(PriceBox.Text);
@@ -99,7 +97,9 @@ namespace AdminApp
             Portion.Trip.Host = HostBox.Text;
             Portion.Trip.Image = tripPicBox.Image;
             Portion.OnSaleOrInFuture = OnSaleOrFutureUpDown.Text;
-           
+            Portion.LocationOfTrip = Portion.Trip.Location;
+            Portion.PriceOfEachTrip = Portion.Trip.Price;
+            //MessageBox.Show("Added!");
         }
 
 

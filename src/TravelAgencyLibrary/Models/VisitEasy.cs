@@ -57,7 +57,7 @@ namespace TravelAgency.Models
                     ps.Add(new Portion { Trip = Trips[(j)], Amount = j,OnSaleOrInFuture = "OnSale"});
                 }
                 
-                Agencies.Add(new Agency($"Name{i}","Good",0,0,ps,noImage)) ;
+                Agencies.Add(new Agency($"Name{i}","Good",0,i,ps,noImage)) ;
             }
             // Clients
             Clients = new List<Client>();

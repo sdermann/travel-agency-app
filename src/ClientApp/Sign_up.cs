@@ -106,7 +106,7 @@ namespace ClientApp
                     // Проверяем, нет ли уже такого пользователя
                     if (store.Admins.FirstOrDefault(u => u.Name == nickname) != null)
                     {
-                        MessageBox.Show("Sorry, such Admin-name already exists in our team..");
+                        MessageBox.Show("Sorry, such Client-name already exists in our family..");
                         ClientName.Text = string.Empty;
                         ClientPassword.Text = string.Empty;
 

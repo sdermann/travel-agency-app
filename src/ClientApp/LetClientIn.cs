@@ -16,6 +16,7 @@ namespace ClientApp
     public partial class LetClientIn : Form
     {
         internal VisitEasy store;
+        Client Client;
         public LetClientIn()
         {
             InitializeComponent();
@@ -114,11 +115,19 @@ namespace ClientApp
                     nickname = ClientName.Text;
                     password = Convert.ToInt32(ClientPassword.Text);
                     email = ClientEmail.Text;
+                  
                     // Проверяем, нет ли уже такого пользователя
                     if (store.Clients.FirstOrDefault(u => u.Name == nickname && u.Password == password) != null)
                     {
+                        foreach (Client c in store.Clients)
+                        {
+                            if (c.Name == nickname && c.Password == password && c.Email == email)
+                            {
+                                Client = c;
+                            }
+                        }
                         MessageBox.Show($"Hello, Dear {nickname}! We wish you to have a nice day)");
-                        Form frm2 = new MainClientForm(store);
+                        Form frm2 = new MainClientForm(store,Client);
                         frm2.Show();
                         this.Hide();
                     }

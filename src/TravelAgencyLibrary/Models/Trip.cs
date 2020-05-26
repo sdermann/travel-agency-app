@@ -17,6 +17,7 @@ namespace TravelAgency.Models
         public string Accomodation { set; get; }
         public string Host { set; get; }
         public Image Image { set; get; }
+        //public Image ImageOfHost {set;get;}
 
         public int Counter { set; get; }
         

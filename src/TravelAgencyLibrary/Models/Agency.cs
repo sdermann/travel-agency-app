@@ -11,12 +11,11 @@ namespace TravelAgency.Models
     [Serializable]
     public class Agency
     {
-
         public Agency(string name = "Hello", string description =  "I`m going to hell", int amountOfTrips = 0, int amountOflikes = 0, List<Portion> portions = null, Image image = null)
         {
             Name = name;
             Description = description;
-            Portions = portions;
+            Portions = portions == null ? new List<Portion>():portions ;
             AmountOfTrips = amountOfTrips;
             AmountOfLikes = amountOflikes;
             Image = image;

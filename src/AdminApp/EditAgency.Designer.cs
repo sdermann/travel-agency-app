@@ -150,6 +150,7 @@
             this.imageBox.Location = new System.Drawing.Point(532, 316);
             this.imageBox.Name = "imageBox";
             this.imageBox.Size = new System.Drawing.Size(230, 122);
+            this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imageBox.TabIndex = 10;
             this.imageBox.TabStop = false;
             this.imageBox.Click += new System.EventHandler(this.imageBox_Click);
@@ -170,6 +171,7 @@
             this.SaveAgency.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SaveAgency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.SaveAgency.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveAgency.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.SaveAgency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveAgency.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.SaveAgency.ForeColor = System.Drawing.Color.Olive;
@@ -234,6 +236,7 @@
             // 
             // portionBindingSource
             // 
+            this.portionBindingSource.AllowNew = false;
             this.portionBindingSource.DataSource = typeof(TravelAgency.Models.Portion);
             // 
             // openFileDialog1
@@ -345,7 +348,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button SaveAgency;
         private System.Windows.Forms.Button CancelSaving;
-        private System.Windows.Forms.DataGridView tripGridView;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button addTrip;
         private System.Windows.Forms.Button editTrip;
@@ -353,5 +355,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tripDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource portionBindingSource;
+        private System.Windows.Forms.DataGridView tripGridView;
     }
 }

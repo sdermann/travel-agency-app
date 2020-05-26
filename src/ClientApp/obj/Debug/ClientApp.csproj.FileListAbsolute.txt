@@ -28,3 +28,5 @@ D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\Clie
 D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.pdb
 D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.csprojAssemblyReference.cache
 D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.MainClientForm.resources
+D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.ShowAgency.resources
+D:\Настя\ООП\Курсач\travel-agency-app\src\ClientApp\obj\Debug\ClientApp.ShowTrip.resources

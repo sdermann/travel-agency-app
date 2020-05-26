@@ -19,27 +19,27 @@ namespace AdminApp
         static List<Portion> Trips = new List<Portion> { new Portion(new Trip("Spain", 500, "Rive", "TwoRooms", "Maria"), 2), new Portion(new Trip("USA", 5000, "Uni", "Room", "Gorge"), 9) };
         Agency CoralTravel = new Agency("CoralTravel", "Cool", Trips.Count, 0, Trips);
         VisitEasy store;
-       
+        Client client;
+
         public MainForm(ref VisitEasy easy)
         {
             InitializeComponent();
             store = easy;
-          
+            MessageBox.Show(Convert.ToString(store.Orders[0].Portions.Count));
+           
             //store.FillTestData(5);
-            agencyBindingSource.DataSource = store.Agencies;
-            clientBindingSource.DataSource = store.Clients;
-            orderBindingSource.DataSource = store.Orders;
+
             List<Portion> port = new List<Portion>();
-            foreach(Agency agency  in store.Agencies)
+            foreach (Agency agency in store.Agencies)
             {
-                foreach(Portion p in agency.Portions)
+                foreach (Portion p in agency.Portions)
                 {
                     if (p.OnSaleOrInFuture == "FutureTrip")
                     {
                         port.Add(p);
                     }
                 }
-                   
+
             }
             List<Portion> portHot = new List<Portion>();
             foreach (Agency agency in store.Agencies)
@@ -55,18 +55,22 @@ namespace AdminApp
             }
             portionBindingSource1.DataSource = port;
             portionBindingSource2.DataSource = portHot;
+            portionBindingSource1.ResetBindings(false);
+            portionBindingSource2.ResetBindings(false);
 
-            
         }
 
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             store.Load();
+            HotAndFuture();
             agencyBindingSource.ResetBindings(false);
             clientBindingSource.ResetBindings(false);
-    
-            portionBindingSource.ResetBindings(false);
+        }
+
+        public void HotAndFuture()
+        {
             List<Portion> port = new List<Portion>();
             foreach (Agency agency in store.Agencies)
             {
@@ -96,7 +100,6 @@ namespace AdminApp
             portionBindingSource1.ResetBindings(false);
             portionBindingSource2.ResetBindings(false);
         }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -138,6 +141,7 @@ namespace AdminApp
             {
                 store.AddAgency(pf.Agency);
                 agencyBindingSource.ResetBindings(false);
+                HotAndFuture();
                 store.IsDirty = true;
 
                 // select and scroll to the last row
@@ -155,6 +159,7 @@ namespace AdminApp
             if (pf.ShowDialog() == DialogResult.OK)
             {
                 agencyBindingSource.ResetBindings(false);
+                HotAndFuture();
                 store.IsDirty = true;
             }
         }
@@ -167,6 +172,7 @@ namespace AdminApp
             {
                 store.Agencies.Remove(toDel);
                 agencyBindingSource.ResetBindings(false);
+                HotAndFuture();
                 store.IsDirty = true;
             }
         }
@@ -191,7 +197,7 @@ namespace AdminApp
             portionBindingSource.DataSource = port;
             portionBindingSource.ResetBindings(false);
             foreach (DataGridViewRow row in portionGridView.Rows)
-                for (int i = 0; i <  port.Count;i++)
+                for (int i = 0; i < port.Count; i++)
                 {
                     if (port[i].OnSaleOrInFuture == "OnSale")
                     {
@@ -211,6 +217,12 @@ namespace AdminApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            agencyBindingSource.DataSource = store.Agencies;
+            clientBindingSource.DataSource = store.Clients;
+            //orderBindingSource.DataSource = store.Orders;
+            agencyBindingSource.ResetBindings(false);
+            clientBindingSource.ResetBindings(false);
+            portionBindingSource.ResetBindings(false);
             agencyGridView1.Rows[0].Selected = true;
             ClientsGridView.Rows[0].Selected = true;
         }
@@ -218,32 +230,85 @@ namespace AdminApp
         private void ClientsGridView_SelectionChanged(object sender, EventArgs e)
         {
             {
-                var client = (Client)clientBindingSource.Current;
-                var orders = store.Orders.Where(o => o.Client == client);
-                orderBindingSource.DataSource = orders;
-                orderBindingSource.ResetBindings(false);
-            }
-        }
-        private void addTrip_Click(object sender, EventArgs e)
-        {
-            var toProcess = OrdersGridView.SelectedRows[0].DataBoundItem as Order;
-            var res = MessageBox.Show($"Process {toProcess.Client}`s order ?", "", MessageBoxButtons.YesNo);
-            if (res == DialogResult.Yes)
-            {
-                store.Orders.Remove(toProcess);
-                orderBindingSource.ResetBindings(false);
-                store.IsDirty = true;
+                client = (Client)clientBindingSource.Current;
+                //portions
+                List<Order> orders = new List<Order>();
+                //
+
+                if (store.Orders.Count > 0)
+                {
+                    
+                    for(int i = 0;i < store.Orders.Count; i++)
+                    {
+                        if (store.Orders[i].Client.Name == client.Name)
+                        {
+                            orders.Add(store.Orders[i]);
+                        }
+                    }
+                    //MessageBox.Show(Convert.ToString());
+                    orderBindingSource.DataSource = orders;
+                    orderBindingSource.ResetBindings(false);
+                }
             }
         }
 
         private void OrdersGridView_SelectionChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void portionGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void BanButt_Click(object sender, EventArgs e)
+        {
+
+            var toDel = ClientsGridView.SelectedRows[0].DataBoundItem as Client;
+            var res = MessageBox.Show($"Delete {toDel.Name} ?", "", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                store.Clients.Remove(toDel);
+                clientBindingSource.ResetBindings(false);
+                //HotAndFuture();
+                store.IsDirty = true;
+            }
+        }
+
+        private void OperateOrder_Click(object sender, EventArgs e)
+        {
+            //TODO: Statistics
+            var toProcess = OrdersGridView.SelectedRows[0].DataBoundItem as Order;
+            var res = MessageBox.Show($"Process {toProcess.Client}`s order ?", "", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                store.Orders.Remove(toProcess);
+                List<Order> orders = new List<Order>();
+                if (store.Orders.Count > 1)
+                {
+                    for (int i = 1; i < store.Orders.Count; i++)
+                    {
+                        if (store.Orders[i].Client.Name == client.Name)
+                        {
+                            orders.Add(store.Orders[i]);
+                        }
+                    }
+                    //MessageBox.Show(Convert.ToString());
+                    orderBindingSource.DataSource = orders;
+                    orderBindingSource.ResetBindings(false);
+
+                    store.IsDirty = true;
+                }
+                else
+                {
+                    orderBindingSource.DataSource = orders;
+                    orderBindingSource.ResetBindings(false);
+
+                    store.IsDirty = true;
+                }
+
+            }
         }
     }
 }

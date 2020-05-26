@@ -304,6 +304,7 @@
             this.SavePortion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SavePortion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.SavePortion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SavePortion.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.SavePortion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SavePortion.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.SavePortion.ForeColor = System.Drawing.Color.Olive;
@@ -347,7 +348,6 @@
             this.Name = "EditPortion";
             this.Text = "Edit Portion";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditPortion_FormClosing);
-            this.Load += new System.EventHandler(this.EditPortion_Load);
             this.TextChanged += new System.EventHandler(this.EditPortion_TextChanged);
             ((System.ComponentModel.ISupportInitialize)(this.AmountOfTrips)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tripPicBox)).EndInit();

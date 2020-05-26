@@ -22,6 +22,7 @@ namespace AdminApp
         public EditAgency()
         {
             InitializeComponent();
+            Agency = new Agency();
         }
         public EditAgency(Agency agency) :this()
         {
@@ -34,8 +35,7 @@ namespace AdminApp
             {
                  port = new List<Portion> { new Portion(new Trip("Unknown", 0, "Unknown", "Unknown", "Unknown"), 0) };
             }
-            portionBindingSource.DataSource = port;
-            portionBindingSource.ResetBindings(false);
+
             imageBox.Image = agency.Image;
         }
 
@@ -78,10 +78,16 @@ namespace AdminApp
             }
             Agency.Name = NameBox.Text;
             Agency.Description = DescriptionBox.Text;
+            Agency.Portions = new List<Portion>();
             Agency.Portions = (List<Portion>)portionBindingSource.DataSource;
+            foreach(Portion p in Agency.Portions)
+            {
+                p.AgencyName = Agency.Name;
+            }
             Agency.AmountOfTrips = Agency.Portions.Count;
             Agency.Image = imageBox.Image;
-           
+            portionBindingSource.DataSource = Agency.Portions;
+            portionBindingSource.ResetBindings(false);
         }
 
         private void CancelSaving_Click(object sender, EventArgs e)
@@ -93,14 +99,15 @@ namespace AdminApp
         {
             var pf = new EditPortion();
             if (pf.ShowDialog() == DialogResult.OK)
-            {
+            { 
                 Agency.Portions.Add(pf.Portion);
+               
                 portionBindingSource.ResetBindings(false);
 
                 // select and scroll to the last row
                 var lastIdx = tripGridView.Rows.Count - 1;
-                tripGridView.Rows[lastIdx].Selected = true;
-                tripGridView.FirstDisplayedScrollingRowIndex = lastIdx;
+               // tripGridView.Rows[lastIdx].Selected = true;
+                //tripGridView.FirstDisplayedScrollingRowIndex = lastIdx;
             }
         }
 
@@ -129,16 +136,10 @@ namespace AdminApp
 
         private void EditAgency_Load(object sender, EventArgs e)
         {
-            // tripGridView.Rows[0].Selected = true;
-            if (Agency == null)
-            {
-                List<Portion> port;
-     
-                 port = new List<Portion> { new Portion(new Trip("Unknown", 0, "Unknown", "Unknown", "Unknown"), 0) };
-                
-                portionBindingSource.DataSource = port;
-                portionBindingSource.ResetBindings(false);
-            }
+            portionBindingSource.DataSource = Agency.Portions;
+            portionBindingSource.ResetBindings(false);
+
+            //tripGridView.Rows[0].Selected = true;
         }
     }
 }

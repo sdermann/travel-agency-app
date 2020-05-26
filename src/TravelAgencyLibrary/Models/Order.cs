@@ -12,7 +12,7 @@ namespace TravelAgency.Models
     {
         public Order(List<Portion> portions, Client client, DateTime? t = null)
         {
-            Portions = portions;
+            Portions = portions == null ? new List<Portion>() : portions ;
             Client = client;
             if (t == null)
             {
@@ -22,10 +22,12 @@ namespace TravelAgency.Models
             {
                 DateTime = (DateTime)t;
             }
+            IsOrdered = false;
         }
 
-        public List<Portion> Portions { private set; get; }
+        public List<Portion> Portions { set; get; }
         public Client Client { private set; get; }
         public DateTime DateTime { private set; get; }
+        public bool IsOrdered { set; get; }
     }
 }
