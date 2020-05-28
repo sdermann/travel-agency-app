@@ -52,7 +52,13 @@ namespace ClientApp
         {
             Portion a = (Portion)LastTripsGridView.CurrentRow.DataBoundItem;
             var openAgency = new ShowTrip(a,Client,Store);
-            openAgency.Show();
+            //openAgency.Show();
+            if (openAgency.ShowDialog() == DialogResult.OK)
+            {
+                //a.Amount = 0;
+                portionBindingSource.ResetBindings(false);
+
+            }
         }
     }
 }

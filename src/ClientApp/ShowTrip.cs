@@ -21,15 +21,19 @@ namespace ClientApp
         public ShowTrip(Portion portion,Client client,VisitEasy store)
         {
             InitializeComponent();
+            Portion = new Portion();
             Portion = portion;
             Client = client;
             Store = store;
+            
             HowMany.Maximum = Portion.Amount;
             HowMany.Minimum = 0;
         }
 
         private void ShowTrip_Load(object sender, EventArgs e)
         {
+  
+            Store.Save();
             LocationText.Text = Portion.Trip.Location;
             PriceText.Text = Convert.ToString(Portion.Trip.Price);
             AddServText.Text = Portion.Trip.AdditionalService;
@@ -38,6 +42,7 @@ namespace ClientApp
             //HostBox.Image = Portion.HostImage.Image;
             tripPic.Image = Portion.Trip.Image;
             liiiikes.Text = Convert.ToString(Portion.Trip.Counter);
+            
             heartUnlike.Hide();
         }
 
@@ -76,12 +81,17 @@ namespace ClientApp
         {
             if (SomethingOrdered == true)
             {
-                //TODO почему не добавляет 
-                Portion.Amount -= Convert.ToInt32(HowMany.Value);
-                List<Portion> portions = new List<Portion>();
-                Portion LastHope = new Portion(Portion.Trip,(int)HowMany.Value,Portion.OnSaleOrInFuture);
-                // MessageBox.Show(Convert.ToString(Portion.AgencyName));
                 
+                
+                List<Portion> portions = new List<Portion>();
+                //I was very tired of adding this product (LastHope is just new portion for the order)
+
+                Portion LastHope = new Portion(Portion.Trip, (int)HowMany.Value,Portion.OnSaleOrInFuture);
+                LastHope.AgencyName =  Portion.AgencyName;
+                LastHope.LocationOfTrip = Portion.LocationOfTrip;
+                LastHope.PriceOfEachTrip = Portion.PriceOfEachTrip;
+                
+
                 portions.Add(LastHope);
                 foreach(Portion p in portions)
                 {
@@ -89,7 +99,8 @@ namespace ClientApp
                 }
                 int counter = 0;
                 bool ToBreak = false;
-                if (Store.Orders.Count > 0)
+                
+                if (Store.Orders[0].Client != null)
                 {
                     
                     for (int i = 0; i < Store.Orders.Count; i++)
@@ -102,13 +113,15 @@ namespace ClientApp
                                   {
                                         p.Amount += LastHope.Amount;
                                         ToBreak = true;
+
                                         break;
                                   }
                                   else
                                   {
                                         Store.Orders[i].Portions.Add(LastHope);
                                         MessageBox.Show(Convert.ToString(Store.Orders[i].Portions[0].AgencyName));
-                                       ToBreak = true;
+
+                                        ToBreak = true;
                                         break;
                                         
                                   }
@@ -119,11 +132,11 @@ namespace ClientApp
                         {
                             break;
                         }
-                        if ((counter + 1) == Store.Orders.Count)
+                        if ((counter) == Store.Orders.Count)
                         {
                             Order = new Order(portions, Client);
-                            MessageBox.Show(Convert.ToString(Order.Portions[0].AgencyName));
                             Store.Orders.Add(Order);
+                            break;
 
                         }
                     }
@@ -155,8 +168,34 @@ namespace ClientApp
                         }
                     }
                 }
-                
+                else
+                {
+                    //TODO почему не добавляет 
+                    //MessageBox.Show(Convert.ToString(Portion.Amount));
+                    //int x = 
+                    //Portion helpful = new Portion(Portion.Trip,x,Portion.OnSaleOrInFuture); 
+                    //Portion = helpful;
+                    Portion.Amount = Portion.Amount - Convert.ToInt32(HowMany.Value);
+
+
+                }
+                //MessageBox.Show(Convert.ToString(Portion.Amount));
+                foreach (Agency a in Store.Agencies)
+                {
+                    if (a.Name == Portion.AgencyName)
+                    {
+                        foreach (Portion p in a.Portions)
+                        {
+                            if (p.LocationOfTrip == Portion.LocationOfTrip && p.OnSaleOrInFuture == Portion.OnSaleOrInFuture && p.PriceOfEachTrip == Portion.PriceOfEachTrip && p.Trip.Host == Portion.Trip.Host)
+                            {
+                                p.Amount = Portion.Amount;
+                            }
+                        }
+                    }
+                }
                 Store.Save();
+
+
                 if (DialogResult != DialogResult.OK)
                     return;
             }

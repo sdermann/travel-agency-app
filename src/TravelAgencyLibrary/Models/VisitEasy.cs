@@ -18,7 +18,7 @@ namespace TravelAgency.Models
             public List<Agency> Agencies { private set; get; }
             public List<Client> Clients { private set; get; }
             public List<Admin> Admins { private set; get; }
-            public List<Order> Orders { private set; get; }
+            public List<Order> Orders {private set; get; }
 
             public VisitEasy()
             {

@@ -45,6 +45,7 @@ namespace AdminApp
             AccomodationBox.Text = port.Trip.Accomodation;
             HostBox.Text = port.Trip.Host;
             tripPicBox.Image = port.Trip.Image;
+            HostPic.Image = port.Trip.ImageOfHost;
         }
 
         private void tripPicBox_Click(object sender, EventArgs e)
@@ -96,10 +97,19 @@ namespace AdminApp
             Portion.Trip.Accomodation = AccomodationBox.Text;
             Portion.Trip.Host = HostBox.Text;
             Portion.Trip.Image = tripPicBox.Image;
+            Portion.Trip.ImageOfHost = HostPic.Image;
             Portion.OnSaleOrInFuture = OnSaleOrFutureUpDown.Text;
             Portion.LocationOfTrip = Portion.Trip.Location;
             Portion.PriceOfEachTrip = Portion.Trip.Price;
-            //MessageBox.Show("Added!");
+            MessageBox.Show("Added!");
+        }
+
+        private void HostPic_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                HostPic.Image = new Bitmap(openFileDialog1.FileName);
+            }
         }
 
 

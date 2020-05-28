@@ -19,11 +19,13 @@ namespace TravelAgency.Models
             AmountOfTrips = amountOfTrips;
             AmountOfLikes = amountOflikes;
             Image = image;
-            if(portions != null)
-            foreach (Portion p in Portions)
+            if (portions != null)
             {
-                p.AgencyName = name;
-                AmountOfLikes += p.Trip.Counter;
+                foreach (Portion p in Portions)
+                {
+                    p.AgencyName = name;
+                    AmountOfLikes += p.Trip.Counter;
+                }
             }
 
         }

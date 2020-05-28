@@ -11,6 +11,19 @@ using TravelAgency.Models;
 
 namespace ClientApp
 {
+    /*TODO: 10
+
+     * 2кнопки помощи !
+     * 3обновление автоматом !
+     * 7лайки !
+
+
+
+     * 1валидация host view
+     * 2дизайн
+     * 3цвета по скидкам
+ 
+     */
     public partial class MainClientForm : Form
     {
         VisitEasy Store;
@@ -40,16 +53,21 @@ namespace ClientApp
             
             agencyBindingSource.DataSource = Store.Agencies;
             
-            foreach (Agency agency in store.Agencies)
+            foreach (Agency agency in Store.Agencies)
             {
                 foreach (Portion p in agency.Portions)
                 {
                    
                         port.Add(p);
+                       // MessageBox.Show(Convert.ToString(p.Amount));
                     
                 }
                 
             }
+
+            portionBindingSource.DataSource = port;
+            portionBindingSource.ResetBindings(false);
+
             foreach (Agency a in Store.Agencies)
             {
                 foreach (Portion An in a.Portions)
@@ -61,9 +79,9 @@ namespace ClientApp
             {
                 GoodAgency.Add(a);
             }
-            portionBindingSource.DataSource = port;
+           
 
-            if (store.Orders.Count > 0)
+            if (Store.Orders.Count > 0)
             {
                 for(int i = 0; i < Store.Orders.Count;i++)
                 {
@@ -88,7 +106,6 @@ namespace ClientApp
         {
             Store.Load();
 
-       
             agencyBindingSource.ResetBindings(false);
             portionBindingSource.ResetBindings(false);
             portionBindingSource1.ResetBindings(false);
@@ -319,9 +336,19 @@ namespace ClientApp
         private void TripsForClientGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Portion a = (Portion)TripsForClientGridView.CurrentRow.DataBoundItem;
-            var openAgency = new ShowTrip(a,Client,Store);
-            openAgency.Show();
-            portionBindingSource1.ResetBindings(false);
+            var openAgency = new ShowTrip(a, Client,Store);
+            if (openAgency.ShowDialog() == DialogResult.OK)
+            {
+   
+                portionBindingSource.ResetBindings(false);
+                portionBindingSource1.ResetBindings(false);
+
+            }
+
+           // Store.Save();
+      
+
+            //MessageBox.Show(Convert.ToString(a.Amount));
         }
 
         private void DeleteButt_Click(object sender, EventArgs e)
@@ -337,7 +364,7 @@ namespace ClientApp
                 {
                     Portion PortionsComeBack = new Portion();
                     Order.Portions = new List<Portion>();
-                    //MessageBox.Show(Convert.ToString(n == Store.Orders[0].Portions.Count));
+                    
                     foreach(Order o in Store.Orders)
                     {
                         if (o.Client.Name == Client.Name) // needed order of exact client
@@ -371,7 +398,7 @@ namespace ClientApp
                                                         portionBindingSource1.DataSource = Order.Portions;
                                                         portionBindingSource1.ResetBindings(false);
                                                         o.Portions = Order.Portions;
-                                                        Store.Save();
+                                                        
 
                                                     }
                                                     else
@@ -381,7 +408,7 @@ namespace ClientApp
                                                         portionBindingSource1.DataSource = Order.Portions;
                                                         portionBindingSource1.ResetBindings(false);
                                                         o.Portions = Order.Portions;
-                                                        Store.Save();
+                                                        
                                                     }
                                                 }
                                                 if (PleaseBreakIt == true)
@@ -411,7 +438,20 @@ namespace ClientApp
                             break;
                         }
                     }
+                    if (Store.Orders.Count != 0)
+                    {
+                        int x = Store.Orders.Count - 1;
 
+                        for (int i = x;i >= 0; i--)
+                        {
+                            if (Store.Orders[i].Portions.Count == 0)
+                            {
+                                Store.Orders.Remove(Store.Orders[i]);
+                            }
+
+                        }
+                    }
+                    Store.Save();
                     //HotAndFuture();
                 }
             }
@@ -422,6 +462,23 @@ namespace ClientApp
         {
             //ordered = true;
 
+        }
+
+        private void MainClientForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var res = MessageBox.Show("Do you want to exit from the app?", "", MessageBoxButtons.OKCancel);
+            switch (res)
+            {
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+                case DialogResult.OK:
+                    Form CustomerAutor = Application.OpenForms[0];
+                    CustomerAutor.Left = this.Left;
+                    CustomerAutor.Top = this.Top;
+                    CustomerAutor.Show();
+                    break;
+            }
         }
     }
 

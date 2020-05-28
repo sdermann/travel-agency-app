@@ -11,8 +11,12 @@ using TravelAgency.Models;
 
 namespace AdminApp
 {
-    //TODO: исправить баг загрузки; добавить дату, расширить эдитор для скидок и анонсов; удаление,просмотр заказов; валидация ввода для
-    // форм редактирования + дизайн 
+    /*TODO: 10
+     * 
+     * 1валидация ввода для форм редактирования + краш колонки 
+     * 2дизайн  
+     * 3Тесты
+    */
     public partial class MainForm : Form
     {
 
@@ -25,7 +29,7 @@ namespace AdminApp
         {
             InitializeComponent();
             store = easy;
-            MessageBox.Show(Convert.ToString(store.Orders[0].Portions.Count));
+            //MessageBox.Show(Convert.ToString(store.Orders[0].Portions.Count));
            
             //store.FillTestData(5);
 
@@ -46,17 +50,30 @@ namespace AdminApp
             {
                 foreach (Portion p in agency.Portions)
                 {
-                    if (p.OnSaleOrInFuture == "HotSale")
+                    if (p.OnSaleOrInFuture == "OnSale")
                     {
                         portHot.Add(p);
                     }
                 }
 
             }
+            List<Order> CompletedOrders = new List<Order>();
+            foreach (Order order in store.Orders)
+            {
+    
+                if (order.CheckedByAdmin == true && order.IsOrdered == true)
+                {
+                    CompletedOrders.Add(order);
+                }
+     
+
+            }
+            orderBindingSource1.DataSource = CompletedOrders;
             portionBindingSource1.DataSource = port;
             portionBindingSource2.DataSource = portHot;
             portionBindingSource1.ResetBindings(false);
             portionBindingSource2.ResetBindings(false);
+            orderBindingSource1.ResetBindings(false);
 
         }
 
@@ -191,28 +208,34 @@ namespace AdminApp
 
         private void agencyGridView1_SelectionChanged(object sender, EventArgs e)
         {
+            if (agencyGridView1.Rows.Count > 0)
+            {
+                Agency b = (Agency)agencyGridView1.CurrentRow.DataBoundItem;
+                List<Portion> port = b.Portions;
+                portionBindingSource.DataSource = port;
+                portionBindingSource.ResetBindings(false);
+                foreach (DataGridViewRow row in portionGridView.Rows)
+                    for (int i = 0; i < port.Count; i++)
+                    {
+                        if (port[i].OnSaleOrInFuture == "OnSale")
+                        {
+                            portionGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 97, 97);
 
-            Agency b = (Agency)agencyGridView1.CurrentRow.DataBoundItem;
-            List<Portion> port = b.Portions;
-            portionBindingSource.DataSource = port;
-            portionBindingSource.ResetBindings(false);
-            foreach (DataGridViewRow row in portionGridView.Rows)
-                for (int i = 0; i < port.Count; i++)
-                {
-                    if (port[i].OnSaleOrInFuture == "OnSale")
-                    {
-                        portionGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 97, 97);
-
+                        }
+                        else if (port[i].OnSaleOrInFuture == "FutureTrip")
+                        {
+                            portionGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(125, 160, 255);
+                        }
+                        else
+                        {
+                            portionGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 250, 110);
+                        }
                     }
-                    else if (port[i].OnSaleOrInFuture == "FutureTrip")
-                    {
-                        portionGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(125, 160, 255);
-                    }
-                    else
-                    {
-                        portionGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 250, 110);
-                    }
-                }
+            }
+            else
+            {
+                MessageBox.Show("Be carefull! List of agencies is empty");
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -308,6 +331,24 @@ namespace AdminApp
                     store.IsDirty = true;
                 }
 
+            }
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ViewOrder_Click(object sender, EventArgs e)
+        {
+            var toSee = OrdersGridView.SelectedRows[0].DataBoundItem as Order;
+            var pf = new SeeThisOrdercs(toSee);
+
+            if (pf.ShowDialog() == DialogResult.OK)
+            {
+                agencyBindingSource.ResetBindings(false);
+                HotAndFuture();
+                store.IsDirty = true;
             }
         }
     }

@@ -17,14 +17,14 @@ namespace TravelAgency.Models
         public string Accomodation { set; get; }
         public string Host { set; get; }
         public Image Image { set; get; }
-        //public Image ImageOfHost {set;get;}
+        public Image ImageOfHost {set;get;}
 
         public int Counter { set; get; }
         
        
 
 
-        public Trip(string location = "unknown", decimal price = 0, string additionalservise = "unlnown", string accomodation = "unlnown", string host = "unlnown",Image image = null)
+        public Trip(string location = "unknown", decimal price = 0, string additionalservise = "unknown", string accomodation = "unknown", string host = "unknown",Image image = null, Image imageOfHost = null)
         {
             Location = location;
             Price = price;
@@ -32,6 +32,7 @@ namespace TravelAgency.Models
             Accomodation = accomodation;
             Host = host;
             Image = image;
+            ImageOfHost = imageOfHost;
             Counter = 0;
         }
     }

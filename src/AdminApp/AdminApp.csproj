@@ -72,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeeThisOrdercs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeeThisOrdercs.Designer.cs">
+      <DependentUpon>SeeThisOrdercs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sign_Up_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SeeThisOrdercs.resx">
+      <DependentUpon>SeeThisOrdercs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sign_Up_Form.resx">
       <DependentUpon>Sign_Up_Form.cs</DependentUpon>
     </EmbeddedResource>
