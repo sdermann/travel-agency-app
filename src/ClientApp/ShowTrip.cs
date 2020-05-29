@@ -27,6 +27,7 @@ namespace ClientApp
             Store = store;
             HowMany.Maximum = Portion.Amount;
             HowMany.Minimum = 0;
+            liiiikes.Text = Convert.ToString(Portion.Trip.Counter);
         }
 
         private void ShowTrip_Load(object sender, EventArgs e)
@@ -61,7 +62,7 @@ namespace ClientApp
         private void hearLike_Click(object sender, EventArgs e)
         {
             liiiikes.Text = Convert.ToString(Portion.Trip.Counter);
-            Portion.Trip.Counter += 1;
+            Portion.Trip.Counter++;
             
             hearLike.Hide();
             heartUnlike.Show();
@@ -74,6 +75,10 @@ namespace ClientApp
                     if (p.AgencyName == Portion.AgencyName && p.Trip.Location == Portion.Trip.Location && p.Trip.Price == Portion.Trip.Price || p.Amount ==  Portion.Amount)
                     {
                         a.AmountOfLikes++;
+                        if (p.AgencyName == Portion.AgencyName && p.Trip.Location == Portion.Trip.Location && p.Trip.Price == Portion.Trip.Price || p.Amount == Portion.Amount)
+                        {
+                            p.Trip.Counter = Portion.Trip.Counter;
+                        }   
                     }
                 }
                
@@ -237,6 +242,10 @@ namespace ClientApp
             if (Convert.ToInt32(HowMany.Value) >= 1)
             {
                 SomethingOrdered = true;
+            }
+            else if (Convert.ToInt32(HowMany.Value) == Portion.Amount)
+            {
+                MessageBox.Show("This is the maximum amount of trips available");
             }
             else
             {

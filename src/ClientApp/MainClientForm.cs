@@ -11,18 +11,8 @@ using TravelAgency.Models;
 
 namespace ClientApp
 {
-    /*TODO: 6
-
-
-     * 3цвета по скидкам
-
-
-
-     * 1колонки 
-     * 2дизайн
-  
- 
-     */
+    //TODO:  дизайн
+   
     public partial class MainClientForm : Form
     {
         VisitEasy Store;
@@ -92,6 +82,7 @@ namespace ClientApp
             {
                 AgencyView.Rows[0].Selected = true;
             }
+          
         }
 
      
@@ -329,12 +320,8 @@ namespace ClientApp
             Portion a = (Portion)TripsForClientGridView.CurrentRow.DataBoundItem;
             var openAgency = new ShowTrip(a, Client,Store);
             if (openAgency.ShowDialog() == DialogResult.OK)
-            {
-   
+            {   
                 portionBindingSource.ResetBindings(false);
-               
- 
-
             }
             ResetOrder();
             ResetAgencies();
@@ -346,14 +333,26 @@ namespace ClientApp
 
         private void Compilation_Click(object sender, EventArgs e)
         {
-            foreach (Order o in Store.Orders)
+            var res = MessageBox.Show("Do you want to order your best Trip ever?", "", MessageBoxButtons.OKCancel);
+            switch (res)
             {
-                if(Order.Client.Name == Client.Name)
-                {
-                    Order.IsOrdered = true;
-                }
+                case DialogResult.Cancel:
+                    break;
+                case DialogResult.OK:
+                    if (Store.Orders.Count > 0)
+                    {
+                        foreach (Order o in Store.Orders)
+                        {
+                            if (Order.Client.Name == Client.Name)
+                            {
+                                o.IsOrdered = true;
+                                Store.Save();
+                            }
+                        }
+                    }
+                    break;
             }
-
+            ResetOrder();
         }
 
         private void MainClientForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -381,7 +380,7 @@ namespace ClientApp
                
                 for (int i = 0; i < Store.Orders.Count; i++)
                 {
-                    if (Store.Orders[i].Client.Name == Client.Name)
+                    if (Store.Orders[i].Client.Name == Client.Name && Store.Orders[i].IsOrdered != true)
                     {
                         
                         Order = new Order(Store.Orders[i].Portions,Client, Store.Orders[i].DateTime);
@@ -420,28 +419,6 @@ namespace ClientApp
            
             portionBindingSource.DataSource = port;
             portionBindingSource.ResetBindings(false);
-            
-            foreach (DataGridViewRow row in TripsForClientGridView.Rows)
-            {
-                for (int i = 0; i < port.Count; i++)
-                {
-                    if (port[i].OnSaleOrInFuture == "OnSale")
-                    {
-                        TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 97, 97);
-
-                    }
-                    else if (port[i].OnSaleOrInFuture == "FutureTrip")
-                    {
-                        TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(125, 160, 255);
-                    }
-                    else
-                    {
-                        TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 250, 110);
-                    }
-                }
-            }
-           
-
         }
         private void ResetAgencies()
         {
@@ -463,9 +440,10 @@ namespace ClientApp
 
         private void DeletePortFromOrder_Click(object sender, EventArgs e)
         {
-            if (OrdersGridView.Rows.Count != 0)
+            if (OrdersGridView.Rows.Count > 0)
             {
                 bool PleaseBreakIt = false;
+                OrdersGridView.Rows[0].Selected = true;
                 var toDel = OrdersGridView.SelectedRows[0].DataBoundItem as Portion;
                 int count = 0;
                 //int n = 2;
@@ -495,7 +473,7 @@ namespace ClientApp
                                 {
                                     foreach (Agency a in Store.Agencies) //agency
                                     {
-                                        if (a.Name == PortionsComeBack.AgencyName) //neededone
+                                        if (a.Name == PortionsComeBack.AgencyName) //needed one
                                         {
                                             foreach (Portion po in a.Portions)
                                             {
@@ -567,6 +545,10 @@ namespace ClientApp
                     ResetTrips();
                     //HotAndFuture();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Sorry, if you want to delete - you have to clik on one of the portions");
             }
         }
 

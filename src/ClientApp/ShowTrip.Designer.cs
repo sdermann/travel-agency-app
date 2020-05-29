@@ -283,6 +283,7 @@
             this.HowMany.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.HowMany.Location = new System.Drawing.Point(980, 443);
             this.HowMany.Name = "HowMany";
+            this.HowMany.ReadOnly = true;
             this.HowMany.Size = new System.Drawing.Size(120, 22);
             this.HowMany.TabIndex = 25;
             this.HowMany.ValueChanged += new System.EventHandler(this.HowMany_ValueChanged);
