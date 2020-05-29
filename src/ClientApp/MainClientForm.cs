@@ -11,17 +11,16 @@ using TravelAgency.Models;
 
 namespace ClientApp
 {
-    /*TODO: 10
-
-     * 2кнопки помощи !
-     * 3обновление автоматом !
-     * 7лайки !
+    /*TODO: 6
 
 
-
-     * 1валидация host view
-     * 2дизайн
      * 3цвета по скидкам
+
+
+
+     * 1колонки 
+     * 2дизайн
+  
  
      */
     public partial class MainClientForm : Form
@@ -30,7 +29,6 @@ namespace ClientApp
         List<Portion> port = new List<Portion>();
         List<Agency> GoodAgency = new List<Agency>();
         List<Portion> RightPortion = new List<Portion>();
-        List<Portion> AllOrders = new List<Portion>();
         Client Client;
         Order Order;
         decimal Cost;
@@ -41,64 +39,37 @@ namespace ClientApp
             InitializeComponent();
             Store = store;
             Client = client;
+            Cost = 0;
             List<string> states = new List<string>
             {
                 "Аргентина", "Бразилия", "Венесуэла", "Колумбия", "Чили"
             };
-           Order = new Order(null, Client);
 
 
             // добавляем список элементовItems
             LocationsForClient.Items.AddRange(states);
             
-            agencyBindingSource.DataSource = Store.Agencies;
-            
-            foreach (Agency agency in Store.Agencies)
-            {
-                foreach (Portion p in agency.Portions)
-                {
-                   
-                        port.Add(p);
-                       // MessageBox.Show(Convert.ToString(p.Amount));
-                    
-                }
-                
-            }
 
-            portionBindingSource.DataSource = port;
-            portionBindingSource.ResetBindings(false);
+
 
             foreach (Agency a in Store.Agencies)
             {
                 foreach (Portion An in a.Portions)
                 {
-                    RightPortion.Add(An);
+                    if(An.Amount > 0)
+                         RightPortion.Add(An);
                 }
             }
             foreach(Agency a in Store.Agencies)
             {
-                GoodAgency.Add(a);
+                if(a.Portions.Count > 0)
+                    GoodAgency.Add(a);
             }
-           
+            ResetAgencies();
+            ResetOrder();
+            ResetTrips();
+            
 
-            if (Store.Orders.Count > 0)
-            {
-                for(int i = 0; i < Store.Orders.Count;i++)
-                {
-                    if (Store.Orders[i].Client.Name == Client.Name)
-                    {
-                        foreach (Portion por in Store.Orders[i].Portions)
-                        {
-                            Order.Portions.Add(por);
-                            Cost += (por.Trip.Price * por.Amount);
-                        }
-                    }
-                }
-
-                portionBindingSource1.DataSource = Order.Portions;
-                portionBindingSource1.ResetBindings(false);
-                TotalPrice.Text = Convert.ToString(Cost);
-            }
         }
 
 
@@ -131,7 +102,7 @@ namespace ClientApp
             {
                 for (int j = i + 1; j < GoodAgency.Count; j++)
                 {
-                    if (GoodAgency[i].AmountOfLikes > GoodAgency[j].AmountOfLikes)
+                    if (GoodAgency[i].AmountOfLikes > GoodAgency[j].AmountOfLikes && GoodAgency[i].Portions.Count > 0 && GoodAgency[j].Portions.Count > 0)
                     {
                         temp = GoodAgency[i];
                         GoodAgency[i] = GoodAgency[j];
@@ -150,8 +121,8 @@ namespace ClientApp
                 {
                     for (int j = i + 1; j < GoodAgency.Count; j++)
                     {
-                        if (GoodAgency[i].AmountOfLikes < GoodAgency[j].AmountOfLikes)
-                        {
+                        if (GoodAgency[i].AmountOfLikes < GoodAgency[j].AmountOfLikes && GoodAgency[i].Portions.Count > 0 && GoodAgency[j].Portions.Count > 0)
+                    {
                             temp = GoodAgency[i];
                             GoodAgency[i] = GoodAgency[j];
                             GoodAgency[j] = temp;
@@ -166,7 +137,7 @@ namespace ClientApp
 
         private void Question_MouseHover(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello! \nYou can search for your favourite agency just by filling in its name (only letters) \nRate hearts will rate agencies by popularity(likes)");
+            MessageBox.Show("Hello! \nYou can search for your favourite agency just by filling in its name (only letters) \nRate hearts will rate agencies by popularity(likes)\nUndo to start again");
         }
 
     
@@ -174,11 +145,34 @@ namespace ClientApp
         private void nameOfagency_TextChanged(object sender, EventArgs e)
         {
 
+                if(nameOfagency.Text.Length > 15)
+                {
+                    nameOfagency.BackColor = Color.MediumSeaGreen;
+                    MessageBox.Show("Too long name");
+                    nameOfagency.BackColor = Color.Wheat;
+                    nameOfagency.Text = string.Empty;
+                }
+                else
+                {
+                    for (int i = 0; i < nameOfagency.Text.Length; i++)
+                    {
+                        if (nameOfagency.Text[i] >= '0' && nameOfagency.Text[i] <= '9')
+                        {
+                            
+                            nameOfagency.BackColor = Color.MediumSeaGreen;
+                            MessageBox.Show("Name contains numbers");
+                            nameOfagency.BackColor = Color.Wheat;
+                            nameOfagency.Text = string.Empty;
+                            break;
+                        }
+                    }
+                }
+            
             string str = nameOfagency.Text;
             GoodAgency = new List<Agency>();
             foreach( Agency a in Store.Agencies)
             {
-                if (a.Name.IndexOf(str) > -1)
+                if (a.Name.IndexOf(str) > -1 && a.Portions.Count > 0)
                 {
                     // Вхождения найдены
                     GoodAgency.Add(a);
@@ -197,10 +191,7 @@ namespace ClientApp
          
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hello! \nYou can search for your favourite agency just by filling in its name (only letters) \nRate hearts will rate agencies by popularity(likes)");
-        }
+     
 
         private void Undo_Butt_Click(object sender, EventArgs e)
         {
@@ -341,17 +332,136 @@ namespace ClientApp
             {
    
                 portionBindingSource.ResetBindings(false);
-                portionBindingSource1.ResetBindings(false);
+               
+ 
 
             }
+            ResetOrder();
+            ResetAgencies();
 
-           // Store.Save();
-      
-
-            //MessageBox.Show(Convert.ToString(a.Amount));
+           
         }
 
-        private void DeleteButt_Click(object sender, EventArgs e)
+      
+
+        private void Compilation_Click(object sender, EventArgs e)
+        {
+            foreach (Order o in Store.Orders)
+            {
+                if(Order.Client.Name == Client.Name)
+                {
+                    Order.IsOrdered = true;
+                }
+            }
+
+        }
+
+        private void MainClientForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var res = MessageBox.Show("Do you want to exit from the app?", "", MessageBoxButtons.OKCancel);
+            switch (res)
+            {
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+                case DialogResult.OK:
+                    Form CustomerAutor = Application.OpenForms[0];
+                    CustomerAutor.Left = this.Left;
+                    CustomerAutor.Top = this.Top;
+                    CustomerAutor.Show();
+                    break;
+            }
+        }
+        private void ResetOrder()
+        {
+            Order = new Order(null,Client);
+            Cost = 0;
+            if (Store.Orders.Count > 0)
+            {
+               
+                for (int i = 0; i < Store.Orders.Count; i++)
+                {
+                    if (Store.Orders[i].Client.Name == Client.Name)
+                    {
+                        
+                        Order = new Order(Store.Orders[i].Portions,Client, Store.Orders[i].DateTime);
+                        foreach(Portion p in Store.Orders[i].Portions)
+                        {
+                            Cost += p.Amount * p.Trip.Price;
+                        }
+                        TotalPrice.Text = Convert.ToString(Cost);
+                    }
+                }
+                
+            }
+            else
+            {
+                TotalPrice.Text = Convert.ToString(Cost);
+            }
+
+            portionBindingSource1.DataSource = Order.Portions;
+            portionBindingSource1.ResetBindings(false);
+            
+          
+        }
+        private void ResetTrips()
+        {
+            port = new List<Portion>();
+            foreach (Agency agency in Store.Agencies)
+            {
+                foreach (Portion p in agency.Portions)
+                {
+                    if (p.Amount > 0)
+                        port.Add(p);
+
+                }
+
+            }
+           
+            portionBindingSource.DataSource = port;
+            portionBindingSource.ResetBindings(false);
+            
+            foreach (DataGridViewRow row in TripsForClientGridView.Rows)
+            {
+                for (int i = 0; i < port.Count; i++)
+                {
+                    if (port[i].OnSaleOrInFuture == "OnSale")
+                    {
+                        TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 97, 97);
+
+                    }
+                    else if (port[i].OnSaleOrInFuture == "FutureTrip")
+                    {
+                        TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(125, 160, 255);
+                    }
+                    else
+                    {
+                        TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 250, 110);
+                    }
+                }
+            }
+           
+
+        }
+        private void ResetAgencies()
+        {
+           
+            List <Agency> agencies= new List<Agency>();
+            foreach(Agency a in Store.Agencies)
+            {
+                if(a.Portions.Count != 0)
+                {
+                    agencies.Add(a);
+                }
+            }
+
+            agencyBindingSource.DataSource = agencies;
+            agencyBindingSource.ResetBindings(false);
+        }
+
+     
+
+        private void DeletePortFromOrder_Click(object sender, EventArgs e)
         {
             if (OrdersGridView.Rows.Count != 0)
             {
@@ -364,8 +474,8 @@ namespace ClientApp
                 {
                     Portion PortionsComeBack = new Portion();
                     Order.Portions = new List<Portion>();
-                    
-                    foreach(Order o in Store.Orders)
+
+                    foreach (Order o in Store.Orders)
                     {
                         if (o.Client.Name == Client.Name) // needed order of exact client
                         {
@@ -398,7 +508,7 @@ namespace ClientApp
                                                         portionBindingSource1.DataSource = Order.Portions;
                                                         portionBindingSource1.ResetBindings(false);
                                                         o.Portions = Order.Portions;
-                                                        
+
 
                                                     }
                                                     else
@@ -408,7 +518,7 @@ namespace ClientApp
                                                         portionBindingSource1.DataSource = Order.Portions;
                                                         portionBindingSource1.ResetBindings(false);
                                                         o.Portions = Order.Portions;
-                                                        
+
                                                     }
                                                 }
                                                 if (PleaseBreakIt == true)
@@ -423,7 +533,7 @@ namespace ClientApp
                                         }
                                     }
                                 }
-                              
+
                             }
                             if (PleaseBreakIt == true)
                             {
@@ -442,7 +552,7 @@ namespace ClientApp
                     {
                         int x = Store.Orders.Count - 1;
 
-                        for (int i = x;i >= 0; i--)
+                        for (int i = x; i >= 0; i--)
                         {
                             if (Store.Orders[i].Portions.Count == 0)
                             {
@@ -451,33 +561,68 @@ namespace ClientApp
 
                         }
                     }
+
                     Store.Save();
+                    ResetOrder();
+                    ResetTrips();
                     //HotAndFuture();
                 }
             }
         }
-        //send to admin
 
-        private void Compilation_Click(object sender, EventArgs e)
+        private void pictureBox5_MouseHover(object sender, EventArgs e)
         {
-            //ordered = true;
-
+            MessageBox.Show("Hello! \nPress wallet for trips with lower price\nPress money for trips with higher price\nChoose location by scrolling up and down\nSearch by available amount of trips\nUndo to start again");
         }
 
-        private void MainClientForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void pictureBox14_MouseHover(object sender, EventArgs e)
         {
-            var res = MessageBox.Show("Do you want to exit from the app?", "", MessageBoxButtons.OKCancel);
-            switch (res)
+            MessageBox.Show("Hello! \nThis is your personal basket)\nPress Delete to remove one selected portion of trip\nPress Complete to send request to the Admin\nWe wish you to have the best trip ever with VisitEasy");
+        }
+
+        private void TripsForClientGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in TripsForClientGridView.Rows)
             {
-                case DialogResult.Cancel:
-                    e.Cancel = true;
-                    break;
-                case DialogResult.OK:
-                    Form CustomerAutor = Application.OpenForms[0];
-                    CustomerAutor.Left = this.Left;
-                    CustomerAutor.Top = this.Top;
-                    CustomerAutor.Show();
-                    break;
+                for (int i = 0; i < port.Count; i++)
+                {
+                    if (port[i].OnSaleOrInFuture == "OnSale")
+                    {
+                        TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 97, 97);
+
+                    }
+                    else if (port[i].OnSaleOrInFuture == "FutureTrip")
+                    {
+                        TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(125, 160, 255);
+                    }
+                    else
+                    {
+                        TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 250, 110);
+                    }
+                }
+            }
+        }
+
+        private void OrdersGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in OrdersGridView.Rows)
+            {
+                for (int i = 0; i < Order.Portions.Count; i++)
+                {
+                    if (Order.Portions[i].OnSaleOrInFuture == "OnSale")
+                    {
+                        OrdersGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 97, 97);
+
+                    }
+                    else if (Order.Portions[i].OnSaleOrInFuture == "FutureTrip")
+                    {
+                        OrdersGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(125, 160, 255);
+                    }
+                    else
+                    {
+                        OrdersGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 250, 110);
+                    }
+                }
             }
         }
     }

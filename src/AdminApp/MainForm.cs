@@ -11,8 +11,10 @@ using TravelAgency.Models;
 
 namespace AdminApp
 {
-    /*TODO: 10
-     * 
+    /*TODO: 6
+     *  Отчет
+       
+  
      * 1валидация ввода для форм редактирования + краш колонки 
      * 2дизайн  
      * 3Тесты

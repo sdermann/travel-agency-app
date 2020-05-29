@@ -227,9 +227,10 @@
             // 
             // HostBox
             // 
+            this.HostBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.HostBox.Location = new System.Drawing.Point(515, 540);
             this.HostBox.Name = "HostBox";
-            this.HostBox.Size = new System.Drawing.Size(200, 155);
+            this.HostBox.Size = new System.Drawing.Size(282, 155);
             this.HostBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.HostBox.TabIndex = 19;
             this.HostBox.TabStop = false;

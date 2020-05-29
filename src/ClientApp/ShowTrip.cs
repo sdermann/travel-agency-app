@@ -25,7 +25,6 @@ namespace ClientApp
             Portion = portion;
             Client = client;
             Store = store;
-            
             HowMany.Maximum = Portion.Amount;
             HowMany.Minimum = 0;
         }
@@ -39,7 +38,7 @@ namespace ClientApp
             AddServText.Text = Portion.Trip.AdditionalService;
             AccomodationText.Text = Portion.Trip.Accomodation;
             HostText.Text = Portion.Trip.Host;
-            //HostBox.Image = Portion.HostImage.Image;
+            HostBox.Image = Portion.Trip.ImageOfHost;
             tripPic.Image = Portion.Trip.Image;
             liiiikes.Text = Convert.ToString(Portion.Trip.Counter);
             
@@ -61,18 +60,46 @@ namespace ClientApp
 
         private void hearLike_Click(object sender, EventArgs e)
         {
+            liiiikes.Text = Convert.ToString(Portion.Trip.Counter);
             Portion.Trip.Counter += 1;
+            
             hearLike.Hide();
             heartUnlike.Show();
             liiiikes.Text = Convert.ToString(Portion.Trip.Counter);
+            foreach(Agency a in Store.Agencies)
+            {
+                
+                foreach(Portion p in a.Portions)
+                {
+                    if (p.AgencyName == Portion.AgencyName && p.Trip.Location == Portion.Trip.Location && p.Trip.Price == Portion.Trip.Price || p.Amount ==  Portion.Amount)
+                    {
+                        a.AmountOfLikes++;
+                    }
+                }
+               
+            }
+            Store.Save();
         }
 
         private void heartUnlike_Click(object sender, EventArgs e)
         {
+            liiiikes.Text = Convert.ToString(Portion.Trip.Counter);
             Portion.Trip.Counter -= 1;
             hearLike.Show();
             heartUnlike.Hide();
             liiiikes.Text = Convert.ToString(Portion.Trip.Counter);
+            foreach (Agency a in Store.Agencies)
+            {
+
+                foreach (Portion p in a.Portions)
+                {
+                    if (p.AgencyName == Portion.AgencyName && p.Trip.Location == Portion.Trip.Location && p.Trip.Price == Portion.Trip.Price || p.Amount == Portion.Amount)
+                    {
+                        a.AmountOfLikes --;
+                    }
+                }
+            }
+            Store.Save();
         }
 
   
@@ -100,7 +127,7 @@ namespace ClientApp
                 int counter = 0;
                 bool ToBreak = false;
                 
-                if (Store.Orders[0].Client != null)
+                if (Store.Orders.Count > 0)
                 {
                     
                     for (int i = 0; i < Store.Orders.Count; i++)

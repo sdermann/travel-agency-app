@@ -91,7 +91,7 @@
             this.PriceOfEachTrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.portionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BasketPage = new System.Windows.Forms.TabPage();
-            this.DeleteButt = new System.Windows.Forms.Button();
+            this.DeletePortFromOrder = new System.Windows.Forms.Button();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.TotalPrice = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -825,7 +825,7 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 31;
             this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.pictureBox5.MouseHover += new System.EventHandler(this.pictureBox5_MouseHover);
             // 
             // label18
             // 
@@ -860,6 +860,7 @@
             this.TripsForClientGridView.Size = new System.Drawing.Size(804, 551);
             this.TripsForClientGridView.TabIndex = 0;
             this.TripsForClientGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TripsForClientGridView_CellClick);
+            this.TripsForClientGridView.SelectionChanged += new System.EventHandler(this.TripsForClientGridView_SelectionChanged);
             // 
             // agencyNameDataGridViewTextBoxColumn
             // 
@@ -908,7 +909,7 @@
             // BasketPage
             // 
             this.BasketPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
-            this.BasketPage.Controls.Add(this.DeleteButt);
+            this.BasketPage.Controls.Add(this.DeletePortFromOrder);
             this.BasketPage.Controls.Add(this.pictureBox14);
             this.BasketPage.Controls.Add(this.TotalPrice);
             this.BasketPage.Controls.Add(this.label26);
@@ -929,23 +930,19 @@
             this.BasketPage.TabIndex = 3;
             this.BasketPage.Text = "Basket";
             // 
-            // DeleteButt
+            // DeletePortFromOrder
             // 
-            this.DeleteButt.AccessibleName = "";
-            this.DeleteButt.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.DeleteButt.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.DeleteButt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DeleteButt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteButt.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
-            this.DeleteButt.ForeColor = System.Drawing.Color.Wheat;
-            this.DeleteButt.Location = new System.Drawing.Point(603, 46);
-            this.DeleteButt.Margin = new System.Windows.Forms.Padding(4);
-            this.DeleteButt.Name = "DeleteButt";
-            this.DeleteButt.Size = new System.Drawing.Size(103, 44);
-            this.DeleteButt.TabIndex = 44;
-            this.DeleteButt.Text = " Delete";
-            this.DeleteButt.UseVisualStyleBackColor = false;
-            this.DeleteButt.Click += new System.EventHandler(this.DeleteButt_Click);
+            this.DeletePortFromOrder.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.DeletePortFromOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeletePortFromOrder.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeletePortFromOrder.ForeColor = System.Drawing.Color.Wheat;
+            this.DeletePortFromOrder.Location = new System.Drawing.Point(611, 43);
+            this.DeletePortFromOrder.Name = "DeletePortFromOrder";
+            this.DeletePortFromOrder.Size = new System.Drawing.Size(95, 44);
+            this.DeletePortFromOrder.TabIndex = 45;
+            this.DeletePortFromOrder.Text = "Delete";
+            this.DeletePortFromOrder.UseVisualStyleBackColor = false;
+            this.DeletePortFromOrder.Click += new System.EventHandler(this.DeletePortFromOrder_Click);
             // 
             // pictureBox14
             // 
@@ -956,6 +953,7 @@
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox14.TabIndex = 43;
             this.pictureBox14.TabStop = false;
+            this.pictureBox14.MouseHover += new System.EventHandler(this.pictureBox14_MouseHover);
             // 
             // TotalPrice
             // 
@@ -1028,6 +1026,7 @@
             this.OrdersGridView.RowTemplate.Height = 24;
             this.OrdersGridView.Size = new System.Drawing.Size(624, 297);
             this.OrdersGridView.TabIndex = 8;
+            this.OrdersGridView.SelectionChanged += new System.EventHandler(this.OrdersGridView_SelectionChanged);
             // 
             // agencyNameDataGridViewTextBoxColumn1
             // 
@@ -1280,7 +1279,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button DeleteButt;
         private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.Button DeletePortFromOrder;
     }
 }
