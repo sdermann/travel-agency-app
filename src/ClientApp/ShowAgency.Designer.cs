@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowAgency));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ShowAgencyName = new System.Windows.Forms.TextBox();
@@ -205,6 +206,7 @@
             this.priceOfEachTripDataGridViewTextBoxColumn});
             this.LastTripsGridView.DataSource = this.portionBindingSource;
             this.LastTripsGridView.Location = new System.Drawing.Point(41, 153);
+            this.LastTripsGridView.MultiSelect = false;
             this.LastTripsGridView.Name = "LastTripsGridView";
             this.LastTripsGridView.RowHeadersWidth = 51;
             this.LastTripsGridView.RowTemplate.Height = 24;
@@ -276,6 +278,7 @@
             this.Controls.Add(this.PicOfAgency);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShowAgency";
             this.Text = "ShowAgency";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShowAgency_FormClosing);

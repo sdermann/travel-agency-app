@@ -19,6 +19,7 @@ namespace TravelAgency.Models
         public string AgencyName { set; get;}
         public string LocationOfTrip { set; get; }
         public decimal PriceOfEachTrip { set; get; }
+      
        
         public Portion(Trip trip = null, int amount = 0,string onSaleOrInFuture = "None")
         {
@@ -31,6 +32,7 @@ namespace TravelAgency.Models
                 LocationOfTrip = trip.Location;
                 PriceOfEachTrip = trip.Price;
             }
+           
         }
     }
 }

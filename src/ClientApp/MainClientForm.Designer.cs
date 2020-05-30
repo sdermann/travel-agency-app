@@ -576,6 +576,7 @@
             this.imageDataGridViewImageColumn});
             this.AgencyView.DataSource = this.agencyBindingSource;
             this.AgencyView.Location = new System.Drawing.Point(30, 75);
+            this.AgencyView.MultiSelect = false;
             this.AgencyView.Name = "AgencyView";
             this.AgencyView.ReadOnly = true;
             this.AgencyView.RowHeadersWidth = 51;
@@ -854,6 +855,7 @@
             this.PriceOfEachTrip});
             this.TripsForClientGridView.DataSource = this.portionBindingSource;
             this.TripsForClientGridView.Location = new System.Drawing.Point(48, 57);
+            this.TripsForClientGridView.MultiSelect = false;
             this.TripsForClientGridView.Name = "TripsForClientGridView";
             this.TripsForClientGridView.RowHeadersWidth = 51;
             this.TripsForClientGridView.RowTemplate.Height = 24;
@@ -1020,6 +1022,7 @@
             this.amountDataGridViewTextBoxColumn1});
             this.OrdersGridView.DataSource = this.portionBindingSource1;
             this.OrdersGridView.Location = new System.Drawing.Point(82, 114);
+            this.OrdersGridView.MultiSelect = false;
             this.OrdersGridView.Name = "OrdersGridView";
             this.OrdersGridView.ReadOnly = true;
             this.OrdersGridView.RowHeadersWidth = 51;

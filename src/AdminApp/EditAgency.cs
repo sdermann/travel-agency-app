@@ -17,6 +17,7 @@ namespace AdminApp
     {
         public Agency Agency { set; get; }
         public VisitEasy Store;
+        bool OldAgency;
         // To create a new Agency.
         
         public EditAgency(VisitEasy store)
@@ -24,9 +25,11 @@ namespace AdminApp
             InitializeComponent();
             Agency = new Agency();
             Store = store;
+            OldAgency = false;
         }
         public EditAgency(Agency agency, VisitEasy store) :this(store)
         {
+            OldAgency = true ;
             Store = store;
             Agency = agency;
             NameBox.Text = agency.Name;
@@ -141,10 +144,9 @@ namespace AdminApp
             }
             foreach(Agency  a in Store.Agencies)
             {
-                if(a.Name == Agency.Name)
+                if (a.Name == Agency.Name && OldAgency == false)
                 {
                     SuchAgencyExists = true;
-
                     break;
                 }
                 else

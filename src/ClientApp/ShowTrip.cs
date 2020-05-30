@@ -67,6 +67,7 @@ namespace ClientApp
             hearLike.Hide();
             heartUnlike.Show();
             liiiikes.Text = Convert.ToString(Portion.Trip.Counter);
+            bool breaky = false;
             foreach(Agency a in Store.Agencies)
             {
                 
@@ -74,12 +75,20 @@ namespace ClientApp
                 {
                     if (p.AgencyName == Portion.AgencyName && p.Trip.Location == Portion.Trip.Location && p.Trip.Price == Portion.Trip.Price || p.Amount ==  Portion.Amount)
                     {
+                        
                         a.AmountOfLikes++;
+                     
                         if (p.AgencyName == Portion.AgencyName && p.Trip.Location == Portion.Trip.Location && p.Trip.Price == Portion.Trip.Price || p.Amount == Portion.Amount)
                         {
                             p.Trip.Counter = Portion.Trip.Counter;
-                        }   
+                        }
+                        breaky = true;
+                        break;
                     }
+                }
+                if(breaky == true)
+                {
+                    break;
                 }
                
             }
@@ -92,6 +101,7 @@ namespace ClientApp
             Portion.Trip.Counter -= 1;
             hearLike.Show();
             heartUnlike.Hide();
+            bool breaky = false;
             liiiikes.Text = Convert.ToString(Portion.Trip.Counter);
             foreach (Agency a in Store.Agencies)
             {
@@ -101,7 +111,17 @@ namespace ClientApp
                     if (p.AgencyName == Portion.AgencyName && p.Trip.Location == Portion.Trip.Location && p.Trip.Price == Portion.Trip.Price || p.Amount == Portion.Amount)
                     {
                         a.AmountOfLikes --;
+                        if (p.AgencyName == Portion.AgencyName && p.Trip.Location == Portion.Trip.Location && p.Trip.Price == Portion.Trip.Price || p.Amount == Portion.Amount)
+                        {
+                            p.Trip.Counter = Portion.Trip.Counter;
+                        }
+                        breaky = true;
+                        break;
                     }
+                }
+                if (breaky == true)
+                {
+                    break;
                 }
             }
             Store.Save();
@@ -111,81 +131,123 @@ namespace ClientApp
 
         private void OrderButt_Click(object sender, EventArgs e)
         {
+
             if (SomethingOrdered == true)
             {
-                
-                
-                List<Portion> portions = new List<Portion>();
-                //I was very tired of adding this product (LastHope is just new portion for the order)
-
-                Portion LastHope = new Portion(Portion.Trip, (int)HowMany.Value,Portion.OnSaleOrInFuture);
-                LastHope.AgencyName =  Portion.AgencyName;
-                LastHope.LocationOfTrip = Portion.LocationOfTrip;
-                LastHope.PriceOfEachTrip = Portion.PriceOfEachTrip;
-                
-
-                portions.Add(LastHope);
-                foreach(Portion p in portions)
+                bool OrderAllowed = true;
+                foreach (Order o in Store.Orders)
                 {
-                    p.AgencyName = Portion.AgencyName;
-                }
-                int counter = 0;
-                bool ToBreak = false;
-                
-                if (Store.Orders.Count > 0)
-                {
-                    
-                    for (int i = 0; i < Store.Orders.Count; i++)
+                    if (o.ClientName == Client.Name)
                     {
-                        if (Store.Orders[i].Client.Name == Client.Name)
+                        if (o.IsOrdered == true)
                         {
-                             foreach (Portion p in Store.Orders[i].Portions)
-                             {
-                                  if (p.AgencyName == LastHope.AgencyName && p.Trip.Location == LastHope.Trip.Location && p.Trip.Price == LastHope.Trip.Price)
-                                  {
-                                        p.Amount += LastHope.Amount;
+                            MessageBox.Show("Please, wait before the admin accept your order) And then you can choose other trips!");
+                            OrderAllowed = false;
+                            break;
+                        }
+
+                    }
+                }
+                if (OrderAllowed == true)
+                {
+                    List<Portion> portions = new List<Portion>();
+                    //I was very tired of adding this product (LastHope is just new portion for the order)It was Last hope.
+
+                    Portion LastHope = new Portion(Portion.Trip, (int)HowMany.Value, Portion.OnSaleOrInFuture);
+                    LastHope.AgencyName = Portion.AgencyName;
+                    LastHope.LocationOfTrip = Portion.LocationOfTrip;
+                    LastHope.PriceOfEachTrip = Portion.PriceOfEachTrip;
+
+
+                    portions.Add(LastHope);
+                    foreach (Portion p in portions)
+                    {
+                        p.AgencyName = Portion.AgencyName;
+                    }
+                    //int counter = 0;
+                    bool ToBreak = false;
+
+                    if (Store.Orders.Count > 0)
+                    {
+
+                        for (int i = 0; i < Store.Orders.Count; i++)
+                        {
+                            if (Store.Orders[i].Client.Name == Client.Name)
+                            {
+                                for (int j = 0;i < Store.Orders[i].Portions.Count;j++)
+                                {
+                                    if (Store.Orders[i].Portions[j].AgencyName == LastHope.AgencyName && 
+                                        Store.Orders[i].Portions[j].Trip.Location == LastHope.Trip.Location &&
+                                        Store.Orders[i].Portions[j].Trip.Price == LastHope.Trip.Price)
+                                    {
+                                        Store.Orders[i].Portions[j].Amount += LastHope.Amount;
                                         ToBreak = true;
 
                                         break;
-                                  }
-                                  else
-                                  {
+                                    }
+                                    else if(j + 1 == Store.Orders[i].Portions.Count)
+                                    {
                                         Store.Orders[i].Portions.Add(LastHope);
-                                        MessageBox.Show(Convert.ToString(Store.Orders[i].Portions[0].AgencyName));
-
                                         ToBreak = true;
                                         break;
-                                        
-                                  }
-                             }
-                             counter += 1;
-                        }
-                        if(ToBreak == true)
-                        {
-                            break;
-                        }
-                        if ((counter) == Store.Orders.Count)
-                        {
-                            Order = new Order(portions, Client);
-                            Store.Orders.Add(Order);
-                            break;
 
+                                    }
+                                }
+                               
+                            }
+                            //counter += 1;
+                            if (ToBreak == true)
+                            {
+                                break;
+                            }
+                            //if ((counter) == Store.Orders.Count)
+                            //{
+                            //    Order = new Order(portions, Client);
+                            //    Store.Orders.Add(Order);
+                            //    break;
+
+                            //}
+                        }
+
+                    }
+                    else
+                    {
+                        Order = new Order(portions, Client);
+                        Store.Orders.Add(Order);
+                    }
+
+
+
+                    MessageBox.Show($"You ordered this trip x {HowMany.Value}:)\nEnjoy your time!\nThank you");
+                    if (Portion.Amount == 0)
+                    {
+
+                        foreach (Agency a in Store.Agencies)
+                        {
+                            if (a.Name == Portion.AgencyName)
+                            {
+                                foreach (Portion p in a.Portions)
+                                {
+                                    if (p.LocationOfTrip == Portion.LocationOfTrip && p.OnSaleOrInFuture == Portion.OnSaleOrInFuture && p.PriceOfEachTrip == Portion.PriceOfEachTrip && p.Trip.Host == Portion.Trip.Host)
+                                    {
+                                        a.Portions.Remove(p);
+                                    }
+                                }
+                            }
                         }
                     }
-                    
-                }
-                else
-                {   
-                    Order = new Order(portions, Client);
-                    Store.Orders.Add(Order);
-                }
-               
+                    else
+                    {
+                        //TODO почему не добавляет 
+                        //MessageBox.Show(Convert.ToString(Portion.Amount));
+                        //int x = 
+                        //Portion helpful = new Portion(Portion.Trip,x,Portion.OnSaleOrInFuture); 
+                        //Portion = helpful;
+                        Portion.Amount = Portion.Amount - Convert.ToInt32(HowMany.Value);
 
-                
-                MessageBox.Show($"You ordered this trip x {HowMany.Value}:)\nEnjoy your time!\nThank you");
-                if (Portion.Amount == 0)
-                {
 
+                    }
+                    //MessageBox.Show(Convert.ToString(Portion.Amount));
                     foreach (Agency a in Store.Agencies)
                     {
                         if (a.Name == Portion.AgencyName)
@@ -194,42 +256,19 @@ namespace ClientApp
                             {
                                 if (p.LocationOfTrip == Portion.LocationOfTrip && p.OnSaleOrInFuture == Portion.OnSaleOrInFuture && p.PriceOfEachTrip == Portion.PriceOfEachTrip && p.Trip.Host == Portion.Trip.Host)
                                 {
-                                    a.Portions.Remove(p);
+                                    p.Amount = Portion.Amount;
                                 }
                             }
                         }
                     }
-                }
-                else
-                {
-                    //TODO почему не добавляет 
-                    //MessageBox.Show(Convert.ToString(Portion.Amount));
-                    //int x = 
-                    //Portion helpful = new Portion(Portion.Trip,x,Portion.OnSaleOrInFuture); 
-                    //Portion = helpful;
-                    Portion.Amount = Portion.Amount - Convert.ToInt32(HowMany.Value);
+                    Store.Save();
+
+
+                    if (DialogResult != DialogResult.OK)
+                        return;
 
 
                 }
-                //MessageBox.Show(Convert.ToString(Portion.Amount));
-                foreach (Agency a in Store.Agencies)
-                {
-                    if (a.Name == Portion.AgencyName)
-                    {
-                        foreach (Portion p in a.Portions)
-                        {
-                            if (p.LocationOfTrip == Portion.LocationOfTrip && p.OnSaleOrInFuture == Portion.OnSaleOrInFuture && p.PriceOfEachTrip == Portion.PriceOfEachTrip && p.Trip.Host == Portion.Trip.Host)
-                            {
-                                p.Amount = Portion.Amount;
-                            }
-                        }
-                    }
-                }
-                Store.Save();
-
-
-                if (DialogResult != DialogResult.OK)
-                    return;
             }
             else
             {

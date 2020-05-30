@@ -278,7 +278,7 @@ namespace AdminApp
 
        
         private void ClientsGridView_SelectionChanged(object sender, EventArgs e)
-        {
+        { 
             if (ClientsGridView.Rows.Count > 0)
             {
 
