@@ -52,6 +52,7 @@
             this.OnSaleOrFutureUpDown = new System.Windows.Forms.DomainUpDown();
             this.SavePortion = new System.Windows.Forms.Button();
             this.HostPic = new System.Windows.Forms.PictureBox();
+            this.CheckButt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AmountOfTrips)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tripPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,8 +70,10 @@
             0,
             0});
             this.AmountOfTrips.Name = "AmountOfTrips";
+            this.AmountOfTrips.ReadOnly = true;
             this.AmountOfTrips.Size = new System.Drawing.Size(120, 22);
             this.AmountOfTrips.TabIndex = 0;
+            this.AmountOfTrips.ValueChanged += new System.EventHandler(this.AmountOfTrips_ValueChanged);
             // 
             // label2
             // 
@@ -130,7 +133,7 @@
             this.LocationOfTrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.LocationOfTrip.Location = new System.Drawing.Point(313, 124);
             this.LocationOfTrip.Name = "LocationOfTrip";
-            this.LocationOfTrip.Size = new System.Drawing.Size(169, 22);
+            this.LocationOfTrip.Size = new System.Drawing.Size(178, 22);
             this.LocationOfTrip.TabIndex = 8;
             this.LocationOfTrip.Text = "Location";
             this.LocationOfTrip.Wrap = true;
@@ -182,7 +185,7 @@
             this.PriceBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.PriceBox.Location = new System.Drawing.Point(313, 190);
             this.PriceBox.Name = "PriceBox";
-            this.PriceBox.Size = new System.Drawing.Size(169, 22);
+            this.PriceBox.Size = new System.Drawing.Size(178, 22);
             this.PriceBox.TabIndex = 12;
             // 
             // ServiceBox
@@ -191,7 +194,7 @@
             this.ServiceBox.Location = new System.Drawing.Point(313, 338);
             this.ServiceBox.Multiline = true;
             this.ServiceBox.Name = "ServiceBox";
-            this.ServiceBox.Size = new System.Drawing.Size(169, 88);
+            this.ServiceBox.Size = new System.Drawing.Size(178, 88);
             this.ServiceBox.TabIndex = 13;
             // 
             // label7
@@ -225,7 +228,7 @@
             // AccomodationBox
             // 
             this.AccomodationBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
-            this.AccomodationBox.Location = new System.Drawing.Point(304, 255);
+            this.AccomodationBox.Location = new System.Drawing.Point(313, 255);
             this.AccomodationBox.Name = "AccomodationBox";
             this.AccomodationBox.Size = new System.Drawing.Size(178, 22);
             this.AccomodationBox.TabIndex = 16;
@@ -310,12 +313,12 @@
             this.SavePortion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SavePortion.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.SavePortion.ForeColor = System.Drawing.Color.Olive;
-            this.SavePortion.Location = new System.Drawing.Point(622, 382);
+            this.SavePortion.Location = new System.Drawing.Point(656, 382);
             this.SavePortion.Margin = new System.Windows.Forms.Padding(4);
             this.SavePortion.Name = "SavePortion";
-            this.SavePortion.Size = new System.Drawing.Size(131, 44);
+            this.SavePortion.Size = new System.Drawing.Size(97, 44);
             this.SavePortion.TabIndex = 24;
-            this.SavePortion.Text = "Save";
+            this.SavePortion.Text = "Finish";
             this.SavePortion.UseVisualStyleBackColor = false;
             this.SavePortion.Click += new System.EventHandler(this.SavePortion_Click);
             // 
@@ -325,9 +328,28 @@
             this.HostPic.Location = new System.Drawing.Point(547, 163);
             this.HostPic.Name = "HostPic";
             this.HostPic.Size = new System.Drawing.Size(206, 124);
+            this.HostPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.HostPic.TabIndex = 30;
             this.HostPic.TabStop = false;
             this.HostPic.Click += new System.EventHandler(this.HostPic_Click);
+            // 
+            // CheckButt
+            // 
+            this.CheckButt.AccessibleName = "";
+            this.CheckButt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CheckButt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
+            this.CheckButt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CheckButt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckButt.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
+            this.CheckButt.ForeColor = System.Drawing.Color.Olive;
+            this.CheckButt.Location = new System.Drawing.Point(517, 382);
+            this.CheckButt.Margin = new System.Windows.Forms.Padding(4);
+            this.CheckButt.Name = "CheckButt";
+            this.CheckButt.Size = new System.Drawing.Size(122, 44);
+            this.CheckButt.TabIndex = 31;
+            this.CheckButt.Text = "Check";
+            this.CheckButt.UseVisualStyleBackColor = false;
+            this.CheckButt.Click += new System.EventHandler(this.CheckButt_Click);
             // 
             // EditPortion
             // 
@@ -335,6 +357,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CheckButt);
             this.Controls.Add(this.HostPic);
             this.Controls.Add(this.OnSaleOrFutureUpDown);
             this.Controls.Add(this.label10);
@@ -361,6 +384,7 @@
             this.Name = "EditPortion";
             this.Text = "Edit Portion";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditPortion_FormClosing);
+            this.Load += new System.EventHandler(this.EditPortion_Load);
             this.TextChanged += new System.EventHandler(this.EditPortion_TextChanged);
             ((System.ComponentModel.ISupportInitialize)(this.AmountOfTrips)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tripPicBox)).EndInit();
@@ -397,5 +421,6 @@
         private System.Windows.Forms.DomainUpDown OnSaleOrFutureUpDown;
         private System.Windows.Forms.Button SavePortion;
         private System.Windows.Forms.PictureBox HostPic;
+        private System.Windows.Forms.Button CheckButt;
     }
 }

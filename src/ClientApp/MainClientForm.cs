@@ -333,26 +333,33 @@ namespace ClientApp
 
         private void Compilation_Click(object sender, EventArgs e)
         {
-            var res = MessageBox.Show("Do you want to order your best Trip ever?", "", MessageBoxButtons.OKCancel);
-            switch (res)
+            if (OrdersGridView.Rows.Count > 0)
             {
-                case DialogResult.Cancel:
-                    break;
-                case DialogResult.OK:
-                    if (Store.Orders.Count > 0)
-                    {
-                        foreach (Order o in Store.Orders)
+                var res = MessageBox.Show("Do you want to order your best Trip ever?", "", MessageBoxButtons.OKCancel);
+                switch (res)
+                {
+                    case DialogResult.Cancel:
+                        break;
+                    case DialogResult.OK:
+                        if (Store.Orders.Count > 0)
                         {
-                            if (Order.Client.Name == Client.Name)
+                            foreach (Order o in Store.Orders)
                             {
-                                o.IsOrdered = true;
-                                Store.Save();
+                                if (Order.Client.Name == Client.Name)
+                                {
+                                    o.IsOrdered = true;
+                                    Store.Save();
+                                }
                             }
                         }
-                    }
-                    break;
+                        break;
+                }
+                ResetOrder();
             }
-            ResetOrder();
+            else
+            {
+                MessageBox.Show("Sorry,there is no potion of trip(");
+            }
         }
 
         private void MainClientForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -564,48 +571,48 @@ namespace ClientApp
 
         private void TripsForClientGridView_SelectionChanged(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in TripsForClientGridView.Rows)
-            {
-                for (int i = 0; i < port.Count; i++)
-                {
-                    if (port[i].OnSaleOrInFuture == "OnSale")
-                    {
-                        TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 97, 97);
+            //foreach (DataGridViewRow row in TripsForClientGridView.Rows)
+            //{
+            //    for (int i = 0; i < port.Count; i++)
+            //    {
+            //        if (port[i].OnSaleOrInFuture == "OnSale")
+            //        {
+            //            TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 97, 97);
 
-                    }
-                    else if (port[i].OnSaleOrInFuture == "FutureTrip")
-                    {
-                        TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(125, 160, 255);
-                    }
-                    else
-                    {
-                        TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 250, 110);
-                    }
-                }
-            }
+            //        }
+            //        else if (port[i].OnSaleOrInFuture == "FutureTrip")
+            //        {
+            //            TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(125, 160, 255);
+            //        }
+            //        else
+            //        {
+            //            TripsForClientGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 250, 110);
+            //        }
+            //    }
+            //}
         }
 
         private void OrdersGridView_SelectionChanged(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in OrdersGridView.Rows)
-            {
-                for (int i = 0; i < Order.Portions.Count; i++)
-                {
-                    if (Order.Portions[i].OnSaleOrInFuture == "OnSale")
-                    {
-                        OrdersGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 97, 97);
+            //foreach (DataGridViewRow row in OrdersGridView.Rows)
+            //{
+            //    for (int i = 0; i < Order.Portions.Count; i++)
+            //    {
+            //        if (Order.Portions[i].OnSaleOrInFuture == "OnSale")
+            //        {
+            //            OrdersGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 97, 97);
 
-                    }
-                    else if (Order.Portions[i].OnSaleOrInFuture == "FutureTrip")
-                    {
-                        OrdersGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(125, 160, 255);
-                    }
-                    else
-                    {
-                        OrdersGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 250, 110);
-                    }
-                }
-            }
+            //        }
+            //        else if (Order.Portions[i].OnSaleOrInFuture == "FutureTrip")
+            //        {
+            //            OrdersGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(125, 160, 255);
+            //        }
+            //        else
+            //        {
+            //            OrdersGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 250, 110);
+            //        }
+            //    }
+            //}
         }
     }
 

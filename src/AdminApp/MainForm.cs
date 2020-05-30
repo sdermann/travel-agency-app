@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,14 +12,16 @@ using TravelAgency.Models;
 
 namespace AdminApp
 {
-    /*TODO: 5
-     *  Отчет
-       
-  
-     * 1валидация ввода для форм редактирования + краш колонки 
+    /*TODO: 3
+
+
      * 2дизайн  
-     * 3Тесты
-    */
+     
+     * |3Тесты| Хранение данных-проверка файла;
+     
+     */
+
+
     public partial class MainForm : Form
     {
 
@@ -59,23 +62,31 @@ namespace AdminApp
                 }
 
             }
-            List<Order> CompletedOrders = new List<Order>();
-            foreach (Order order in store.Orders)
-            {
-    
-                if (order.CheckedByAdmin == true && order.IsOrdered == true)
-                {
-                    CompletedOrders.Add(order);
-                }
-     
-
-            }
-            orderBindingSource1.DataSource = CompletedOrders;
+         
+           
             portionBindingSource1.DataSource = port;
             portionBindingSource2.DataSource = portHot;
             portionBindingSource1.ResetBindings(false);
             portionBindingSource2.ResetBindings(false);
-            orderBindingSource1.ResetBindings(false);
+
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            agencyBindingSource.DataSource = store.Agencies;
+            clientBindingSource.DataSource = store.Clients;
+            //orderBindingSource.DataSource = store.Orders;
+          
+            agencyBindingSource.ResetBindings(false);
+            clientBindingSource.ResetBindings(false);
+            portionBindingSource.ResetBindings(false);
+            if (agencyGridView1.Rows.Count > 0)
+            {
+                agencyGridView1.Rows[0].Selected = true;
+            }
+            if (ClientsGridView.Rows.Count > 0)
+            {
+                ClientsGridView.Rows[0].Selected = true;
+            }
 
         }
 
@@ -148,6 +159,10 @@ namespace AdminApp
                     CustomerAutor.Show();
                     break;
                 case DialogResult.No:
+                    Form Customer = Application.OpenForms[0];
+                    Customer.Left = this.Left;
+                    Customer.Top = this.Top;
+                    Customer.Show();
                     break;
             }
 
@@ -155,44 +170,62 @@ namespace AdminApp
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var pf = new EditAgency();
+            var pf = new EditAgency(store);
             if (pf.ShowDialog() == DialogResult.OK)
             {
-                store.AddAgency(pf.Agency);
-                agencyBindingSource.ResetBindings(false);
-                HotAndFuture();
-                store.IsDirty = true;
+                if (pf.Agency != null)
+                {
+                    store.AddAgency(pf.Agency);
+                    agencyBindingSource.ResetBindings(false);
+                    HotAndFuture();
+                    store.IsDirty = true;
 
-                // select and scroll to the last row
-                var lastIdx = agencyGridView1.Rows.Count - 1;
-                agencyGridView1.Rows[lastIdx].Selected = true;
-                agencyGridView1.FirstDisplayedScrollingRowIndex = lastIdx;
+                    // select and scroll to the last row
+                    var lastIdx = agencyGridView1.Rows.Count - 1;
+                    agencyGridView1.Rows[lastIdx].Selected = true;
+                    agencyGridView1.FirstDisplayedScrollingRowIndex = lastIdx;
+                }
             }
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var toEdit = agencyGridView1.SelectedRows[0].DataBoundItem as Agency;
-            var pf = new EditAgency(toEdit);
-
-            if (pf.ShowDialog() == DialogResult.OK)
+            if (agencyGridView1.Rows.Count > 0)
             {
-                agencyBindingSource.ResetBindings(false);
-                HotAndFuture();
-                store.IsDirty = true;
+               
+                var toEdit = agencyGridView1.SelectedRows[0].DataBoundItem as Agency;
+                var pf = new EditAgency(toEdit, store);
+
+                if (pf.ShowDialog() == DialogResult.OK)
+                {
+                    agencyBindingSource.ResetBindings(false);
+                    HotAndFuture();
+                    store.IsDirty = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sorry, but there is no agencies to edit");
             }
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var toDel = agencyGridView1.SelectedRows[0].DataBoundItem as Agency;
-            var res = MessageBox.Show($"Delete {toDel.Name} ?", "", MessageBoxButtons.YesNo);
-            if (res == DialogResult.Yes)
+            if (agencyGridView1.Rows.Count > 0)
             {
-                store.Agencies.Remove(toDel);
-                agencyBindingSource.ResetBindings(false);
-                HotAndFuture();
-                store.IsDirty = true;
+                var toDel = agencyGridView1.SelectedRows[0].DataBoundItem as Agency;
+                var res = MessageBox.Show($"Delete {toDel.Name} ?", "", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                {
+                    store.Agencies.Remove(toDel);
+                    agencyBindingSource.ResetBindings(false);
+                    HotAndFuture();
+                    store.IsDirty = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sorry, but there is no agencies to edit");
             }
         }
 
@@ -237,102 +270,157 @@ namespace AdminApp
             else
             {
                 MessageBox.Show("Be carefull! List of agencies is empty");
+                List<Portion> port = new List<Portion>();
+                portionBindingSource.DataSource = port;
+                portionBindingSource.ResetBindings(false);
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            agencyBindingSource.DataSource = store.Agencies;
-            clientBindingSource.DataSource = store.Clients;
-            //orderBindingSource.DataSource = store.Orders;
-            agencyBindingSource.ResetBindings(false);
-            clientBindingSource.ResetBindings(false);
-            portionBindingSource.ResetBindings(false);
-            agencyGridView1.Rows[0].Selected = true;
-            ClientsGridView.Rows[0].Selected = true;
-        }
-
+       
         private void ClientsGridView_SelectionChanged(object sender, EventArgs e)
         {
+            if (ClientsGridView.Rows.Count > 0)
             {
+
                 client = (Client)clientBindingSource.Current;
-                //portions
                 List<Order> orders = new List<Order>();
-                //
-
-                if (store.Orders.Count > 0)
+                if (client != null)
                 {
-                    
-                    for(int i = 0;i < store.Orders.Count; i++)
+                    if (store.Orders.Count > 0)
                     {
-                        if (store.Orders[i].Client.Name == client.Name)
+
+                        for (int i = 0; i < store.Orders.Count; i++)
                         {
-                            orders.Add(store.Orders[i]);
+                            if (store.Orders[i].Client.Name == client.Name && store.Orders[i].IsOrdered == true)
+                            {
+                                orders.Add(store.Orders[i]);
+                            }
+                            
                         }
-                    }
-                    //MessageBox.Show(Convert.ToString());
-                    orderBindingSource.DataSource = orders;
-                    orderBindingSource.ResetBindings(false);
-                }
-            }
-        }
-
-        private void OrdersGridView_SelectionChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void portionGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void BanButt_Click(object sender, EventArgs e)
-        {
-
-            var toDel = ClientsGridView.SelectedRows[0].DataBoundItem as Client;
-            var res = MessageBox.Show($"Delete {toDel.Name} ?", "", MessageBoxButtons.YesNo);
-            if (res == DialogResult.Yes)
-            {
-                store.Clients.Remove(toDel);
-                clientBindingSource.ResetBindings(false);
-                //HotAndFuture();
-                store.IsDirty = true;
-            }
-        }
-
-        private void OperateOrder_Click(object sender, EventArgs e)
-        {
-            //TODO: Statistics
-            var toProcess = OrdersGridView.SelectedRows[0].DataBoundItem as Order;
-            var res = MessageBox.Show($"Process {toProcess.Client}`s order ?", "", MessageBoxButtons.YesNo);
-            if (res == DialogResult.Yes)
-            {
-                store.Orders.Remove(toProcess);
-                List<Order> orders = new List<Order>();
-                if (store.Orders.Count > 1)
-                {
-                    for (int i = 1; i < store.Orders.Count; i++)
-                    {
-                        if (store.Orders[i].Client.Name == client.Name)
+                        if (orders.Count > 0)
                         {
-                            orders.Add(store.Orders[i]);
+                            orderBindingSource.DataSource = orders;
+                            orderBindingSource.ResetBindings(false);
+                            OrdersGridView.Rows[0].Selected = true;
                         }
-                    }
-                    //MessageBox.Show(Convert.ToString());
-                    orderBindingSource.DataSource = orders;
-                    orderBindingSource.ResetBindings(false);
+                        else
+                        {
+                            orderBindingSource.DataSource = orders;
+                            orderBindingSource.ResetBindings(false);
+                        }
 
-                    store.IsDirty = true;
+                    }
                 }
                 else
                 {
                     orderBindingSource.DataSource = orders;
                     orderBindingSource.ResetBindings(false);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Be carefull! List of clients is empty(");
+                List<Portion> port = new List<Portion>();
+                clientBindingSource.DataSource = port;
+                clientBindingSource.ResetBindings(false);
+            }
+        
+        }
 
+       
+
+        private void BanButt_Click(object sender, EventArgs e)
+        {
+           
+            if (ClientsGridView.Rows.Count > 0)
+            {
+                for(int i = 0; i <  ClientsGridView.Rows.Count;i++)
+                {
+                    if(ClientsGridView.Rows[i].Selected == true)
+                    {
+                        break;
+                    }
+                    else if(i + 1 == ClientsGridView.Rows.Count)
+                    {
+                        ClientsGridView.Rows[0].Selected = true;
+                    }
+                }
+             
+                var toDel = ClientsGridView.SelectedRows[0].DataBoundItem as Client;
+                var res = MessageBox.Show($"Delete {toDel.Name} ?", "", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                {
+                    store.Clients.Remove(toDel);
+                    clientBindingSource.ResetBindings(false);
+                    //HotAndFuture();
                     store.IsDirty = true;
                 }
+            }
+            else
+            {
+                MessageBox.Show("The list of clients is empty( Banning from app is impossible");
+            }
+        }
 
+        private void OperateOrder_Click(object sender, EventArgs e)
+        {
+            if (OrdersGridView.Rows.Count > 0)
+            {
+                //for (int i = 0; i < ClientsGridView.Rows.Count; i++)
+                //{
+                //    if (ClientsGridView.Rows[i].Selected == true)
+                //    {
+                //        break;
+                //    }
+                //    else if (i + 1 == ClientsGridView.Rows.Count)
+                //    {
+                //        ClientsGridView.Rows[0].Selected = true;
+                //    }
+                //}
+                var toProcess = OrdersGridView.SelectedRows[0].DataBoundItem as Order;
+                var res = MessageBox.Show($"Process {toProcess.Client}`s order ?", "", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                {
+                    toProcess.CheckedByAdmin = true;
+                    SaveCompletedOrders(toProcess);
+                    foreach (Order o in store.Orders)
+                    {
+                        if (o.Client.Name == client.Name)
+                        {
+                            o.IsOrdered = false;
+                        }
+                    }
+                    store.Orders.Remove(toProcess);
+                    List<Order> orders = new List<Order>();
+                    if (store.Orders.Count > 1)
+                    {
+                        for (int i = 1; i < store.Orders.Count; i++)
+                        {
+                            if (store.Orders[i].Client.Name == client.Name)
+                            {
+                                store.Orders[i].IsOrdered = false;
+                                orders.Add(store.Orders[i]);
+                            }
+                        }
+
+                        orderBindingSource.DataSource = orders;
+                        orderBindingSource.ResetBindings(false);
+
+                        store.IsDirty = true;
+                    }
+                    else
+                    {
+                        orderBindingSource.DataSource = orders;
+                        orderBindingSource.ResetBindings(false);
+
+                        store.IsDirty = true;
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Sorry,there is nothing to operate(");
             }
         }
 
@@ -343,14 +431,49 @@ namespace AdminApp
 
         private void ViewOrder_Click(object sender, EventArgs e)
         {
-            var toSee = OrdersGridView.SelectedRows[0].DataBoundItem as Order;
-            var pf = new SeeThisOrdercs(toSee);
-
-            if (pf.ShowDialog() == DialogResult.OK)
+            if (OrdersGridView.Rows.Count > 0)
             {
-                agencyBindingSource.ResetBindings(false);
-                HotAndFuture();
-                store.IsDirty = true;
+                //OrdersGridView.SelectedRows[0].Selected = true;
+                var toSee = OrdersGridView.SelectedRows[0].DataBoundItem as Order;
+                var pf = new SeeThisOrdercs(toSee);
+
+                if (pf.ShowDialog() == DialogResult.OK)
+                {
+                    agencyBindingSource.ResetBindings(false);
+                    HotAndFuture();
+                    store.IsDirty = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("There is nothing to see(");
+            }
+        }
+        public void SaveCompletedOrders(Order order)
+        {
+            using (var wr = new StreamWriter("CompletedOrders.txt"))
+            {
+                wr.WriteLine("-------------------------------------------");
+                wr.WriteLine();
+
+                if (order.IsOrdered == true && order.CheckedByAdmin == true)
+                    {
+                        wr.WriteLine("Name: " + order.Client.Name);
+                        wr.WriteLine("Data: " + order.DateTime);
+                        wr.WriteLine(order.Portions.Count);
+                        foreach (var p in order.Portions)
+                        {
+                            wr.WriteLine("Agency: " + p.AgencyName);
+                            wr.WriteLine("Location: " + p.Trip.Location);
+                            wr.WriteLine("Host: " + p.Trip.Host);
+                            wr.WriteLine("Amount of Trips: " + p.Amount);
+                            wr.WriteLine("Total price: " + p.Trip.Price * p.Amount);
+                        wr.WriteLine("-------------------------------------------");
+                        }
+                    }
+                wr.WriteLine("-------------------------------------------");
+                wr.WriteLine();
+
             }
         }
     }

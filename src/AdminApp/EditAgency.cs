@@ -11,34 +11,45 @@ using TravelAgency.Models;
 
 namespace AdminApp
 {
-    // For create or update a product.
+    // For create or update an Agency .
     //
     public partial class EditAgency : Form
     {
         public Agency Agency { set; get; }
-
-        // To create a new product.
+        public VisitEasy Store;
+        // To create a new Agency.
         
-        public EditAgency()
+        public EditAgency(VisitEasy store)
         {
             InitializeComponent();
             Agency = new Agency();
+            Store = store;
         }
-        public EditAgency(Agency agency) :this()
+        public EditAgency(Agency agency, VisitEasy store) :this(store)
         {
+            Store = store;
             Agency = agency;
             NameBox.Text = agency.Name;
             DescriptionBox.Text = agency.Description;
             Agency a = agency;
             List<Portion> port = a.Portions;
-            if(port == null)
-            {
-                 port = new List<Portion> { new Portion(new Trip("Unknown", 0, "Unknown", "Unknown", "Unknown"), 0) };
-            }
+            //if(port == null)
+            //{
+            //     port = new List<Portion> { new Portion(new Trip("Unknown", 0, "Unknown", "Unknown", "Unknown"), 0) };
+            //}
 
             imageBox.Image = agency.Image;
         }
-
+        private void EditAgency_Load(object sender, EventArgs e)
+        {
+            portionBindingSource.DataSource = Agency.Portions;
+            portionBindingSource.ResetBindings(false);
+            if (tripGridView.Rows.Count > 0)
+            {
+                tripGridView.Rows[0].Selected = true;
+            }
+            SendButt.Hide();
+        }
         private void imageBox_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -53,46 +64,149 @@ namespace AdminApp
         }
 
 
-        private void RequiredValidate(Control c, FormClosingEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(c.Text))
-            {
-                c.BackColor = Color.Pink;
-                e.Cancel = true;
-            }
-        }
+       
 
         private void EditAgency_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (DialogResult != DialogResult.OK)
-                return;
-            RequiredValidate(NameBox, e);
-            RequiredValidate(DescriptionBox, e);
+            if (Agency != null)
+            {
+                if (DialogResult != DialogResult.OK)
+                    return;
+            }
+         
+          
         }
 
+       
         private void SaveAgency_Click(object sender, EventArgs e)
         {
             if (Agency == null)
             {
                 Agency = new Agency();
             }
-            Agency.Name = NameBox.Text;
-            Agency.Description = DescriptionBox.Text;
-            Agency.Portions = new List<Portion>();
-            Agency.Portions = (List<Portion>)portionBindingSource.DataSource;
-            foreach(Portion p in Agency.Portions)
-            {
-                p.AgencyName = Agency.Name;
-            }
-            Agency.AmountOfTrips = Agency.Portions.Count;
-            Agency.Image = imageBox.Image;
-            portionBindingSource.DataSource = Agency.Portions;
-            portionBindingSource.ResetBindings(false);
-        }
+            //Validation
+            bool flag = true;
 
+            ValidateItems(DescriptionBox);
+            if (DescriptionBox.Text.Length > 50 || DescriptionBox.Text.Length < 11)
+            {
+                MessageBox.Show("Inappropriate length for the Description. Description should be longer than 10 less than 50 (letters)");
+                DescriptionBox.BackColor = Color.MediumSeaGreen;
+                MessageBox.Show("Fill in the blank space,please!");
+                DescriptionBox.Text = string.Empty;
+                DescriptionBox.BackColor = Color.FromArgb(253, 236, 138);
+            }
+            
+            Agency.Description = DescriptionBox.Text;
+
+
+
+            ValidateItems(NameBox);
+            if (NameBox.Text.Length > 20 || NameBox.Text.Length < 5)
+            {
+                MessageBox.Show("Inappropriate length for the name. Name should be longer than 4 less than 20 (letters)");
+                NameBox.BackColor = Color.MediumSeaGreen;
+                NameBox.Text = string.Empty;
+                NameBox.BackColor = Color.FromArgb(253, 236, 138);
+            }
+            
+            else
+            {
+                for (int i = 0; i < NameBox.Text.Length; i++)
+                {
+                    if (NameBox.Text[i] >= '0' && NameBox.Text[i] <= '9')
+                    {
+
+                        NameBox.BackColor = Color.MediumSeaGreen;
+                        MessageBox.Show("Name contains numbers");                       
+                        NameBox.Text = string.Empty;
+                        NameBox.BackColor = Color.FromArgb(253, 236, 138);
+                        break;
+                    }
+                }
+            }
+
+
+            Agency.Name = NameBox.Text;
+
+
+            Agency.Image = imageBox.Image;
+            bool SuchAgencyExists = false;
+            if (Agency.Image == null)
+            {
+                imageBox.BackColor = Color.MediumSeaGreen;
+                MessageBox.Show("You didn`t choose the picture!");
+                imageBox.BackColor = Color.FromArgb(253, 236, 138);
+                
+            }
+            foreach(Agency  a in Store.Agencies)
+            {
+                if(a.Name == Agency.Name)
+                {
+                    SuchAgencyExists = true;
+
+                    break;
+                }
+                else
+                {
+                    SuchAgencyExists = false;
+                }
+            }
+
+            if(SuchAgencyExists == true)
+            {
+                MessageBox.Show("Agency with such name already exists!"); NameBox.BackColor = Color.MediumSeaGreen;
+                NameBox.Text = string.Empty;
+                NameBox.BackColor = Color.FromArgb(253, 236, 138);
+            }
+            
+            if(Agency.Portions.Count == 0)
+            {
+                MessageBox.Show("Add some trips! It`s impossible to send agency without any trips to the client!");
+            }
+            else
+            {
+                Agency.Portions = new List<Portion>();
+                Agency.Portions = (List<Portion>)portionBindingSource.DataSource;
+                foreach (Portion p in Agency.Portions)
+                {
+                    p.AgencyName = Agency.Name;
+                }
+                Agency.AmountOfTrips = Agency.Portions.Count;
+                portionBindingSource.DataSource = Agency.Portions;
+                portionBindingSource.ResetBindings(false);
+            }
+            if (Agency.Name == "Hello" || Agency.Description == "I`m going to hell" || Agency.Image == null ||
+                Agency.Portions == null || SuchAgencyExists == true)
+            {
+                flag = false;
+            }
+            if(flag == true)
+            {
+                SendButt.Show();
+                SaveAgency.Hide();
+            }
+            else
+            {
+                MessageBox.Show("You missed something!");
+            }
+            
+        }
+        private void ValidateItems(Control c)
+        {
+            if (string.IsNullOrWhiteSpace(c.Text))
+            {
+                c.BackColor = Color.MediumSeaGreen;
+                MessageBox.Show("Fill in the blank space,please!");
+                c.Text = string.Empty;
+                c.BackColor = Color.FromArgb(253, 236, 138);
+
+            }
+        }
         private void CancelSaving_Click(object sender, EventArgs e)
         {
-            
+            if (DialogResult != DialogResult.OK)
+                return;
         }
 
         private void addTrip_Click(object sender, EventArgs e)
@@ -105,41 +219,52 @@ namespace AdminApp
                 portionBindingSource.ResetBindings(false);
 
                 // select and scroll to the last row
-                var lastIdx = tripGridView.Rows.Count - 1;
-               // tripGridView.Rows[lastIdx].Selected = true;
-                //tripGridView.FirstDisplayedScrollingRowIndex = lastIdx;
+                if (tripGridView.Rows.Count > 1)
+                {
+                    var lastIdx = tripGridView.Rows.Count - 1;
+                    tripGridView.Rows[lastIdx].Selected = true;
+                    tripGridView.FirstDisplayedScrollingRowIndex = lastIdx;
+                }
             }
         }
 
         private void editTrip_Click(object sender, EventArgs e)
         {
-            var toEdit = tripGridView.SelectedRows[0].DataBoundItem as Portion;
-            var pf = new EditPortion(toEdit);
-
-            if (pf.ShowDialog() == DialogResult.OK)
+            if (tripGridView.Rows.Count > 0)
             {
-                portionBindingSource.ResetBindings(false);
+                var toEdit = tripGridView.SelectedRows[0].DataBoundItem as Portion;
+                var pf = new EditPortion(toEdit);
+
+                if (pf.ShowDialog() == DialogResult.OK)
+                {
+                    portionBindingSource.ResetBindings(false);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sorry,there is nothing to edit.By the way, add some potions or delete the agency..");
             }
         }
 
         private void DeleteTrip_Click(object sender, EventArgs e)
         {
-
-            var toDel = tripGridView.SelectedRows[0].DataBoundItem as Portion;
-            var res = MessageBox.Show($"Delete {toDel.Trip.Location} ?", "", MessageBoxButtons.YesNo);
-            if (res == DialogResult.Yes)
+            if (tripGridView.Rows.Count > 0)
             {
-                Agency.Portions.Remove(toDel);
-                portionBindingSource.ResetBindings(false);
+                tripGridView.Rows[0].Selected = true;
+                var toDel = tripGridView.SelectedRows[0].DataBoundItem as Portion;
+                var res = MessageBox.Show($"Delete {toDel.Trip.Location} ?", "", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                {
+                    Agency.Portions.Remove(toDel);
+                    portionBindingSource.ResetBindings(false);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sorry,there is nothing to delete.By the way, add some potions or delete the agency..");
             }
         }
 
-        private void EditAgency_Load(object sender, EventArgs e)
-        {
-            portionBindingSource.DataSource = Agency.Portions;
-            portionBindingSource.ResetBindings(false);
-
-            //tripGridView.Rows[0].Selected = true;
-        }
+      
     }
 }

@@ -41,15 +41,16 @@
             this.imageBox = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.SaveAgency = new System.Windows.Forms.Button();
-            this.CancelSaving = new System.Windows.Forms.Button();
             this.tripGridView = new System.Windows.Forms.DataGridView();
-            this.tripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LocationOfTrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceOfEachTrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.portionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.addTrip = new System.Windows.Forms.Button();
             this.editTrip = new System.Windows.Forms.Button();
             this.DeleteTrip = new System.Windows.Forms.Button();
+            this.SendButt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tripGridView)).BeginInit();
@@ -171,36 +172,17 @@
             this.SaveAgency.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SaveAgency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.SaveAgency.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveAgency.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.SaveAgency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveAgency.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.SaveAgency.ForeColor = System.Drawing.Color.Olive;
-            this.SaveAgency.Location = new System.Drawing.Point(32, 393);
+            this.SaveAgency.Location = new System.Drawing.Point(201, 393);
             this.SaveAgency.Margin = new System.Windows.Forms.Padding(4);
             this.SaveAgency.Name = "SaveAgency";
-            this.SaveAgency.Size = new System.Drawing.Size(131, 44);
+            this.SaveAgency.Size = new System.Drawing.Size(157, 44);
             this.SaveAgency.TabIndex = 23;
-            this.SaveAgency.Text = "Save";
+            this.SaveAgency.Text = "Check";
             this.SaveAgency.UseVisualStyleBackColor = false;
             this.SaveAgency.Click += new System.EventHandler(this.SaveAgency_Click);
-            // 
-            // CancelSaving
-            // 
-            this.CancelSaving.AccessibleName = "";
-            this.CancelSaving.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.CancelSaving.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
-            this.CancelSaving.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CancelSaving.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelSaving.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
-            this.CancelSaving.ForeColor = System.Drawing.Color.Olive;
-            this.CancelSaving.Location = new System.Drawing.Point(201, 393);
-            this.CancelSaving.Margin = new System.Windows.Forms.Padding(4);
-            this.CancelSaving.Name = "CancelSaving";
-            this.CancelSaving.Size = new System.Drawing.Size(131, 44);
-            this.CancelSaving.TabIndex = 24;
-            this.CancelSaving.Text = "Cancel";
-            this.CancelSaving.UseVisualStyleBackColor = false;
-            this.CancelSaving.Click += new System.EventHandler(this.CancelSaving_Click);
             // 
             // tripGridView
             // 
@@ -208,8 +190,9 @@
             this.tripGridView.BackgroundColor = System.Drawing.Color.MediumSeaGreen;
             this.tripGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tripGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tripDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn});
+            this.LocationOfTrip,
+            this.amountDataGridViewTextBoxColumn,
+            this.PriceOfEachTrip});
             this.tripGridView.DataSource = this.portionBindingSource;
             this.tripGridView.Location = new System.Drawing.Point(32, 186);
             this.tripGridView.Name = "tripGridView";
@@ -218,13 +201,13 @@
             this.tripGridView.Size = new System.Drawing.Size(300, 185);
             this.tripGridView.TabIndex = 25;
             // 
-            // tripDataGridViewTextBoxColumn
+            // LocationOfTrip
             // 
-            this.tripDataGridViewTextBoxColumn.DataPropertyName = "Trip";
-            this.tripDataGridViewTextBoxColumn.HeaderText = "Trip";
-            this.tripDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tripDataGridViewTextBoxColumn.Name = "tripDataGridViewTextBoxColumn";
-            this.tripDataGridViewTextBoxColumn.Width = 125;
+            this.LocationOfTrip.DataPropertyName = "LocationOfTrip";
+            this.LocationOfTrip.HeaderText = "LocationOfTrip";
+            this.LocationOfTrip.MinimumWidth = 6;
+            this.LocationOfTrip.Name = "LocationOfTrip";
+            this.LocationOfTrip.Width = 125;
             // 
             // amountDataGridViewTextBoxColumn
             // 
@@ -233,6 +216,14 @@
             this.amountDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             this.amountDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // PriceOfEachTrip
+            // 
+            this.PriceOfEachTrip.DataPropertyName = "PriceOfEachTrip";
+            this.PriceOfEachTrip.HeaderText = "PriceOfEachTrip";
+            this.PriceOfEachTrip.MinimumWidth = 6;
+            this.PriceOfEachTrip.Name = "PriceOfEachTrip";
+            this.PriceOfEachTrip.Width = 125;
             // 
             // portionBindingSource
             // 
@@ -297,17 +288,35 @@
             this.DeleteTrip.UseVisualStyleBackColor = false;
             this.DeleteTrip.Click += new System.EventHandler(this.DeleteTrip_Click);
             // 
+            // SendButt
+            // 
+            this.SendButt.AccessibleName = "";
+            this.SendButt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SendButt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
+            this.SendButt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SendButt.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.SendButt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SendButt.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
+            this.SendButt.ForeColor = System.Drawing.Color.Olive;
+            this.SendButt.Location = new System.Drawing.Point(32, 393);
+            this.SendButt.Margin = new System.Windows.Forms.Padding(4);
+            this.SendButt.Name = "SendButt";
+            this.SendButt.Size = new System.Drawing.Size(131, 44);
+            this.SendButt.TabIndex = 29;
+            this.SendButt.Text = "Finish";
+            this.SendButt.UseVisualStyleBackColor = false;
+            // 
             // EditAgency
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SendButt);
             this.Controls.Add(this.DeleteTrip);
             this.Controls.Add(this.editTrip);
             this.Controls.Add(this.addTrip);
             this.Controls.Add(this.tripGridView);
-            this.Controls.Add(this.CancelSaving);
             this.Controls.Add(this.SaveAgency);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.imageBox);
@@ -347,14 +356,15 @@
         private System.Windows.Forms.PictureBox imageBox;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button SaveAgency;
-        private System.Windows.Forms.Button CancelSaving;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button addTrip;
         private System.Windows.Forms.Button editTrip;
         private System.Windows.Forms.Button DeleteTrip;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tripDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource portionBindingSource;
         private System.Windows.Forms.DataGridView tripGridView;
+        private System.Windows.Forms.Button SendButt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LocationOfTrip;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PriceOfEachTrip;
     }
 }

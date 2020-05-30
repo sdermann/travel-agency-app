@@ -24,11 +24,11 @@ namespace TravelAgency.Models
        
 
 
-        public Trip(string location = "unknown", decimal price = 0, string additionalservise = "unknown", string accomodation = "unknown", string host = "unknown",Image image = null, Image imageOfHost = null)
+        public Trip(string location = "unknown", decimal price = 0, string additionalservice = "unknown", string accomodation = "unknown", string host = "unknown",Image image = null, Image imageOfHost = null)
         {
             Location = location;
             Price = price;
-            AdditionalService = additionalservise;
+            AdditionalService = additionalservice;
             Accomodation = accomodation;
             Host = host;
             Image = image;
