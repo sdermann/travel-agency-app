@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TravelAgency.Models
 {
-    //Турагентство - это коллекция порций
+    //Agency is a collection of  portions + name + description + amount of likes + amount of trips + image.
     [Serializable]
     public class Agency
     {

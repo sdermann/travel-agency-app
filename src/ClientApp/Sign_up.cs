@@ -16,7 +16,7 @@ namespace ClientApp
     {
         VisitEasy store;
 
-       
+       //To process our VisitEasy store.
         public Sign_up(VisitEasy store)
         {
             InitializeComponent();
@@ -146,6 +146,11 @@ namespace ClientApp
                     CustomerAutor.Show();
                     break;
             }
+        }
+
+        private void Help_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Name longer than 4 anf less than 10\nEmail with normal form\nPassword longer than 4 less than 10 withoun letters");
         }
     }
 }

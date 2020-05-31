@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TravelAgency.Models
 {
-    //Клиент -  имя + пароль + адрес.
+    //Client = name + email + password.
     [Serializable]
     public class Client : User
     {

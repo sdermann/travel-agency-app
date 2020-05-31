@@ -63,7 +63,7 @@ namespace AdminApp
                 int password;
                 bool isInt = int.TryParse(Password.Text, out number);
                 bool isIntName = int.TryParse(NameAdmin.Text, out number);
-                // Данные с полей
+                // Data
                 if (isIntName == true || isInt == false)
                 {
                     if (isIntName == true)
@@ -96,7 +96,7 @@ namespace AdminApp
                     nickname = NameAdmin.Text;
                     password = Convert.ToInt32(Password.Text);
                     string pass = SicretCode.Text;
-                    // Проверяем, нет ли уже такого пользователя
+                    // Check if user exists
                     if (store.Admins.FirstOrDefault(u => u.Name == nickname ) != null)
                     {
                         MessageBox.Show("Sorry, such Admin-name already exists in our team..");

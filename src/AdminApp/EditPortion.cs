@@ -33,7 +33,7 @@ namespace AdminApp
                 "OnSale", "FutureTrip","None"
             };
 
-            // add lists
+            // Add lists.
             LocationOfTrip.Items.AddRange(states);
             OnSaleOrFutureUpDown.Items.AddRange(on);
             AmountOfTrips.Maximum = 30;
@@ -100,10 +100,7 @@ namespace AdminApp
 
 
 
-
-
-
-
+        //Validation.
         private void CheckButt_Click(object sender, EventArgs e)
         {
             bool flag = true;
@@ -112,7 +109,7 @@ namespace AdminApp
                 Portion = new Portion();
             }
 
-            //Portion.Amount = (int)AmountOfTrips.Value;
+            
             if (LocationOfTrip.Text != "Location")
             {
                 Portion.Trip.Location = LocationOfTrip.Text;
@@ -123,7 +120,7 @@ namespace AdminApp
                 MessageBox.Show("You didn`t choose the location");
                 flag = false;
             }
-            //Portion.Trip.Location = LocationOfTrip.Text;
+           
 
 
             int number;
@@ -140,8 +137,7 @@ namespace AdminApp
                 PriceBox.BackColor = Color.FromArgb(253, 236, 138);
                 flag = false;
             }
-            // Portion.Trip.Price = Convert.ToInt32(PriceBox.Text);
-            //Portion.PriceOfEachTrip = Portion.Trip.Price;
+            
 
 
 
@@ -208,7 +204,7 @@ namespace AdminApp
                 flag = false;
 
             }
-            //Portion.Trip.Image = tripPicBox.Image;
+            
             Portion.Trip.ImageOfHost = HostPic.Image;
             if (Portion.Trip.ImageOfHost == null)
             {

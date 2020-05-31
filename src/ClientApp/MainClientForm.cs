@@ -11,7 +11,7 @@ using TravelAgency.Models;
 
 namespace ClientApp
 {
-    //TODO:  дизайн
+    
    
     public partial class MainClientForm : Form
     {
@@ -39,7 +39,7 @@ namespace ClientApp
             };
 
 
-            // добавляем список элементовItems
+            // Add range og choise.
             LocationsForClient.Items.AddRange(states);
             
 
@@ -87,8 +87,7 @@ namespace ClientApp
             }
           
         }
-
-     
+   
         private void Unrate_Click(object sender, EventArgs e)
         {
             Agency temp;
@@ -126,8 +125,7 @@ namespace ClientApp
                 agencyBindingSource.DataSource = GoodAgency;
                 agencyBindingSource.ResetBindings(false);
         }
-
-      
+  
 
         private void Question_MouseHover(object sender, EventArgs e)
         {
@@ -135,7 +133,6 @@ namespace ClientApp
         }
 
     
-
         private void nameOfagency_TextChanged(object sender, EventArgs e)
         {
 
@@ -184,8 +181,7 @@ namespace ClientApp
             agencyBindingSource.ResetBindings(false);
          
         }
-
-     
+  
 
         private void Undo_Butt_Click(object sender, EventArgs e)
         {
@@ -233,7 +229,6 @@ namespace ClientApp
             portionBindingSource.DataSource = RightPortion;
             portionBindingSource.ResetBindings(false);
         }
-
 
 
         private void More_Butt_Click(object sender, EventArgs e)
@@ -292,7 +287,6 @@ namespace ClientApp
             portionBindingSource.ResetBindings(false);
         }
 
-
         private void LocationsForClient_SelectedItemChanged(object sender, EventArgs e)
         {
             RightPortion = new List<Portion>();
@@ -309,7 +303,6 @@ namespace ClientApp
             portionBindingSource.DataSource = RightPortion;
             portionBindingSource.ResetBindings(false);
         }
-
 
         private void AgencyView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -337,8 +330,6 @@ namespace ClientApp
 
            
         }
-
-      
 
         private void Compilation_Click(object sender, EventArgs e)
         {
@@ -370,7 +361,6 @@ namespace ClientApp
                 MessageBox.Show("Sorry,there is no potion of trip(");
             }
         }
-
         private void MainClientForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             var res = MessageBox.Show("Do you want to exit from the app?", "", MessageBoxButtons.OKCancel);
@@ -457,8 +447,6 @@ namespace ClientApp
             agencyBindingSource.ResetBindings(false);
         }
 
-     
-
         private void DeletePortFromOrder_Click(object sender, EventArgs e)
         {
             if (OrdersGridView.Rows.Count > 0)
@@ -475,10 +463,10 @@ namespace ClientApp
                     }
                 }
                 bool PleaseBreakIt = false;
-                //OrdersGridView.Rows[0].Selected = true;
+                
                 var toDel = OrdersGridView.SelectedRows[0].DataBoundItem as Portion;
                 int count = 0;
-                //int n = 2;
+               
                 var res = MessageBox.Show($"Delete selected trip to the {toDel.Trip.Location} from your Basket ?(", "", MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)
                 {
@@ -593,61 +581,7 @@ namespace ClientApp
         {
             MessageBox.Show("Hello! \nThis is your personal basket)\nPress Delete to remove one selected portion of trip\nPress Complete to send request to the Admin\nWe wish you to have the best trip ever with VisitEasy");
         }
-
-        private void TripsForClientGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            if (port.Count > 0)
-            {
-               //foreach (DataGridViewRow row in TripsForClientGridView.Rows)
-               //     for (int i = 0; i < port.Count; i++)
-               //     {
-               //         if (port[i].OnSaleOrInFuture == "OnSale")
-               //         {
-               //             row.DefaultCellStyle.BackColor = Color.FromArgb(255, 97, 97);
-               //             break;
-
-               //         }
-               //         else if (port[i].OnSaleOrInFuture == "FutureTrip")
-               //         {
-               //             row.DefaultCellStyle.BackColor = Color.FromArgb(125, 160, 255);
-               //             break;
-               //         }
-               //         else
-               //         {
-               //             row.DefaultCellStyle.BackColor = Color.FromArgb(255, 250, 110);
-               //             break;
-               //         }
-               //     }
-
-            }
-        }
-
-        private void OrdersGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            if (Order.Portions.Count > 0)
-            {
-                for (int j = 0; j < OrdersGridView.Rows.Count; j++)
-                {
-                    for (int i = 0; i < Order.Portions.Count; i++)
-                    {
-                        if (Order.Portions[i].OnSaleOrInFuture == "OnSale")
-                        {
-                            OrdersGridView.Rows[j].DefaultCellStyle.BackColor = Color.FromArgb(255, 97, 97);
-
-                        }
-                        else if (Order.Portions[i].OnSaleOrInFuture == "FutureTrip")
-                        {
-                            OrdersGridView.Rows[j].DefaultCellStyle.BackColor = Color.FromArgb(125, 160, 255);
-                        }
-                        else if(Order.Portions[i].OnSaleOrInFuture == "None")
-                        {
-                            OrdersGridView.Rows[j].DefaultCellStyle.BackColor = Color.FromArgb(255, 250, 110);
-                        }
-                    }
-                }
-            }
-        }
-
+        
         private void less_Click(object sender, EventArgs e)
         {
 

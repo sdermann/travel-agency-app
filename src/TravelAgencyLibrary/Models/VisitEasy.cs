@@ -9,24 +9,24 @@ using System.Threading.Tasks;
 
 namespace TravelAgency.Models
 {
-    //Контора VISIT EASY - это турагентства, клиенты, обновления, акции, заказы
+    //Store VisitEasy is a collection of agencies + clients + admins + orders.
     [Serializable]
     public class VisitEasy 
     {
 
 
-            public List<Agency> Agencies { private set; get; }
-            public List<Client> Clients { private set; get; }
-            public List<Admin> Admins { private set; get; }
-            public List<Order> Orders {private set; get; }
+        public List<Agency> Agencies { private set; get; }
+        public List<Client> Clients { private set; get; }
+        public List<Admin> Admins { private set; get; }
+        public List<Order> Orders {private set; get; }
 
-            public VisitEasy()
-            {
-                Agencies = new List<Agency>();
-                Clients = new List<Client>();
-                Admins = new List<Admin>();
-                Orders = new List<Order>();
-            }
+        public VisitEasy()
+        {
+             Agencies = new List<Agency>();
+             Clients = new List<Client>();
+             Admins = new List<Admin>();
+             Orders = new List<Order>();
+        }
 
 
         // If any data changed.
@@ -34,7 +34,7 @@ namespace TravelAgency.Models
         public void FillTestData(int n)
             {
            
-            // Agencies
+            // Agencies.
             Agencies = new List<Agency>();
             var noImage = new Bitmap(Path.GetFullPath("palm.png"));
             for (int i = 0; i < n; i++)

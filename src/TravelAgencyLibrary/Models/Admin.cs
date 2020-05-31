@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelAgency.Models
 {
-    // Администратор -  имя + пароль.
+    // Аdmin = name + password.
     [Serializable]
     public class Admin : User
     {

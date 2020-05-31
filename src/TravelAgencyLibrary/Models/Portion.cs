@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace TravelAgency.Models
 {
-    // Порция - это путевки + количество.
+    // Portions is a trip and its amount.
     [Serializable]
 
     public class Portion
@@ -20,7 +20,7 @@ namespace TravelAgency.Models
         public string LocationOfTrip { set; get; }
         public decimal PriceOfEachTrip { set; get; }
       
-       
+       //Constructor.
         public Portion(Trip trip = null, int amount = 0,string onSaleOrInFuture = "None")
         {
 

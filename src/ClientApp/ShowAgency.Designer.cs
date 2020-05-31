@@ -213,6 +213,7 @@
             this.LastTripsGridView.Location = new System.Drawing.Point(12, 136);
             this.LastTripsGridView.MultiSelect = false;
             this.LastTripsGridView.Name = "LastTripsGridView";
+            this.LastTripsGridView.ReadOnly = true;
             this.LastTripsGridView.RowHeadersWidth = 51;
             this.LastTripsGridView.RowTemplate.Height = 24;
             this.LastTripsGridView.Size = new System.Drawing.Size(400, 300);
@@ -235,19 +236,21 @@
             // 
             // locationOfTripDataGridViewTextBoxColumn
             // 
-            this.locationOfTripDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.locationOfTripDataGridViewTextBoxColumn.DataPropertyName = "LocationOfTrip";
             this.locationOfTripDataGridViewTextBoxColumn.HeaderText = "Location";
-            this.locationOfTripDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.locationOfTripDataGridViewTextBoxColumn.MinimumWidth = 50;
             this.locationOfTripDataGridViewTextBoxColumn.Name = "locationOfTripDataGridViewTextBoxColumn";
+            this.locationOfTripDataGridViewTextBoxColumn.ReadOnly = true;
+            this.locationOfTripDataGridViewTextBoxColumn.Width = 50;
             // 
             // onSaleOrInFutureDataGridViewTextBoxColumn
             // 
-            this.onSaleOrInFutureDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.onSaleOrInFutureDataGridViewTextBoxColumn.DataPropertyName = "OnSaleOrInFuture";
             this.onSaleOrInFutureDataGridViewTextBoxColumn.HeaderText = "OnSaleOrInFuture";
-            this.onSaleOrInFutureDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.onSaleOrInFutureDataGridViewTextBoxColumn.MinimumWidth = 50;
             this.onSaleOrInFutureDataGridViewTextBoxColumn.Name = "onSaleOrInFutureDataGridViewTextBoxColumn";
+            this.onSaleOrInFutureDataGridViewTextBoxColumn.ReadOnly = true;
+            this.onSaleOrInFutureDataGridViewTextBoxColumn.Width = 50;
             // 
             // amountDataGridViewTextBoxColumn
             // 
@@ -255,6 +258,7 @@
             this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
             this.amountDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
             this.amountDataGridViewTextBoxColumn.Width = 125;
             // 
             // priceOfEachTripDataGridViewTextBoxColumn
@@ -263,7 +267,8 @@
             this.priceOfEachTripDataGridViewTextBoxColumn.HeaderText = "Price";
             this.priceOfEachTripDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.priceOfEachTripDataGridViewTextBoxColumn.Name = "priceOfEachTripDataGridViewTextBoxColumn";
-            this.priceOfEachTripDataGridViewTextBoxColumn.Width = 125;
+            this.priceOfEachTripDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priceOfEachTripDataGridViewTextBoxColumn.Width = 122;
             // 
             // ShowAgency
             // 

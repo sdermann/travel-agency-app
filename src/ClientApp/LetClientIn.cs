@@ -17,6 +17,7 @@ namespace ClientApp
     {
         internal VisitEasy store;
         Client Client;
+        //Creat our store.
         public LetClientIn()
         {
             InitializeComponent();
@@ -82,7 +83,7 @@ namespace ClientApp
                 string email;
                 bool isInt = int.TryParse(ClientPassword.Text, out number);
                 bool isIntName = int.TryParse(ClientName.Text, out number);
-                // Данные с полей
+                // Data.
                 if (isIntName == true || isInt == false)
                 {
                     if (isIntName == true)
@@ -116,7 +117,7 @@ namespace ClientApp
                     password = Convert.ToInt32(ClientPassword.Text);
                     email = ClientEmail.Text;
                   
-                    // Проверяем, нет ли уже такого пользователя
+                    // Check if user exists.
                     if (store.Clients.FirstOrDefault(u => u.Name == nickname && u.Password == password) != null)
                     {
                         foreach (Client c in store.Clients)
@@ -190,23 +191,6 @@ namespace ClientApp
 
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-        //private void Help_MouseHover(object sender, EventArgs e)
-        //{
-        //    MessageBox.Show("Hello! \n Name can consist of any letters (more than 4 less than 10) \n Password has to consist ONLY of numbers (more than 4 less than 10)");
-        //}
-
-
 
     }
 }

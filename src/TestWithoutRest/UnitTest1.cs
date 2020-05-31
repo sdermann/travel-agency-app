@@ -7,6 +7,7 @@ using TravelAgency.Models;
 namespace TestWithoutRest
 {
     [TestClass]
+    //First test.
     public class UnitTest1
     {
         [TestMethod]

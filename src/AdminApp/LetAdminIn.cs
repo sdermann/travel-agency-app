@@ -29,7 +29,6 @@ namespace AdminApp
             store.Load();
         }
 
-
         private void Sign_in_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(AdminName.Text) || string.IsNullOrWhiteSpace(AdminPassword.Text))
@@ -69,7 +68,7 @@ namespace AdminApp
                 int password;
                 bool isInt = int.TryParse(AdminPassword.Text, out number);
                 bool isIntName = int.TryParse(AdminName.Text, out number);
-                // Данные с полей
+                //Data.
                 if (isIntName == true || isInt == false)
                 {
                     if (isIntName == true)
@@ -101,7 +100,7 @@ namespace AdminApp
                 {
                     nickname = AdminName.Text;
                     password = Convert.ToInt32(AdminPassword.Text);
-                    // Проверяем, нет ли уже такого пользователя
+                    // Check if user exists.
                     if (store.Admins.FirstOrDefault(u => u.Name == nickname && u.Password == password) != null)
                     {
                         MessageBox.Show($"Hello, Dear {nickname}! We wish you to have a nice day)");
@@ -121,27 +120,24 @@ namespace AdminApp
 
         }
 
-
-
-
-            private void Sign_up_Click(object sender, EventArgs e)
+        private void Sign_up_Click(object sender, EventArgs e)
             {
                 Form frm2 = new Sign_Up_Form(ref store);
                 frm2.Show();
                 this.Hide();
 
             }
-            private void AdminName_TextChanged(object sender, EventArgs e)
+        private void AdminName_TextChanged(object sender, EventArgs e)
             {
                 (sender as Control).BackColor = Color.White;
             }
 
-            private void AdminPassword_TextChanged(object sender, EventArgs e)
+        private void AdminPassword_TextChanged(object sender, EventArgs e)
             {
                 (sender as Control).BackColor = Color.White;
             }
 
-            private void Help_MouseHover(object sender, EventArgs e)
+        private void Help_MouseHover(object sender, EventArgs e)
             {
                 MessageBox.Show("Hello! \n Name can consist of any letters (more than 4 less than 10) \n Password has to consist ONLY of numbers (more than 4 less than 10)");
             }

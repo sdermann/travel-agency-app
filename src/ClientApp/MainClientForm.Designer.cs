@@ -64,6 +64,11 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.AgencyView = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountOfTripsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountOfLikesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.agencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TripsPage = new System.Windows.Forms.TabPage();
             this.less = new System.Windows.Forms.Button();
@@ -83,6 +88,11 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
             this.TripsForClientGridView = new System.Windows.Forms.DataGridView();
+            this.agencyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationOfTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.onSaleOrInFutureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceOfEachTrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.portionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BasketPage = new System.Windows.Forms.TabPage();
             this.DeletePortFromOrder = new System.Windows.Forms.Button();
@@ -100,16 +110,6 @@
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountOfTripsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountOfLikesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.agencyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locationOfTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.onSaleOrInFutureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PriceOfEachTrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agencyNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationOfTripDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceOfEachTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -632,6 +632,52 @@
             this.AgencyView.TabIndex = 0;
             this.AgencyView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AgencyView_CellClick);
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 100;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.Width = 175;
+            // 
+            // amountOfTripsDataGridViewTextBoxColumn
+            // 
+            this.amountOfTripsDataGridViewTextBoxColumn.DataPropertyName = "AmountOfTrips";
+            this.amountOfTripsDataGridViewTextBoxColumn.HeaderText = "AmountOfTrips";
+            this.amountOfTripsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.amountOfTripsDataGridViewTextBoxColumn.Name = "amountOfTripsDataGridViewTextBoxColumn";
+            this.amountOfTripsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.amountOfTripsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // amountOfLikesDataGridViewTextBoxColumn
+            // 
+            this.amountOfLikesDataGridViewTextBoxColumn.DataPropertyName = "AmountOfLikes";
+            this.amountOfLikesDataGridViewTextBoxColumn.HeaderText = "AmountOfLikes";
+            this.amountOfLikesDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.amountOfLikesDataGridViewTextBoxColumn.Name = "amountOfLikesDataGridViewTextBoxColumn";
+            this.amountOfLikesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.amountOfLikesDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // imageDataGridViewImageColumn
+            // 
+            this.imageDataGridViewImageColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.imageDataGridViewImageColumn.DataPropertyName = "Image";
+            this.imageDataGridViewImageColumn.HeaderText = "Image";
+            this.imageDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.imageDataGridViewImageColumn.MinimumWidth = 6;
+            this.imageDataGridViewImageColumn.Name = "imageDataGridViewImageColumn";
+            this.imageDataGridViewImageColumn.ReadOnly = true;
+            // 
             // agencyBindingSource
             // 
             this.agencyBindingSource.DataSource = typeof(TravelAgency.Models.Agency);
@@ -908,7 +954,51 @@
             this.TripsForClientGridView.Size = new System.Drawing.Size(500, 400);
             this.TripsForClientGridView.TabIndex = 0;
             this.TripsForClientGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TripsForClientGridView_CellClick);
-            this.TripsForClientGridView.SelectionChanged += new System.EventHandler(this.TripsForClientGridView_SelectionChanged);
+            // 
+            // agencyNameDataGridViewTextBoxColumn
+            // 
+            this.agencyNameDataGridViewTextBoxColumn.DataPropertyName = "AgencyName";
+            this.agencyNameDataGridViewTextBoxColumn.HeaderText = "AgencyName";
+            this.agencyNameDataGridViewTextBoxColumn.MinimumWidth = 100;
+            this.agencyNameDataGridViewTextBoxColumn.Name = "agencyNameDataGridViewTextBoxColumn";
+            this.agencyNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.agencyNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // locationOfTripDataGridViewTextBoxColumn
+            // 
+            this.locationOfTripDataGridViewTextBoxColumn.DataPropertyName = "LocationOfTrip";
+            this.locationOfTripDataGridViewTextBoxColumn.HeaderText = "LocationOfTrip";
+            this.locationOfTripDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.locationOfTripDataGridViewTextBoxColumn.Name = "locationOfTripDataGridViewTextBoxColumn";
+            this.locationOfTripDataGridViewTextBoxColumn.ReadOnly = true;
+            this.locationOfTripDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // onSaleOrInFutureDataGridViewTextBoxColumn
+            // 
+            this.onSaleOrInFutureDataGridViewTextBoxColumn.DataPropertyName = "OnSaleOrInFuture";
+            this.onSaleOrInFutureDataGridViewTextBoxColumn.HeaderText = "OnSaleOrInFuture";
+            this.onSaleOrInFutureDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.onSaleOrInFutureDataGridViewTextBoxColumn.Name = "onSaleOrInFutureDataGridViewTextBoxColumn";
+            this.onSaleOrInFutureDataGridViewTextBoxColumn.ReadOnly = true;
+            this.onSaleOrInFutureDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.amountDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // PriceOfEachTrip
+            // 
+            this.PriceOfEachTrip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PriceOfEachTrip.DataPropertyName = "PriceOfEachTrip";
+            this.PriceOfEachTrip.HeaderText = "PriceOfEachTrip";
+            this.PriceOfEachTrip.MinimumWidth = 6;
+            this.PriceOfEachTrip.Name = "PriceOfEachTrip";
+            this.PriceOfEachTrip.ReadOnly = true;
             // 
             // portionBindingSource
             // 
@@ -973,7 +1063,6 @@
             this.OrdersGridView.RowTemplate.Height = 24;
             this.OrdersGridView.Size = new System.Drawing.Size(400, 200);
             this.OrdersGridView.TabIndex = 8;
-            this.OrdersGridView.SelectionChanged += new System.EventHandler(this.OrdersGridView_SelectionChanged);
             // 
             // portionBindingSource1
             // 
@@ -1122,103 +1211,11 @@
             this.pictureBox8.TabIndex = 0;
             this.pictureBox8.TabStop = false;
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descriptionDataGridViewTextBoxColumn.Width = 175;
-            // 
-            // amountOfTripsDataGridViewTextBoxColumn
-            // 
-            this.amountOfTripsDataGridViewTextBoxColumn.DataPropertyName = "AmountOfTrips";
-            this.amountOfTripsDataGridViewTextBoxColumn.HeaderText = "AmountOfTrips";
-            this.amountOfTripsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.amountOfTripsDataGridViewTextBoxColumn.Name = "amountOfTripsDataGridViewTextBoxColumn";
-            this.amountOfTripsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.amountOfTripsDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // amountOfLikesDataGridViewTextBoxColumn
-            // 
-            this.amountOfLikesDataGridViewTextBoxColumn.DataPropertyName = "AmountOfLikes";
-            this.amountOfLikesDataGridViewTextBoxColumn.HeaderText = "AmountOfLikes";
-            this.amountOfLikesDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.amountOfLikesDataGridViewTextBoxColumn.Name = "amountOfLikesDataGridViewTextBoxColumn";
-            this.amountOfLikesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.amountOfLikesDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // imageDataGridViewImageColumn
-            // 
-            this.imageDataGridViewImageColumn.DataPropertyName = "Image";
-            this.imageDataGridViewImageColumn.HeaderText = "Image";
-            this.imageDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.imageDataGridViewImageColumn.MinimumWidth = 6;
-            this.imageDataGridViewImageColumn.Name = "imageDataGridViewImageColumn";
-            this.imageDataGridViewImageColumn.ReadOnly = true;
-            this.imageDataGridViewImageColumn.Width = 150;
-            // 
-            // agencyNameDataGridViewTextBoxColumn
-            // 
-            this.agencyNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.agencyNameDataGridViewTextBoxColumn.DataPropertyName = "AgencyName";
-            this.agencyNameDataGridViewTextBoxColumn.HeaderText = "AgencyName";
-            this.agencyNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.agencyNameDataGridViewTextBoxColumn.Name = "agencyNameDataGridViewTextBoxColumn";
-            this.agencyNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // locationOfTripDataGridViewTextBoxColumn
-            // 
-            this.locationOfTripDataGridViewTextBoxColumn.DataPropertyName = "LocationOfTrip";
-            this.locationOfTripDataGridViewTextBoxColumn.HeaderText = "LocationOfTrip";
-            this.locationOfTripDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.locationOfTripDataGridViewTextBoxColumn.Name = "locationOfTripDataGridViewTextBoxColumn";
-            this.locationOfTripDataGridViewTextBoxColumn.ReadOnly = true;
-            this.locationOfTripDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // onSaleOrInFutureDataGridViewTextBoxColumn
-            // 
-            this.onSaleOrInFutureDataGridViewTextBoxColumn.DataPropertyName = "OnSaleOrInFuture";
-            this.onSaleOrInFutureDataGridViewTextBoxColumn.HeaderText = "OnSaleOrInFuture";
-            this.onSaleOrInFutureDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.onSaleOrInFutureDataGridViewTextBoxColumn.Name = "onSaleOrInFutureDataGridViewTextBoxColumn";
-            this.onSaleOrInFutureDataGridViewTextBoxColumn.ReadOnly = true;
-            this.onSaleOrInFutureDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.amountDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // PriceOfEachTrip
-            // 
-            this.PriceOfEachTrip.DataPropertyName = "PriceOfEachTrip";
-            this.PriceOfEachTrip.HeaderText = "PriceOfEachTrip";
-            this.PriceOfEachTrip.MinimumWidth = 6;
-            this.PriceOfEachTrip.Name = "PriceOfEachTrip";
-            this.PriceOfEachTrip.ReadOnly = true;
-            this.PriceOfEachTrip.Width = 125;
-            // 
             // agencyNameDataGridViewTextBoxColumn1
             // 
-            this.agencyNameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.agencyNameDataGridViewTextBoxColumn1.DataPropertyName = "AgencyName";
             this.agencyNameDataGridViewTextBoxColumn1.HeaderText = "AgencyName";
-            this.agencyNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.agencyNameDataGridViewTextBoxColumn1.MinimumWidth = 100;
             this.agencyNameDataGridViewTextBoxColumn1.Name = "agencyNameDataGridViewTextBoxColumn1";
             this.agencyNameDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
@@ -1226,7 +1223,7 @@
             // 
             this.locationOfTripDataGridViewTextBoxColumn1.DataPropertyName = "LocationOfTrip";
             this.locationOfTripDataGridViewTextBoxColumn1.HeaderText = "LocationOfTrip";
-            this.locationOfTripDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.locationOfTripDataGridViewTextBoxColumn1.MinimumWidth = 100;
             this.locationOfTripDataGridViewTextBoxColumn1.Name = "locationOfTripDataGridViewTextBoxColumn1";
             this.locationOfTripDataGridViewTextBoxColumn1.ReadOnly = true;
             this.locationOfTripDataGridViewTextBoxColumn1.Width = 125;
@@ -1235,19 +1232,19 @@
             // 
             this.priceOfEachTripDataGridViewTextBoxColumn.DataPropertyName = "PriceOfEachTrip";
             this.priceOfEachTripDataGridViewTextBoxColumn.HeaderText = "PriceOfEachTrip";
-            this.priceOfEachTripDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.priceOfEachTripDataGridViewTextBoxColumn.MinimumWidth = 100;
             this.priceOfEachTripDataGridViewTextBoxColumn.Name = "priceOfEachTripDataGridViewTextBoxColumn";
             this.priceOfEachTripDataGridViewTextBoxColumn.ReadOnly = true;
             this.priceOfEachTripDataGridViewTextBoxColumn.Width = 125;
             // 
             // amountDataGridViewTextBoxColumn1
             // 
+            this.amountDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
             this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.amountDataGridViewTextBoxColumn1.MinimumWidth = 50;
             this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
             this.amountDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.amountDataGridViewTextBoxColumn1.Width = 125;
             // 
             // MainClientForm
             // 

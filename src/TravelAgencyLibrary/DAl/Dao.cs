@@ -8,7 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace TravelAgency.DAl
 {
-
+    //Class for dealing with data.
     public class Dao
     {
         VisitEasy store;
@@ -19,6 +19,7 @@ namespace TravelAgency.DAl
             this.store = store;
         }
 
+        //To save changes.
         public void Save()
         {
             using (Stream stream = File.Create(path + filePath))
@@ -28,6 +29,7 @@ namespace TravelAgency.DAl
             }
         }
 
+        //To load store VisitEasy.
         public void Load()
         {
             using (Stream stream = File.OpenRead(path + filePath))

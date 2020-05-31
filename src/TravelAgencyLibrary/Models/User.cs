@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 namespace TravelAgency.Models
 {
     [Serializable]
+    //Abstract user - parent for Admin and Client.
+    //Name + password.
     public abstract class User
     {
-        // абстрактный пользователь от которого наследуются админ и клиент: имя + пароль
+        
         
         public string Name { set; get; }
         public int Password { set; get; }

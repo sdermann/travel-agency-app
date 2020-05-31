@@ -16,6 +16,8 @@ namespace ClientApp
         Agency Agency;
         Client Client;
         VisitEasy Store;
+
+        //To process needed items.
         public ShowAgency(Agency agency,Client client,VisitEasy store)
         {
             InitializeComponent();
@@ -52,10 +54,10 @@ namespace ClientApp
         {
             Portion a = (Portion)LastTripsGridView.CurrentRow.DataBoundItem;
             var openAgency = new ShowTrip(a,Client,Store);
-            //openAgency.Show();
+            
             if (openAgency.ShowDialog() == DialogResult.OK)
             {
-                //a.Amount = 0;
+              
                 portionBindingSource.ResetBindings(false);
                 
 

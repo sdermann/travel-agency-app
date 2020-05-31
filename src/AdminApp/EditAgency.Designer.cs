@@ -248,7 +248,7 @@
             this.addTrip.Location = new System.Drawing.Point(28, 142);
             this.addTrip.Margin = new System.Windows.Forms.Padding(4);
             this.addTrip.Name = "addTrip";
-            this.addTrip.Size = new System.Drawing.Size(66, 41);
+            this.addTrip.Size = new System.Drawing.Size(89, 41);
             this.addTrip.TabIndex = 26;
             this.addTrip.Text = "Add";
             this.addTrip.UseVisualStyleBackColor = false;

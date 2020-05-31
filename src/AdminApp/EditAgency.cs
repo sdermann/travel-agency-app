@@ -11,8 +11,8 @@ using TravelAgency.Models;
 
 namespace AdminApp
 {
-    // For create or update an Agency .
-    //
+    // To create or update an Agency .
+   
     public partial class EditAgency : Form
     {
         public Agency Agency { set; get; }
@@ -27,6 +27,7 @@ namespace AdminApp
             Store = store;
             OldAgency = false;
         }
+        //To update an old agency.
         public EditAgency(Agency agency, VisitEasy store) :this(store)
         {
             OldAgency = true ;
@@ -67,9 +68,6 @@ namespace AdminApp
             (sender as Control).BackColor = Color.White;
         }
 
-
-       
-
         private void EditAgency_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (Agency != null)
@@ -81,14 +79,13 @@ namespace AdminApp
           
         }
 
-       
         private void SaveAgency_Click(object sender, EventArgs e)
         {
             if (Agency == null)
             {
                 Agency = new Agency();
             }
-            //Validation
+            //Validation.
             bool flag = true;
 
             ValidateItems(DescriptionBox);
@@ -265,7 +262,7 @@ namespace AdminApp
         {
             if (tripGridView.Rows.Count > 0)
             {
-                tripGridView.Rows[0].Selected = true;
+                
                 var toDel = tripGridView.SelectedRows[0].DataBoundItem as Portion;
                 var res = MessageBox.Show($"Delete {toDel.Trip.Location} ?", "", MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)

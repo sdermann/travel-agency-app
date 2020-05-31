@@ -18,6 +18,8 @@ namespace ClientApp
         Order Order;
         VisitEasy Store;
         public bool SomethingOrdered;
+
+        //To process needed items.
         public ShowTrip(Portion portion,Client client,VisitEasy store)
         {
             InitializeComponent();
@@ -127,8 +129,6 @@ namespace ClientApp
             Store.Save();
         }
 
-  
-
         private void OrderButt_Click(object sender, EventArgs e)
         {
 
@@ -164,7 +164,7 @@ namespace ClientApp
                     {
                         p.AgencyName = Portion.AgencyName;
                     }
-                    //int counter = 0;
+                   
                     bool ToBreak = false;
 
                     if (Store.Orders.Count > 0)
@@ -195,18 +195,12 @@ namespace ClientApp
                                 }
                                
                             }
-                            //counter += 1;
+                           
                             if (ToBreak == true)
                             {
                                 break;
                             }
-                            //if ((counter) == Store.Orders.Count)
-                            //{
-                            //    Order = new Order(portions, Client);
-                            //    Store.Orders.Add(Order);
-                            //    break;
-
-                            //}
+                        
                         }
 
                     }
@@ -238,16 +232,11 @@ namespace ClientApp
                     }
                     else
                     {
-                        //TODO почему не добавляет 
-                        //MessageBox.Show(Convert.ToString(Portion.Amount));
-                        //int x = 
-                        //Portion helpful = new Portion(Portion.Trip,x,Portion.OnSaleOrInFuture); 
-                        //Portion = helpful;
+                        
                         Portion.Amount = Portion.Amount - Convert.ToInt32(HowMany.Value);
 
-
                     }
-                    //MessageBox.Show(Convert.ToString(Portion.Amount));
+                    
                     foreach (Agency a in Store.Agencies)
                     {
                         if (a.Name == Portion.AgencyName)

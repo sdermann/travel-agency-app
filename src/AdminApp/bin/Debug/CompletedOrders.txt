@@ -1,13 +1,13 @@
 -------------------------------------------
 
 Name: Nastia
-Data: 30.05.2020 20:17:50
+Date: 31.05.2020 16:44:16
 1
-Agency: CoralTravel
-Location: Sharm El Sheikh
-Host: 
-Amount of Trips: 1
-Total price: 450
+Agency: Test this world
+Location: Amsterdam
+Host: Dilan
+Amount of Trips: 3
+Total price: 1680
 -------------------------------------------
 -------------------------------------------
 

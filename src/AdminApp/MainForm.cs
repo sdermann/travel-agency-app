@@ -12,21 +12,12 @@ using TravelAgency.Models;
 
 namespace AdminApp
 {
-    /*TODO: 3
-
-
-     * 2дизайн  
-     
-     * |3Тесты| Хранение данных-проверка файла;
-     
-     */
+ 
 
 
     public partial class MainForm : Form
     {
 
-        static List<Portion> Trips = new List<Portion> { new Portion(new Trip("Spain", 500, "Rive", "TwoRooms", "Maria"), 2), new Portion(new Trip("USA", 5000, "Uni", "Room", "Gorge"), 9) };
-        Agency CoralTravel = new Agency("CoralTravel", "Cool", Trips.Count, 0, Trips);
         VisitEasy store;
         Client client;
 
@@ -34,7 +25,7 @@ namespace AdminApp
         {
             InitializeComponent();
             store = easy;
-            //MessageBox.Show(Convert.ToString(store.Orders[0].Portions.Count));
+
            
             //store.FillTestData(5);
 
@@ -98,6 +89,7 @@ namespace AdminApp
             agencyBindingSource.ResetBindings(false);
             clientBindingSource.ResetBindings(false);
         }
+        //To reset types OnSale and future trips.
 
         public void HotAndFuture()
         {
@@ -129,6 +121,8 @@ namespace AdminApp
             portionBindingSource2.DataSource = portHot;
             portionBindingSource1.ResetBindings(false);
             portionBindingSource2.ResetBindings(false);
+            
+           
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -185,8 +179,6 @@ namespace AdminApp
                     agencyBindingSource.ResetBindings(false);
                     HotAndFuture();
                     store.IsDirty = true;
-
-                    // select and scroll to the last row
                     var lastIdx = agencyGridView1.Rows.Count - 1;
                     agencyGridView1.Rows[lastIdx].Selected = true;
                     agencyGridView1.FirstDisplayedScrollingRowIndex = lastIdx;
@@ -331,9 +323,7 @@ namespace AdminApp
                 clientBindingSource.ResetBindings(false);
             }
         
-        }
-
-       
+        } 
 
         private void BanButt_Click(object sender, EventArgs e)
         {
@@ -372,17 +362,7 @@ namespace AdminApp
         {
             if (OrdersGridView.Rows.Count > 0)
             {
-                //for (int i = 0; i < ClientsGridView.Rows.Count; i++)
-                //{
-                //    if (ClientsGridView.Rows[i].Selected == true)
-                //    {
-                //        break;
-                //    }
-                //    else if (i + 1 == ClientsGridView.Rows.Count)
-                //    {
-                //        ClientsGridView.Rows[0].Selected = true;
-                //    }
-                //}
+               
                 var toProcess = OrdersGridView.SelectedRows[0].DataBoundItem as Order;
                 var res = MessageBox.Show($"Process {toProcess.Client}`s order ?", "", MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)
@@ -432,14 +412,21 @@ namespace AdminApp
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Dear, Admin!\nWe hope that you are willing to do your job" +
+                "\nSo,you have to edit agencies and trips as soon as clients need it." +
+                "\nBe careful and complete it fully!" +
+                "\nYou can delete or add it too." +
+                "\nFor your comfort you can see trips of the future(Future trips) and trips on sale(Hot Sale) on the following pages." +
+                "\nYou can ban from this app those users,who don`t honor our policy." +
+                "\nYou have to operate orders(Also you can see them)." +
+                "\nGood luck!");
         }
 
         private void ViewOrder_Click(object sender, EventArgs e)
         {
             if (OrdersGridView.Rows.Count > 0)
             {
-                //OrdersGridView.SelectedRows[0].Selected = true;
+              
                 var toSee = OrdersGridView.SelectedRows[0].DataBoundItem as Order;
                 var pf = new SeeThisOrdercs(toSee);
 
@@ -465,7 +452,7 @@ namespace AdminApp
                 if (order.IsOrdered == true && order.CheckedByAdmin == true)
                     {
                         wr.WriteLine("Name: " + order.Client.Name);
-                        wr.WriteLine("Data: " + order.DateTime);
+                        wr.WriteLine("Date: " + order.DateTime);
                         wr.WriteLine(order.Portions.Count);
                         foreach (var p in order.Portions)
                         {
@@ -482,5 +469,7 @@ namespace AdminApp
 
             }
         }
+
+      
     }
 }

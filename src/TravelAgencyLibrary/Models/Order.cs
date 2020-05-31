@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelAgency.Models
 {
-    // Заказ – это коллекция порций + покупатель + дата
+    // Order is a collection of potions + date +  Client + status.
     [Serializable]
     public class Order
     {

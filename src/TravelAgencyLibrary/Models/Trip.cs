@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 namespace TravelAgency.Models
 {
     [Serializable]
+    // Trip = location + price + additional service + accomodation + host(and his\her image) + image of trip + counter of likes.
     public class Trip
     {
-        //Путевка –  локация + цена + доп.услуги +  условия проживания и проезда + сервис принимающей стороны;
+        
         public string Location { set; get; }
         public decimal Price { set; get; }
         public string AdditionalService { set; get; }
