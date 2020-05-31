@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAl\Dao.cs" />
-    <Compile Include="Models\AddAgain.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Agency.cs" />
     <Compile Include="Models\Client.cs" />

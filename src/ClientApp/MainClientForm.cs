@@ -32,7 +32,10 @@ namespace ClientApp
             Cost = 0;
             List<string> states = new List<string>
             {
-                "Аргентина", "Бразилия", "Венесуэла", "Колумбия", "Чили"
+                 "Cairo", "Bangkok","New York","Budapest","London", "Paris",
+                "Berlin", "Gdansk", "Talin", "Beijing", "Rio de Janeiro",
+                "Affins", "Larnaca", "Sharm El Sheikh", "Vienna", "Amsterdam",
+                "Odessa", "St. Petersburg", "Moscow", "Lviv", "Sydney"
             };
 
 
@@ -312,7 +315,13 @@ namespace ClientApp
         {
             Agency a = (Agency)AgencyView.CurrentRow.DataBoundItem;
             var openAgency = new ShowAgency(a,Client,Store);
-            openAgency.Show();
+            if (openAgency.ShowDialog() == DialogResult.OK)
+            {
+                portionBindingSource.ResetBindings(false);
+            }
+            ResetOrder();
+            ResetAgencies();
+
         }
 
         private void TripsForClientGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -637,6 +646,28 @@ namespace ClientApp
                     }
                 }
             }
+        }
+
+        private void less_Click(object sender, EventArgs e)
+        {
+
+            // сортировка
+
+            Portion temp;
+            for (int i = 0; i < RightPortion.Count - 1; i++)
+            {
+                for (int j = i + 1; j < RightPortion.Count; j++)
+                {
+                    if (RightPortion[i].Amount > RightPortion[j].Amount)
+                    {
+                        temp = RightPortion[i];
+                        RightPortion[i] = RightPortion[j];
+                        RightPortion[j] = temp;
+                    }
+                }
+            }
+            portionBindingSource.DataSource = RightPortion;
+            portionBindingSource.ResetBindings(false);
         }
     }
 

@@ -10,3 +10,4 @@ D:\Настя\ООП\Курсач\travel-agency-app\src\TravelAgencyLibrary\bin\
 D:\Настя\ООП\Курсач\travel-agency-app\src\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.csproj.CoreCompileInputs.cache
 D:\Настя\ООП\Курсач\travel-agency-app\src\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.dll
 D:\Настя\ООП\Курсач\travel-agency-app\src\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.pdb
+D:\Настя\ООП\Курсач\travel-agency-app\src\TravelAgencyLibrary\obj\Debug\TravelAgencyLibrary.csprojAssemblyReference.cache

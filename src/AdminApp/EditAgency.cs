@@ -57,6 +57,7 @@ namespace AdminApp
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+               
                 imageBox.Image = new Bitmap(openFileDialog1.FileName);
             }
         }
@@ -98,6 +99,7 @@ namespace AdminApp
                 MessageBox.Show("Fill in the blank space,please!");
                 DescriptionBox.Text = string.Empty;
                 DescriptionBox.BackColor = Color.FromArgb(253, 236, 138);
+                flag = false;
             }
             
             Agency.Description = DescriptionBox.Text;
@@ -105,12 +107,13 @@ namespace AdminApp
 
 
             ValidateItems(NameBox);
-            if (NameBox.Text.Length > 20 || NameBox.Text.Length < 5)
+            if (NameBox.Text.Length > 20 || NameBox.Text.Length < 4)
             {
                 MessageBox.Show("Inappropriate length for the name. Name should be longer than 4 less than 20 (letters)");
                 NameBox.BackColor = Color.MediumSeaGreen;
                 NameBox.Text = string.Empty;
                 NameBox.BackColor = Color.FromArgb(253, 236, 138);
+                flag = false;
             }
             
             else
@@ -124,6 +127,7 @@ namespace AdminApp
                         MessageBox.Show("Name contains numbers");                       
                         NameBox.Text = string.Empty;
                         NameBox.BackColor = Color.FromArgb(253, 236, 138);
+                        flag = false;
                         break;
                     }
                 }
@@ -140,7 +144,8 @@ namespace AdminApp
                 imageBox.BackColor = Color.MediumSeaGreen;
                 MessageBox.Show("You didn`t choose the picture!");
                 imageBox.BackColor = Color.FromArgb(253, 236, 138);
-                
+                flag = false;
+
             }
             foreach(Agency  a in Store.Agencies)
             {
@@ -160,11 +165,13 @@ namespace AdminApp
                 MessageBox.Show("Agency with such name already exists!"); NameBox.BackColor = Color.MediumSeaGreen;
                 NameBox.Text = string.Empty;
                 NameBox.BackColor = Color.FromArgb(253, 236, 138);
+                flag = false;
             }
             
             if(Agency.Portions.Count == 0)
             {
                 MessageBox.Show("Add some trips! It`s impossible to send agency without any trips to the client!");
+                flag = false;
             }
             else
             {
@@ -179,11 +186,14 @@ namespace AdminApp
                 portionBindingSource.ResetBindings(false);
             }
             if (Agency.Name == "Hello" || Agency.Description == "I`m going to hell" || Agency.Image == null ||
-                Agency.Portions == null || SuchAgencyExists == true)
+                Agency.Portions.Count == 0 || SuchAgencyExists == true)
             {
                 flag = false;
             }
-            if(flag == true)
+          
+
+
+            if (flag == true)
             {
                 SendButt.Show();
                 SaveAgency.Hide();
@@ -191,8 +201,11 @@ namespace AdminApp
             else
             {
                 MessageBox.Show("You missed something!");
+                SaveAgency.Show();
+                SendButt.Hide();
             }
-            
+
+
         }
         private void ValidateItems(Control c)
         {
@@ -267,6 +280,27 @@ namespace AdminApp
             }
         }
 
-      
+        private void tripGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (tripGridView.Rows.Count > 0)
+            {
+                for (int i = 0; i < tripGridView.Rows.Count; i++)
+                {
+                    if (tripGridView.Rows[i].Selected == true)
+                    {
+                        break;
+                    }
+                    else if (i + 1 == tripGridView.Rows.Count)
+                    {
+                        tripGridView.Rows[0].Selected = true;
+                    }
+                }
+            }
+        }
+
+        private void SendButt_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Added!");
+        }
     }
 }

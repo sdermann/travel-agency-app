@@ -200,6 +200,7 @@
             this.tripGridView.RowTemplate.Height = 24;
             this.tripGridView.Size = new System.Drawing.Size(300, 185);
             this.tripGridView.TabIndex = 25;
+            this.tripGridView.SelectionChanged += new System.EventHandler(this.tripGridView_SelectionChanged);
             // 
             // LocationOfTrip
             // 
@@ -233,6 +234,8 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "\"Image files  (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfi" +
+    "f; *.png";
             // 
             // addTrip
             // 
@@ -305,6 +308,7 @@
             this.SendButt.TabIndex = 29;
             this.SendButt.Text = "Finish";
             this.SendButt.UseVisualStyleBackColor = false;
+            this.SendButt.Click += new System.EventHandler(this.SendButt_Click);
             // 
             // EditAgency
             // 

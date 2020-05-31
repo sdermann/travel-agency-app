@@ -57,6 +57,7 @@ namespace ClientApp
             {
                 //a.Amount = 0;
                 portionBindingSource.ResetBindings(false);
+                
 
             }
         }

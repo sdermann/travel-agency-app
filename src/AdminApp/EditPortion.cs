@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelAgency.Models;
 
+
 namespace AdminApp
 {
     public partial class EditPortion : Form
@@ -20,7 +21,11 @@ namespace AdminApp
 
             List<string> states = new List<string>
             {
-                "Аргентина", "Бразилия", "Венесуэла", "Колумбия", "Чили"
+
+                "Cairo", "Bangkok","New York","Budapest","London", "Paris",
+                "Berlin", "Gdansk", "Talin", "Beijing", "Rio de Janeiro", 
+                "Affins", "Larnaca", "Sharm El Sheikh", "Vienna", "Amsterdam",
+                "Odessa", "St. Petersburg", "Moscow", "Lviv", "Sydney"
             };
 
             List<string> on = new List<string>
@@ -55,11 +60,13 @@ namespace AdminApp
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+               
                 tripPicBox.Image = new Bitmap(openFileDialog1.FileName);
             }
         }
         private void HostPic_Click(object sender, EventArgs e)
         {
+            
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 HostPic.Image = new Bitmap(openFileDialog1.FileName);
@@ -114,6 +121,7 @@ namespace AdminApp
             else
             {
                 MessageBox.Show("You didn`t choose the location");
+                flag = false;
             }
             //Portion.Trip.Location = LocationOfTrip.Text;
 
@@ -130,6 +138,7 @@ namespace AdminApp
                 PriceBox.BackColor = Color.MediumSeaGreen;
                 MessageBox.Show("Price always consists of numbers!");
                 PriceBox.BackColor = Color.FromArgb(253, 236, 138);
+                flag = false;
             }
             // Portion.Trip.Price = Convert.ToInt32(PriceBox.Text);
             //Portion.PriceOfEachTrip = Portion.Trip.Price;
@@ -144,6 +153,7 @@ namespace AdminApp
                 HostBox.BackColor = Color.MediumSeaGreen;
                 HostBox.Text = string.Empty;
                 HostBox.BackColor = Color.FromArgb(253, 236, 138);
+                flag = false;
             }
             else
             {
@@ -156,6 +166,7 @@ namespace AdminApp
                         MessageBox.Show("Name contains numbers");
                         HostBox.Text = string.Empty;
                         HostBox.BackColor = Color.FromArgb(253, 236, 138);
+                        flag = false;
                         break;
                     }
                 }
@@ -172,6 +183,7 @@ namespace AdminApp
                 ServiceBox.BackColor = Color.MediumSeaGreen;
                 ServiceBox.Text = string.Empty;
                 ServiceBox.BackColor = Color.FromArgb(253, 236, 138);
+                flag = false;
             }
             Portion.Trip.AdditionalService = ServiceBox.Text;
 
@@ -183,6 +195,7 @@ namespace AdminApp
                 AccomodationBox.BackColor = Color.MediumSeaGreen;
                 AccomodationBox.Text = string.Empty;
                 AccomodationBox.BackColor = Color.FromArgb(253, 236, 138);
+                flag = false;
             }
             Portion.Trip.Accomodation = AccomodationBox.Text;
 
@@ -192,6 +205,7 @@ namespace AdminApp
                 tripPicBox.BackColor = Color.MediumSeaGreen;
                 MessageBox.Show("You didn`t choose the picture!");
                 tripPicBox.BackColor = Color.FromArgb(253, 236, 138);
+                flag = false;
 
             }
             //Portion.Trip.Image = tripPicBox.Image;
@@ -201,17 +215,17 @@ namespace AdminApp
                 HostPic.BackColor = Color.MediumSeaGreen;
                 MessageBox.Show("You didn`t choose the picture!");
                 HostPic.BackColor = Color.FromArgb(253, 236, 138);
+                flag = false;
 
             }
             if(AmountOfTrips.Value == 0)
             {
                 MessageBox.Show("Trips with 0 amount of trips can`t be send to the client!");
             }
-            //Portion.Trip.ImageOfHost = HostPic.Image;
+          
 
             Portion.OnSaleOrInFuture = OnSaleOrFutureUpDown.Text;
-            //Portion.LocationOfTrip = Portion.Trip.Location;
-            //Portion.PriceOfEachTrip = Portion.Trip.Price;
+           
             if ( Portion.Amount == 0 || Portion.LocationOfTrip == null
                 || Portion.PriceOfEachTrip == 0 || Portion.Trip.Image == null || Portion.Trip.ImageOfHost == null
                 || Portion.Trip.Location == "unknown"|| Portion.Trip.Price == 0 || Portion.Trip.AdditionalService == "unknown"||
@@ -219,6 +233,7 @@ namespace AdminApp
             {
                 flag = false;
             }
+
             if (flag == true)
             {
                 SavePortion.Show();
@@ -227,6 +242,8 @@ namespace AdminApp
             else
             {
                 MessageBox.Show("You missed something.Check again!");
+                SavePortion.Hide();
+                CheckButt.Show();
             }
             
         }

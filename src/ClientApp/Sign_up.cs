@@ -104,12 +104,15 @@ namespace ClientApp
                     password = Convert.ToInt32(ClientPassword.Text);
                     email = ClientEmail.Text;
                     // Проверяем, нет ли уже такого пользователя
-                    if (store.Admins.FirstOrDefault(u => u.Name == nickname) != null)
+                    if (store.Clients.FirstOrDefault(u => u.Name == nickname) != null)
                     {
                         MessageBox.Show("Sorry, such Client-name already exists in our family..");
                         ClientName.Text = string.Empty;
-                        ClientPassword.Text = string.Empty;
-
+                    }
+                    if (store.Clients.FirstOrDefault(u => u.Email == email) != null)
+                    {
+                        MessageBox.Show("Sorry, such  e-mail already exists in our family..");
+                        ClientEmail.Text = string.Empty;
                     }
                     else
                     {

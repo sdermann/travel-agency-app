@@ -1,25 +1,13 @@
 -------------------------------------------
 
 Name: Nastia
-Data: 30.05.2020 16:37:05
-3
-Agency: Pegas
-Location: Чили
+Data: 30.05.2020 20:17:50
+1
+Agency: CoralTravel
+Location: Sharm El Sheikh
 Host: 
 Amount of Trips: 1
-Total price: 0
--------------------------------------------
-Agency: CoralTravel
-Location: Чили
-Host: ggggg
-Amount of Trips: 4
-Total price: 3156
--------------------------------------------
-Agency: Pegas
-Location: Колумбия
-Host: ggggggggggg
-Amount of Trips: 2
-Total price: 1134
+Total price: 450
 -------------------------------------------
 -------------------------------------------
 

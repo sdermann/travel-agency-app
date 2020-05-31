@@ -175,7 +175,13 @@ namespace AdminApp
             {
                 if (pf.Agency != null)
                 {
+                    foreach(Portion p in pf.Agency.Portions)
+                    {
+                        p.AgencyName = pf.Agency.Name;
+                        pf.Agency.AmountOfTrips = pf.Agency.Portions.Count;
+                    }
                     store.AddAgency(pf.Agency);
+                    
                     agencyBindingSource.ResetBindings(false);
                     HotAndFuture();
                     store.IsDirty = true;

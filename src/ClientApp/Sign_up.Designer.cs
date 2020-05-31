@@ -47,11 +47,12 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(599, 22);
+            this.label1.Location = new System.Drawing.Point(486, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(341, 41);
             this.label1.TabIndex = 3;
@@ -60,11 +61,12 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Location = new System.Drawing.Point(472, 87);
+            this.label2.Location = new System.Drawing.Point(348, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(479, 33);
             this.label2.TabIndex = 4;
@@ -73,9 +75,9 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(493, 300);
+            this.pictureBox4.Location = new System.Drawing.Point(331, 312);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 50);
@@ -85,11 +87,11 @@
             // 
             // ClientPassword
             // 
-            this.ClientPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ClientPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ClientPassword.BackColor = System.Drawing.SystemColors.Info;
             this.ClientPassword.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.ClientPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ClientPassword.Location = new System.Drawing.Point(604, 303);
+            this.ClientPassword.Location = new System.Drawing.Point(470, 314);
             this.ClientPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ClientPassword.Multiline = true;
             this.ClientPassword.Name = "ClientPassword";
@@ -102,9 +104,9 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(493, 231);
+            this.pictureBox2.Location = new System.Drawing.Point(331, 244);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 50);
@@ -114,11 +116,11 @@
             // 
             // ClientEmail
             // 
-            this.ClientEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ClientEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ClientEmail.BackColor = System.Drawing.SystemColors.Info;
             this.ClientEmail.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.ClientEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ClientEmail.Location = new System.Drawing.Point(604, 234);
+            this.ClientEmail.Location = new System.Drawing.Point(470, 233);
             this.ClientEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ClientEmail.Multiline = true;
             this.ClientEmail.Name = "ClientEmail";
@@ -130,9 +132,9 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(493, 161);
+            this.pictureBox3.Location = new System.Drawing.Point(331, 163);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 50);
@@ -142,11 +144,11 @@
             // 
             // ClientName
             // 
-            this.ClientName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ClientName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ClientName.BackColor = System.Drawing.SystemColors.Info;
             this.ClientName.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.ClientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ClientName.Location = new System.Drawing.Point(604, 162);
+            this.ClientName.Location = new System.Drawing.Point(470, 163);
             this.ClientName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ClientName.Multiline = true;
             this.ClientName.Name = "ClientName";
@@ -158,13 +160,13 @@
             // SignButt
             // 
             this.SignButt.AccessibleName = "";
-            this.SignButt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SignButt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SignButt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.SignButt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SignButt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SignButt.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.SignButt.ForeColor = System.Drawing.Color.Olive;
-            this.SignButt.Location = new System.Drawing.Point(699, 404);
+            this.SignButt.Location = new System.Drawing.Point(696, 400);
             this.SignButt.Margin = new System.Windows.Forms.Padding(4);
             this.SignButt.Name = "SignButt";
             this.SignButt.Size = new System.Drawing.Size(131, 44);
@@ -175,11 +177,14 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(79, 129);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 100);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(265, 222);
+            this.pictureBox1.Size = new System.Drawing.Size(250, 262);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
@@ -189,7 +194,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(882, 553);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.SignButt);
             this.Controls.Add(this.pictureBox4);
@@ -202,6 +207,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "Sign_up";
             this.Text = "Sign_up";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Sign_up_FormClosing);
