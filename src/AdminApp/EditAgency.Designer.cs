@@ -59,7 +59,6 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -73,7 +72,6 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Corbel", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -89,7 +87,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(405, 114);
+            this.label3.Location = new System.Drawing.Point(455, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 24);
             this.label3.TabIndex = 4;
@@ -99,7 +97,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(405, 159);
+            this.label4.Location = new System.Drawing.Point(455, 173);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 24);
             this.label4.TabIndex = 5;
@@ -109,7 +107,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(405, 316);
+            this.label5.Location = new System.Drawing.Point(465, 311);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 24);
             this.label5.TabIndex = 6;
@@ -128,7 +126,7 @@
             // NameBox
             // 
             this.NameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
-            this.NameBox.Location = new System.Drawing.Point(532, 116);
+            this.NameBox.Location = new System.Drawing.Point(604, 114);
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(230, 22);
             this.NameBox.TabIndex = 8;
@@ -136,7 +134,7 @@
             // DescriptionBox
             // 
             this.DescriptionBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
-            this.DescriptionBox.Location = new System.Drawing.Point(532, 159);
+            this.DescriptionBox.Location = new System.Drawing.Point(604, 161);
             this.DescriptionBox.Multiline = true;
             this.DescriptionBox.Name = "DescriptionBox";
             this.DescriptionBox.Size = new System.Drawing.Size(230, 108);
@@ -148,9 +146,9 @@
             this.imageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.imageBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.imageBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.imageBox.Location = new System.Drawing.Point(532, 316);
+            this.imageBox.Location = new System.Drawing.Point(604, 337);
             this.imageBox.Name = "imageBox";
-            this.imageBox.Size = new System.Drawing.Size(230, 122);
+            this.imageBox.Size = new System.Drawing.Size(230, 203);
             this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imageBox.TabIndex = 10;
             this.imageBox.TabStop = false;
@@ -169,13 +167,13 @@
             // SaveAgency
             // 
             this.SaveAgency.AccessibleName = "";
-            this.SaveAgency.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SaveAgency.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.SaveAgency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.SaveAgency.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveAgency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveAgency.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.SaveAgency.ForeColor = System.Drawing.Color.Olive;
-            this.SaveAgency.Location = new System.Drawing.Point(201, 393);
+            this.SaveAgency.Location = new System.Drawing.Point(197, 496);
             this.SaveAgency.Margin = new System.Windows.Forms.Padding(4);
             this.SaveAgency.Name = "SaveAgency";
             this.SaveAgency.Size = new System.Drawing.Size(157, 44);
@@ -186,6 +184,8 @@
             // 
             // tripGridView
             // 
+            this.tripGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tripGridView.AutoGenerateColumns = false;
             this.tripGridView.BackgroundColor = System.Drawing.Color.MediumSeaGreen;
             this.tripGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -198,7 +198,7 @@
             this.tripGridView.Name = "tripGridView";
             this.tripGridView.RowHeadersWidth = 51;
             this.tripGridView.RowTemplate.Height = 24;
-            this.tripGridView.Size = new System.Drawing.Size(300, 185);
+            this.tripGridView.Size = new System.Drawing.Size(390, 288);
             this.tripGridView.TabIndex = 25;
             this.tripGridView.SelectionChanged += new System.EventHandler(this.tripGridView_SelectionChanged);
             // 
@@ -240,16 +240,15 @@
             // addTrip
             // 
             this.addTrip.AccessibleName = "";
-            this.addTrip.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.addTrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.addTrip.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addTrip.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.addTrip.ForeColor = System.Drawing.Color.Olive;
-            this.addTrip.Location = new System.Drawing.Point(32, 142);
+            this.addTrip.Location = new System.Drawing.Point(28, 142);
             this.addTrip.Margin = new System.Windows.Forms.Padding(4);
             this.addTrip.Name = "addTrip";
-            this.addTrip.Size = new System.Drawing.Size(74, 41);
+            this.addTrip.Size = new System.Drawing.Size(66, 41);
             this.addTrip.TabIndex = 26;
             this.addTrip.Text = "Add";
             this.addTrip.UseVisualStyleBackColor = false;
@@ -258,16 +257,15 @@
             // editTrip
             // 
             this.editTrip.AccessibleName = "";
-            this.editTrip.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.editTrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.editTrip.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editTrip.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.editTrip.ForeColor = System.Drawing.Color.Olive;
-            this.editTrip.Location = new System.Drawing.Point(143, 142);
+            this.editTrip.Location = new System.Drawing.Point(139, 142);
             this.editTrip.Margin = new System.Windows.Forms.Padding(4);
             this.editTrip.Name = "editTrip";
-            this.editTrip.Size = new System.Drawing.Size(75, 41);
+            this.editTrip.Size = new System.Drawing.Size(93, 41);
             this.editTrip.TabIndex = 27;
             this.editTrip.Text = "Edit";
             this.editTrip.UseVisualStyleBackColor = false;
@@ -276,16 +274,15 @@
             // DeleteTrip
             // 
             this.DeleteTrip.AccessibleName = "";
-            this.DeleteTrip.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.DeleteTrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.DeleteTrip.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteTrip.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.DeleteTrip.ForeColor = System.Drawing.Color.Olive;
-            this.DeleteTrip.Location = new System.Drawing.Point(257, 142);
+            this.DeleteTrip.Location = new System.Drawing.Point(253, 142);
             this.DeleteTrip.Margin = new System.Windows.Forms.Padding(4);
             this.DeleteTrip.Name = "DeleteTrip";
-            this.DeleteTrip.Size = new System.Drawing.Size(75, 41);
+            this.DeleteTrip.Size = new System.Drawing.Size(67, 41);
             this.DeleteTrip.TabIndex = 28;
             this.DeleteTrip.Text = "Del";
             this.DeleteTrip.UseVisualStyleBackColor = false;
@@ -294,14 +291,14 @@
             // SendButt
             // 
             this.SendButt.AccessibleName = "";
-            this.SendButt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SendButt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.SendButt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(138)))));
             this.SendButt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SendButt.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.SendButt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SendButt.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold);
             this.SendButt.ForeColor = System.Drawing.Color.Olive;
-            this.SendButt.Location = new System.Drawing.Point(32, 393);
+            this.SendButt.Location = new System.Drawing.Point(28, 496);
             this.SendButt.Margin = new System.Windows.Forms.Padding(4);
             this.SendButt.Name = "SendButt";
             this.SendButt.Size = new System.Drawing.Size(131, 44);
@@ -315,7 +312,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(882, 553);
             this.Controls.Add(this.SendButt);
             this.Controls.Add(this.DeleteTrip);
             this.Controls.Add(this.editTrip);
@@ -333,6 +330,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "EditAgency";
             this.Text = "EditAgency";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditAgency_FormClosing);

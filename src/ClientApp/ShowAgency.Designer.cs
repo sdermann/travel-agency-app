@@ -42,12 +42,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.LastTripsGridView = new System.Windows.Forms.DataGridView();
+            this.portionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PicOfAgency = new System.Windows.Forms.PictureBox();
             this.locationOfTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.onSaleOrInFutureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceOfEachTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.portionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PicOfAgency = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.LastTripsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicOfAgency)).BeginInit();
@@ -219,21 +219,35 @@
             this.LastTripsGridView.TabIndex = 19;
             this.LastTripsGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LastTripsGridView_CellClick);
             // 
+            // portionBindingSource
+            // 
+            this.portionBindingSource.DataSource = typeof(TravelAgency.Models.Portion);
+            // 
+            // PicOfAgency
+            // 
+            this.PicOfAgency.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PicOfAgency.Location = new System.Drawing.Point(682, 12);
+            this.PicOfAgency.Name = "PicOfAgency";
+            this.PicOfAgency.Size = new System.Drawing.Size(188, 206);
+            this.PicOfAgency.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PicOfAgency.TabIndex = 5;
+            this.PicOfAgency.TabStop = false;
+            // 
             // locationOfTripDataGridViewTextBoxColumn
             // 
+            this.locationOfTripDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.locationOfTripDataGridViewTextBoxColumn.DataPropertyName = "LocationOfTrip";
             this.locationOfTripDataGridViewTextBoxColumn.HeaderText = "Location";
             this.locationOfTripDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.locationOfTripDataGridViewTextBoxColumn.Name = "locationOfTripDataGridViewTextBoxColumn";
-            this.locationOfTripDataGridViewTextBoxColumn.Width = 125;
             // 
             // onSaleOrInFutureDataGridViewTextBoxColumn
             // 
+            this.onSaleOrInFutureDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.onSaleOrInFutureDataGridViewTextBoxColumn.DataPropertyName = "OnSaleOrInFuture";
             this.onSaleOrInFutureDataGridViewTextBoxColumn.HeaderText = "OnSaleOrInFuture";
             this.onSaleOrInFutureDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.onSaleOrInFutureDataGridViewTextBoxColumn.Name = "onSaleOrInFutureDataGridViewTextBoxColumn";
-            this.onSaleOrInFutureDataGridViewTextBoxColumn.Width = 125;
             // 
             // amountDataGridViewTextBoxColumn
             // 
@@ -250,20 +264,6 @@
             this.priceOfEachTripDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.priceOfEachTripDataGridViewTextBoxColumn.Name = "priceOfEachTripDataGridViewTextBoxColumn";
             this.priceOfEachTripDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // portionBindingSource
-            // 
-            this.portionBindingSource.DataSource = typeof(TravelAgency.Models.Portion);
-            // 
-            // PicOfAgency
-            // 
-            this.PicOfAgency.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PicOfAgency.Location = new System.Drawing.Point(682, 12);
-            this.PicOfAgency.Name = "PicOfAgency";
-            this.PicOfAgency.Size = new System.Drawing.Size(188, 206);
-            this.PicOfAgency.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PicOfAgency.TabIndex = 5;
-            this.PicOfAgency.TabStop = false;
             // 
             // ShowAgency
             // 
