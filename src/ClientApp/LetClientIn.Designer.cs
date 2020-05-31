@@ -112,7 +112,7 @@
             this.ClientEmail.Name = "ClientEmail";
             this.ClientEmail.Size = new System.Drawing.Size(357, 48);
             this.ClientEmail.TabIndex = 12;
-            this.ClientEmail.Text = "nastia@ukr.net";
+            this.ClientEmail.Text = "@ukr.net";
             this.ClientEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ClientEmail.WordWrap = false;
             this.ClientEmail.TextChanged += new System.EventHandler(this.ClientEmail_TextChanged);
@@ -141,7 +141,6 @@
             this.ClientName.Name = "ClientName";
             this.ClientName.Size = new System.Drawing.Size(357, 48);
             this.ClientName.TabIndex = 10;
-            this.ClientName.Text = "Nastia";
             this.ClientName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ClientName.TextChanged += new System.EventHandler(this.ClientName_TextChanged);
             // 
@@ -170,7 +169,6 @@
             this.ClientPassword.PasswordChar = '*';
             this.ClientPassword.Size = new System.Drawing.Size(357, 48);
             this.ClientPassword.TabIndex = 14;
-            this.ClientPassword.Text = "896520";
             this.ClientPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ClientPassword.WordWrap = false;
             this.ClientPassword.TextChanged += new System.EventHandler(this.ClientPassword_TextChanged);
